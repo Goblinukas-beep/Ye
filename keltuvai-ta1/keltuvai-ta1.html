@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keltuvai: raida ir tobulinimo galimybės</title>
+<!-- Fonts: Newsreader (headlines), Hanken Grotesk (body), DM Mono (chrome) — all include Lithuanian glyphs -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400..500&family=Hanken+Grotesk:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES (THEME)
+   Two-colour system: cream paper + cobalt ink.
+   Change --ink / --paper to recolour the whole deck.
+   =========================================== */
+:root {
+    --paper: #F0EBDE;
+    --paper-2: #E6E0CE;
+    --ink: #1F2BE0;
+    --ink-soft: #5560E5;
+    --grid: rgba(31, 43, 224, 0.10);
+    --ink-faint: rgba(31, 43, 224, 0.18);
+    --stage-bg: #d9d3c2;
+    --slide-bg: var(--paper);
+
+    --font-display: 'Newsreader', Georgia, serif;
+    --font-body: 'Hanken Grotesk', 'Segoe UI', sans-serif;
+    --font-mono: 'DM Mono', ui-monospace, monospace;
+
+    /* Spacing — authored at the 1920×1080 stage size */
+    --edge: 80px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   (full contents of frontend-slides viewport-base.css)
+   =========================================== */
+/* 1. Lock the browser viewport */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 2. Full-window deck viewport */
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+
+/* 3. Fixed 16:9 design canvas.
+   JavaScript sets transform: translate(...) scale(...). */
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+
+/* 4. Slides stack inside the fixed stage.
+   Content must be laid out at 1920×1080, not reflowed per device. */
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+/* 5. Keep media inside authored slide bounds */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 6. Presentation chrome stays outside the slide design system */
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* 7. Print one fixed-size slide per page */
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .deck-controls {
+        display: none !important;
+    }
+}
+
+/* 8. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================
+   SLIDE SURFACE: graph-paper grid + hairline frame
+   Every slide inherits these — do not author per slide.
+   =========================================== */
+.slide {
+    color: var(--ink);
+    font-family: var(--font-body);
+    transition: opacity 0.28s ease;
+}
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, var(--grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+.slide::after {  /* top + bottom 1.5px cobalt hairlines */
+    content: "";
+    position: absolute;
+    left: var(--edge);
+    right: var(--edge);
+    top: 44px;
+    bottom: 40px;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    pointer-events: none;
+}
+
+/* Page number (bottom-right) and source line (bottom-left) sit above the bottom hairline */
+.pagenum {
+    position: absolute;
+    right: var(--edge);
+    bottom: 62px;
+    font: 400 18px/1 var(--font-mono);
+    letter-spacing: 0.06em;
+}
+.src {
+    position: absolute;
+    left: var(--edge);
+    bottom: 62px;
+    max-width: 1500px;
+    font: 400 17px/1.35 var(--font-mono);
+    letter-spacing: 0.02em;
+    opacity: 0.8;
+}
+
+/* Content frame: clears the hairlines, page number and source line */
+.frame {
+    position: absolute;
+    top: 92px;
+    left: var(--edge);
+    right: var(--edge);
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topbar: Newsreader headline left, uppercase lab-tag right, 1.5px rule beneath */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 18px;
+    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 36px;
+}
+.topbar h2 {
+    font: 400 76px/1 var(--font-display);
+    letter-spacing: -0.008em;
+}
+.lab {
+    font: 600 17px/1 var(--font-body);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-bottom: 10px;
+}
+
+/* ===========================================
+   TYPE HELPERS
+   =========================================== */
+.kicker { font: 600 18px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; }
+.mono { font-family: var(--font-mono); letter-spacing: 0.04em; }
+.serif { font-family: var(--font-display); font-weight: 400; }
+.body { font-size: 28px; line-height: 1.45; }
+.small { font-size: 23px; line-height: 1.45; }
+em { font-family: var(--font-display); font-style: italic; }
+b, strong { font-weight: 600; }
+
+/* ===========================================
+   ANIMATIONS — staggered reveal on the active slide.
+   Set style="--d:N" on an element to delay it by N steps.
+   =========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transition-delay: calc(var(--d, 0) * 90ms + 60ms);
+}
+.slide.visible .reveal { opacity: 1; transform: none; }
+
+/* Scanline columns grow downward when the slide appears */
+.glitch i {
+    position: absolute;
+    background: var(--ink);
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 1.1s var(--ease);
+}
+.slide.visible .glitch i { transform: scaleY(1); }
+
+/* ===========================================
+   SLIDE 1 — COVER
+   =========================================== */
+.cover .chrome {
+    position: absolute; left: var(--edge); right: var(--edge); top: 70px;
+    display: flex; justify-content: space-between;
+    font: 400 19px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.cover .stack {
+    position: absolute; left: 74px; top: 190px; width: 1150px;
+    display: flex; flex-direction: column; gap: 40px;
+}
+.cover h1 { font: 400 150px/0.95 var(--font-display); letter-spacing: -0.02em; }
+.cover h1 em { color: var(--ink-soft); }
+.cover .lede { width: 800px; font-size: 32px; line-height: 1.4; padding-left: 6px; }
+.cover .who {
+    width: 820px; margin-left: 6px; display: flex; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px solid var(--ink-faint);
+    font: 400 21px/1 var(--font-mono);
+}
+.glitch { position: absolute; pointer-events: none; }
+.cover .glitch { right: var(--edge); top: 110px; width: 380px; height: 820px; }
+.qr {
+    position: absolute; display: grid; grid-template-columns: repeat(8, 13px);
+    gap: 1.5px; padding: 4px; background: var(--paper); box-shadow: 0 0 0 1.5px var(--paper);
+}
+.qr b { width: 13px; height: 13px; }
+.qr b.on { background: var(--ink); }
+
+/* ===========================================
+   SLIDE 2 — FIELD CHOICE: three big figures
+   =========================================== */
+.why-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--ink); margin-top: auto; }
+.stat { padding: 44px 40px 8px 0; border-right: 1px solid var(--ink-faint); }
+.stat + .stat { padding-left: 40px; }
+.stat:last-child { border-right: 0; }
+.stat .num { font: 400 200px/0.9 var(--font-display); letter-spacing: -0.02em; white-space: nowrap; }
+.stat .num small { font-size: 80px; letter-spacing: 0; }
+.stat p { margin-top: 30px; font-size: 30px; line-height: 1.4; max-width: 500px; }
+
+/* ===========================================
+   SLIDE 3 — DEVELOPMENT LEDGER
+   =========================================== */
+.ledger { display: flex; flex-direction: column; }
+.ledger .row {
+    display: grid; grid-template-columns: 170px 560px 1fr 230px; gap: 28px; align-items: baseline;
+    padding: 13px 0; border-bottom: 1px solid var(--ink-faint);
+}
+.ledger .head { border-bottom: 1.5px solid var(--ink); padding-top: 0; }
+.ledger .head span { font: 600 15px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; }
+.ledger .yr { font: 400 38px/1 var(--font-display); letter-spacing: -0.01em; }
+.ledger .nm { font: 400 30px/1.15 var(--font-display); }
+.ledger .ch { font-size: 22px; line-height: 1.35; }
+.ledger .tg { font: 400 17px/1 var(--font-mono); letter-spacing: 0.05em; text-align: right; }
+.ledger .row.hl .tg::before { content: "→ "; }
+.ledger .row.hl { background: linear-gradient(to right, rgba(31,43,224,.07), transparent); }
+
+/* ===========================================
+   SLIDE 4 — SCHEMATICS + CRITICAL EVALUATION
+   =========================================== */
+.schemes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; flex: 1; }
+.scheme { padding: 0 30px; border-right: 1px solid var(--ink-faint); display: flex; flex-direction: column; }
+.scheme:first-child { padding-left: 0; }
+.scheme:last-child { border-right: 0; padding-right: 0; }
+.scheme svg { width: 100%; height: 250px; margin-bottom: 18px; overflow: visible; }
+.scheme h3 { font: 400 36px/1.05 var(--font-display); min-height: 76px; }
+.verdict {
+    display: inline-block; align-self: flex-start; margin: 12px 0 18px; padding: 7px 12px;
+    font: 500 17px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+    border: 1.5px solid var(--ink);
+}
+.verdict.ok { background: var(--ink); color: var(--paper); }
+.pm { font-size: 22px; line-height: 1.38; display: grid; grid-template-columns: 26px 1fr; row-gap: 10px; }
+.pm i { font-style: normal; font-family: var(--font-mono); }
+
+/* ===========================================
+   SLIDE 5 — WHAT WORKED / WHAT DID NOT
+   =========================================== */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
+.col-h { display: flex; align-items: baseline; gap: 18px; padding-bottom: 14px; border-bottom: 1.5px solid var(--ink); }
+.col-h .mark { font: 400 56px/1 var(--font-display); }
+.col-h .kicker { font-size: 19px; }
+.items .it { padding: 28px 0; border-bottom: 1px solid var(--ink-faint); }
+.items .it h4 { font: 400 42px/1.1 var(--font-display); }
+.items .it p { font-size: 27px; line-height: 1.4; margin-top: 8px; }
+.items.good .it h4::after { content: attr(data-yr); font: 400 18px/1 var(--font-mono); margin-left: 14px; letter-spacing: .05em; }
+.bridge {
+    margin-top: auto; display: flex; align-items: center; gap: 36px;
+    padding-top: 24px; border-top: 1.5px solid var(--ink);
+}
+.bridge p { font: 400 40px/1.2 var(--font-display); }
+.bridge .arrow { font: 400 64px/1 var(--font-display); }
+
+/* ===========================================
+   SLIDE 6 — PROBLEM: moving mass
+   =========================================== */
+.prob { display: grid; grid-template-columns: 960px 1fr; gap: 80px; flex: 1; }
+.formula {
+    border: 1.5px solid var(--ink); background: var(--paper); padding: 36px 38px; margin: 28px 0 34px;
+    font: 400 46px/1.25 var(--font-display);
+}
+.formula .mono { font-size: 28px; display: block; margin-top: 14px; }
+.eq { display: flex; align-items: flex-end; gap: 18px; margin-top: 60px; }
+.eq .t { text-align: left; }
+.eq .v { font: 400 112px/0.9 var(--font-display); letter-spacing: -0.02em; white-space: nowrap; }
+.eq .l { font: 600 18px/1.3 var(--font-body); letter-spacing: .16em; text-transform: uppercase; margin-top: 12px; }
+.eq .op { font: 400 64px/1 var(--font-display); padding-bottom: 30px; }
+.eq .res .v { color: var(--paper); background: var(--ink); padding: 8px 18px 4px; }
+.leads { border-left: 1.5px solid var(--ink); padding-left: 44px; }
+.leads ol { list-style: none; counter-reset: n; }
+.leads li { counter-increment: n; display: grid; grid-template-columns: 64px 1fr; padding: 34px 0; border-bottom: 1px solid var(--ink-faint); font-size: 31px; line-height: 1.35; }
+.leads li::before { content: "0" counter(n); font: 400 20px/1.6 var(--font-mono); }
+
+/* ===========================================
+   SLIDE 7 — TASK + ELEMENTS TO CHANGE
+   =========================================== */
+.task { font: 400 58px/1.18 var(--font-display); letter-spacing: -0.005em; max-width: 1640px; margin-bottom: 44px; }
+.task em { color: var(--ink-soft); }
+.chg .row { display: grid; grid-template-columns: 90px 420px 590px 1fr; gap: 28px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid var(--ink-faint); }
+.chg .head { border-bottom: 1.5px solid var(--ink); padding-top: 0; }
+.chg .head span { font: 600 15px/1 var(--font-body); letter-spacing: 0.18em; text-transform: uppercase; }
+.chg .n { font: 400 20px/1 var(--font-mono); }
+.chg .el { font: 400 38px/1.1 var(--font-display); }
+.chg .ft { font-size: 27px; }
+.chg .ft s { text-decoration: none; opacity: .65; }
+.chg .ft b { font-weight: 600; }
+.chg .pr { font-size: 24px; line-height: 1.4; }
+.note { margin-top: auto; font-size: 25px; line-height: 1.45; max-width: 1500px; }
+
+/* ===========================================
+   SLIDES 8–9 — SELECTION TABLES (chosen column highlighted)
+   =========================================== */
+.sel { display: grid; border-top: 1.5px solid var(--ink); }
+.sel .r { display: contents; }
+.sel .c { padding: 20px 22px; border-bottom: 1px solid var(--ink-faint); font-size: 24px; line-height: 1.35; }
+.sel .k { padding-left: 0; font: 600 16px/1.35 var(--font-body); letter-spacing: .14em; text-transform: uppercase; align-self: stretch; display: flex; align-items: center; }
+.sel .h { font: 400 34px/1.1 var(--font-display); padding-top: 22px; padding-bottom: 18px; border-bottom: 1.5px solid var(--ink); }
+.sel .h small { display: block; font: 400 16px/1 var(--font-mono); letter-spacing: .06em; margin-top: 10px; text-transform: uppercase; }
+.sel .pick { background: rgba(31, 43, 224, 0.08); }
+.sel .h.pick { background: var(--ink); color: var(--paper); }
+.sel .big { font: 400 40px/1 var(--font-display); }
+.pixbar { display: flex; gap: 3px; margin-top: 10px; }
+.pixbar i { width: 16px; height: 12px; background: var(--grid); }
+.pixbar i.on { background: var(--ink); }
+.verdict-line { margin-top: auto; display: grid; grid-template-columns: 250px 1fr; gap: 36px; padding-top: 22px; border-top: 1.5px solid var(--ink); align-items: baseline; }
+.verdict-line p { font-size: 27px; line-height: 1.42; }
+.verdict-line p strong { font-family: var(--font-display); font-weight: 400; font-size: 34px; }
+
+/* ===========================================
+   SLIDE 10 — CONCLUSIONS (index list)
+   =========================================== */
+.concl { display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px; }
+.concl .it { display: grid; grid-template-columns: 110px 1fr; padding: 60px 0; border-bottom: 1px solid var(--ink-faint); }
+.concl .n { font: 400 96px/0.9 var(--font-display); }
+.concl p { font: 400 44px/1.2 var(--font-display); }
+.concl .tag { display: block; font: 600 15px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 14px; }
+
+/* ===========================================
+   SLIDE 11 — CLOSING (colophon: glitch column on the left)
+   =========================================== */
+.closing .glitch { left: var(--edge); top: 92px; width: 520px; height: 850px; }
+.closing .end { position: absolute; right: var(--edge); top: 300px; text-align: right; }
+.closing .end h2 { font: 400 180px/0.96 var(--font-display); letter-spacing: -0.02em; }
+.closing .end p { font: 400 44px/1.2 var(--font-display); font-style: italic; margin-top: 30px; color: var(--ink-soft); }
+
+/* ===========================================
+   SLIDES 12–14 — REFERENCES (APA 7)
+   =========================================== */
+.refs { columns: 2; column-gap: 72px; }
+.refs p { break-inside: avoid; font-size: 23px; line-height: 1.45; padding-left: 40px; text-indent: -40px; margin-bottom: 28px; overflow-wrap: anywhere; }
+.refs i { font-style: italic; }
+
+/* ===========================================
+   INLINE EDITING (press E or hover the top-left corner)
+   =========================================== */
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle {
+    position: fixed; top: 16px; left: 16px; z-index: 10001; opacity: 0; pointer-events: none;
+    transition: opacity .3s ease; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink);
+    font: 500 14px/1 var(--font-mono); padding: 10px 14px; cursor: pointer;
+}
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-toggle.active { background: var(--ink); color: var(--paper); }
+body.editing [contenteditable="true"] { outline: 1.5px dashed rgba(31,43,224,.45); outline-offset: 4px; }
+.progress { position: fixed; left: 0; bottom: 0; height: 3px; background: var(--ink); z-index: 1000; transition: width .3s ease; }
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- ============ 01 · TITULINIS ============ -->
+<section class="slide cover active" aria-label="Titulinis">
+    <div class="chrome reveal"><span>Įvadas į specialybę</span><span>Mechanikos inžinerija</span><span>TA1 · 2026</span></div>
+    <div class="stack">
+        <div class="kicker reveal" style="--d:1">PBL užduotis · Tarpinis atsiskaitymas Nr. 1</div>
+        <h1 class="reveal" style="--d:2">Keltuvai: raida ir <em>tobulinimo</em> galimybės</h1>
+        <p class="lede reveal" style="--d:3">Nuo Koliziejaus kabestanų iki traukos liftų — ir kaip šiandien sumažinti judančią masę.</p>
+        <div class="who reveal" style="--d:4"><span>[Grupės pavadinimas]</span><span>[Vardas Pavardė, Vardas Pavardė, …]</span></div>
+    </div>
+    <div class="glitch" data-steps="20" data-w="380" data-h="820"></div>
+    <div class="qr" data-seed="1" style="right:470px; top:180px"></div>
+    <div class="pagenum">01 / 14</div>
+</section>
+
+<!-- ============ 02 · SRITIES PASIRINKIMAS ============ -->
+<section class="slide" aria-label="Kodėl keltuvai">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Kodėl pasirinkome keltuvus</h2><span class="lab">PBL 1 · Sritis</span></div>
+        <div class="why-intro">
+            <p class="body reveal" style="--d:1; font-size:32px">Keltuvai naudojami pastatuose, automobilių servisuose, statybvietėse ir sandėliuose. Visų jų uždavinys tas pats: <strong>saugiai pakelti krovinį ar žmones ir sunaudoti kuo mažiau energijos.</strong></p>
+            <p class="body reveal" style="--d:2; font-size:32px">Šioje srityje susitinka pavaros, medžiagos, sauga ir energetika, todėl ji tinka pradedantiems mechanikos inžinieriams.</p>
+        </div>
+        <div class="stats">
+            <div class="stat reveal" style="--d:3"><div class="num">3–8<small> %</small></div><p>visos pastato elektros energijos sunaudoja liftai ir eskalatoriai</p></div>
+            <div class="stat reveal" style="--d:4"><div class="num">18<small> TWh</small></div><p>elektros energijos per metus sunaudoja Europos Sąjungos liftai</p></div>
+            <div class="stat reveal" style="--d:5"><div class="num"><small>iki </small>66<small> %</small></div><p>šios energijos būtų galima sutaupyti taikant geriausias technologijas</p></div>
+        </div>
+    </div>
+    <div class="src">Šaltiniai: de Almeida ir kt. (2010); Krakowski ir Ruta (2018)</div>
+    <div class="pagenum">02 / 14</div>
+</section>
+
+<!-- ============ 03 · ISTORINĖ RAIDA ============ -->
+<section class="slide" aria-label="Istorinė raida">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Istorinė raida</h2><span class="lab">PBL 2 · Raidos seka</span></div>
+        <div class="ledger">
+            <div class="row head reveal"><span>Metai</span><span>Sprendimas</span><span>Kas pasikeitė</span><span style="text-align:right">Kryptis</span></div>
+            <div class="row reveal" style="--d:1"><span class="yr">I a.</span><span class="nm">Koliziejaus keltuvai</span><span class="ch">Vergai sukdavo kabestanus; lynai ir atsvarai kėlė narvus į areną</span><span class="tg">raumenų jėga</span></div>
+            <div class="row reveal" style="--d:2"><span class="yr">1846</span><span class="nm">Hidraulinis kranas (W. Armstrongas)</span><span class="ch">Hidraulika imta naudoti ir keltuvams</span><span class="tg">hidraulika</span></div>
+            <div class="row hl reveal" style="--d:3"><span class="yr">1854</span><span class="nm">Saugos stabdys (E. Otisas)</span><span class="ch">Nutrūkus lynui, platformą sulaiko spyruokliniai fiksatoriai</span><span class="tg">sauga</span></div>
+            <div class="row hl reveal" style="--d:4"><span class="yr">1877</span><span class="nm">Trinties skriemulys (F. Koepe)</span><span class="ch">Būgną pakeitė skriemulys, kuris lyną varo trintimi</span><span class="tg">trauka</span></div>
+            <div class="row reveal" style="--d:5"><span class="yr">1880</span><span class="nm">Elektrinis keltuvas (W. von Siemensas)</span><span class="ch">Pirmasis elektra varomas keltuvas</span><span class="tg">elektra</span></div>
+            <div class="row hl reveal" style="--d:6"><span class="yr">1902</span><span class="nm">Bereduktorinis traukos liftas (Otis)</span><span class="ch">Aukštuose pastatuose išstūmė hidraulinį</span><span class="tg">elektra</span></div>
+            <div class="row reveal" style="--d:7"><span class="yr">1925</span><span class="nm">Automobilių keltuvas (P. Lunati)</span><span class="ch">Užpatentuotas pirmasis hidraulinis automobilių keltuvas</span><span class="tg">hidraulika</span></div>
+            <div class="row reveal" style="--d:8"><span class="yr">1996</span><span class="nm">Liftas be mašinų patalpos (KONE)</span><span class="ch">Plokščias bereduktorinis variklis įrengtas pačioje šachtoje</span><span class="tg">kompaktiškumas</span></div>
+            <div class="row reveal" style="--d:9"><span class="yr">2013</span><span class="nm">Anglies pluošto lynas (KONE)</span><span class="ch">Liftas gali kilti iki 1 km — dvigubai aukščiau nei anksčiau</span><span class="tg">lengvinimas</span></div>
+        </div>
+    </div>
+    <div class="src">Šaltiniai: Klein (2015); ERIH (b. d.); Otis (1861); The Elevator Museum (b. d.); ETHW (2015); Rotary Solutions (b. d.); KONE Corporation (2026); FMLink (2013)</div>
+    <div class="pagenum">03 / 14</div>
+</section>
+
+<!-- ============ 04 · PRINCIPINĖS SCHEMOS + KRITINIS VERTINIMAS ============ -->
+<section class="slide" aria-label="Principinės schemos ir kritinis vertinimas">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Veikimo schemos ir vertinimas</h2><span class="lab">PBL 2 · Kritinis vertinimas</span></div>
+        <div class="schemes">
+            <!-- Muscle power: capstan turned by hand, rope over a pulley lifts the cage -->
+            <div class="scheme reveal" style="--d:1">
+                <svg viewBox="0 0 400 250" fill="none" stroke="#1F2BE0" stroke-width="3">
+                    <path d="M20 236H380"/>
+                    <rect x="60" y="150" width="46" height="86"/><path d="M10 176H156"/><path d="M83 150V140"/>
+                    <circle cx="300" cy="36" r="22"/><circle cx="300" cy="36" r="3" fill="#1F2BE0"/>
+                    <path d="M106 170L286 22" /><path d="M322 36V120"/>
+                    <rect x="276" y="120" width="92" height="84"/><path d="M276 150H368M276 176H368M306 120V204M338 120V204" stroke-width="1.5"/>
+                    <path d="M240 8H360" /><path d="M300 8V14"/>
+                </svg>
+                <h3>Raumenų jėga<br>(kabestanas, gervė)</h3>
+                <span class="verdict">✗ Atsisakyta</span>
+                <div class="pm"><i>+</i><span>Paprasta, nereikia kuro ar elektros</span><i>−</i><span>Lėta, vienam keltuvui reikia kelių žmonių</span></div>
+            </div>
+            <!-- Drum hoist: rope wound onto a motor-driven drum -->
+            <div class="scheme reveal" style="--d:2">
+                <svg viewBox="0 0 400 250" fill="none" stroke="#1F2BE0" stroke-width="3">
+                    <path d="M60 30H340"/>
+                    <rect x="150" y="36" width="100" height="56"/><path d="M150 50H250M150 64H250M150 78H250" stroke-width="1.5"/>
+                    <path d="M250 64H290"/><rect x="290" y="46" width="44" height="36"/><text x="296" y="108" font-family="DM Mono" font-size="15" fill="#1F2BE0" stroke="none">M</text>
+                    <path d="M200 92V170"/>
+                    <rect x="130" y="170" width="140" height="16"/>
+                    <path d="M40 236H360"/>
+                </svg>
+                <h3>Būgninis<br>keltuvas</h3>
+                <span class="verdict">✗ Atsisakyta</span>
+                <div class="pm"><i>+</i><span>Paprasta konstrukcija</span><i>−</i><span>Didėjant aukščiui būgnas tampa milžiniškas; didelė lyno trūkimo rizika</span></div>
+            </div>
+            <!-- Hydraulic: pump pushes oil into a cylinder, piston lifts the platform -->
+            <div class="scheme reveal" style="--d:3">
+                <svg viewBox="0 0 400 250" fill="none" stroke="#1F2BE0" stroke-width="3">
+                    <rect x="120" y="40" width="160" height="16"/>
+                    <path d="M200 56V130" stroke-width="8"/>
+                    <rect x="176" y="130" width="48" height="106"/>
+                    <path d="M224 214H300V196"/><rect x="286" y="168" width="60" height="28"/>
+                    <text x="290" y="226" font-family="DM Mono" font-size="15" fill="#1F2BE0" stroke="none">siurblys</text>
+                    <path d="M40 236H360"/>
+                    <path d="M200 196V160M190 170L200 160L210 170" stroke-width="2"/>
+                </svg>
+                <h3>Hidraulinis<br>keltuvas</h3>
+                <span class="verdict">≈ Ribotai</span>
+                <div class="pm"><i>+</i><span>Didelė jėga</span><i>−</i><span>Grunto taršos ir gaisro rizika; aukštuose pastatuose jį išstūmė elektrinis liftas</span></div>
+            </div>
+            <!-- Traction with counterweight + safety brake on the guide rails -->
+            <div class="scheme reveal" style="--d:4">
+                <svg viewBox="0 0 400 250" fill="none" stroke="#1F2BE0" stroke-width="3">
+                    <path d="M60 10H340"/>
+                    <circle cx="200" cy="44" r="34"/><circle cx="200" cy="44" r="3" fill="#1F2BE0"/>
+                    <path d="M166 44V110"/><path d="M234 44V130"/>
+                    <rect x="112" y="110" width="108" height="92"/>
+                    <rect x="222" y="130" width="28" height="72" fill="#1F2BE0"/>
+                    <path d="M96 60V236M236 60V100" stroke-width="1.5"/>
+                    <path d="M96 196L112 186V206Z" fill="#1F2BE0" stroke-width="1"/>
+                    <text x="262" y="176" font-family="DM Mono" font-size="15" fill="#1F2BE0" stroke="none">atsvaras</text>
+                    <text x="18" y="226" font-family="DM Mono" font-size="15" fill="#1F2BE0" stroke="none">stabdys</text>
+                    <path d="M40 236H360"/>
+                </svg>
+                <h3>Trauka su atsvaru<br>ir saugos stabdžiu</h3>
+                <span class="verdict ok">✓ Pasiteisino</span>
+                <div class="pm"><i>+</i><span>Tapo šiuolaikinės liftų inžinerijos pagrindu</span><i>−</i><span>Sunkūs plieniniai lynai; skriemulys turi būti ≥ 40 lyno skersmenų</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="src">Principinės schemos supaprastintos. Vertinimas pagal Klein (2015); The Elevator Museum (b. d.); KONE Corporation (b. d., 2026); ETHW (2015); Kalliomaki (2022); Muñoz (2020)</div>
+    <div class="pagenum">04 / 14</div>
+</section>
+
+<!-- ============ 05 · KAS PASITEISINO, KAS NE ============ -->
+<section class="slide" aria-label="Kas pasiteisino ir kas ne">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Kas pasiteisino, o kas — ne</h2><span class="lab">PBL 2 · Išvada</span></div>
+        <div class="split">
+            <div class="reveal" style="--d:1">
+                <div class="col-h"><span class="mark">✗</span><span class="kicker">Netinkami sprendimai</span></div>
+                <div class="items">
+                    <div class="it"><h4>Raumenų jėga</h4><p>Per lėta ir per daug darbo jėgos reikalaujanti</p></div>
+                    <div class="it"><h4>Būgnas lynui vynioti</h4><p>Kėlimo aukštį riboja būgno dydis</p></div>
+                    <div class="it"><h4>Hidraulika aukštuose pastatuose</h4><p>Išstumta elektrinio traukos lifto</p></div>
+                </div>
+            </div>
+            <div class="reveal" style="--d:2">
+                <div class="col-h"><span class="mark">✓</span><span class="kicker">Labiausiai pasiteisino</span></div>
+                <div class="items good">
+                    <div class="it"><h4 data-yr="1854">Automatinis saugos stabdys</h4><p>Nutrūkus lynui kabina nebekrenta</p></div>
+                    <div class="it"><h4 data-yr="1877">Trinties skriemulys su atsvaru</h4><p>Pakeitė būgną — aukštis nebėra ribojamas</p></div>
+                    <div class="it"><h4 data-yr="1902">Elektrinė traukos pavara</h4><p>Aukštuose pastatuose išstūmė hidraulinę</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="bridge reveal" style="--d:3"><span class="arrow">→</span><p>Likęs trūkumas — <em>sunkūs plieniniai lynai ir didelis skriemulys.</em> Čia prasideda mūsų problema.</p></div>
+    </div>
+    <div class="src">Šaltiniai: Klein (2015); The Elevator Museum (b. d.); KONE Corporation (b. d., 2026); ETHW (2015); Kalliomaki (2022); Muñoz (2020)</div>
+    <div class="pagenum">05 / 14</div>
+</section>
+
+<!-- ============ 06 · PROBLEMA ============ -->
+<section class="slide" aria-label="Problema: per didelė judanti masė">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Problema: per didelė judanti masė</h2><span class="lab">PBL 1 · Problema</span></div>
+        <div class="prob">
+            <div>
+                <p class="body reveal" style="--d:1">Kiekvieno važiavimo metu variklis turi pajudinti ne tik krovinį:</p>
+                <div class="formula reveal" style="--d:2">Judanti masė = kabina + krovinys + atsvaras + lynai
+                    <span class="mono">Atsvaras ≈ kabina + (0,4–0,5) × vardinis krovinys</span></div>
+                <p class="small reveal" style="--d:3">Atsvaras priklauso nuo kabinos masės, todėl kabinos palengvinimas sumažina ir atsvarą:</p>
+                <div class="eq reveal" style="--d:4">
+                    <div class="t"><div class="v">−100</div><div class="l">kg kabina</div></div>
+                    <div class="op">+</div>
+                    <div class="t"><div class="v">−100</div><div class="l">kg atsvaras</div></div>
+                    <div class="op">=</div>
+                    <div class="t res"><div class="v">−200</div><div class="l">kg judančios masės</div></div>
+                </div>
+            </div>
+            <div class="leads reveal" style="--d:3">
+                <div class="kicker" style="margin-bottom:10px">Didelė masė lemia</div>
+                <ol>
+                    <li>galingesnį ir brangesnį variklį</li>
+                    <li>didesnes energijos sąnaudas įsibėgėjant ir stabdant</li>
+                    <li>storesnius lynus ir didesnį skriemulį</li>
+                    <li>didesnes stabdžių ir konstrukcijos apkrovas</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="src">Šaltiniai: TK Elevator (b. d.); Cloux ir kt. (1999); KONE Corporation (b. d.)</div>
+    <div class="pagenum">06 / 14</div>
+</section>
+
+<!-- ============ 07 · INŽINERINIS UŽDAVINYS ============ -->
+<section class="slide" aria-label="Inžinerinis uždavinys">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Inžinerinis uždavinys</h2><span class="lab">PBL 1–2 · Uždavinys</span></div>
+        <p class="task reveal" style="--d:1">Sumažinti keltuvo judančių dalių masę, pakeičiant <em>rėmo medžiagą</em> ir <em>kėlimo elementą</em>, išlaikant tą pačią keliamąją galią ir saugos atsargos koeficientus.</p>
+        <div class="chg">
+            <div class="row head reveal" style="--d:2"><span>Nr.</span><span>Keičiamas elementas</span><span>Dabar → Siūloma</span><span>Keičiami parametrai</span></div>
+            <div class="row reveal" style="--d:3"><span class="n">01</span><span class="el">Kabinos ar platformos rėmas</span><span class="ft"><s>Konstrukcinis plienas</s> → <b>aliuminio lydinys</b></span><span class="pr">Profilių matmenys, sienelės storis, jungčių tipas</span></div>
+            <div class="row reveal" style="--d:4"><span class="n">02</span><span class="el">Kėlimo elementas</span><span class="ft"><s>Plieninis lynas</s> → <b>dengtas plieninis diržas</b></span><span class="pr">Diržo plotis, diržų skaičius, atsargos koeficientas</span></div>
+            <div class="row reveal" style="--d:5"><span class="n">03</span><span class="el">Skriemulys ir variklis</span><span class="ft"><s>Didelis skriemulys</s> → <b>mažesnis skriemulys</b></span><span class="pr">Skriemulio skersmuo, variklio sukimo momentas</span></div>
+        </div>
+        <p class="note reveal" style="--d:6">Plieniniam lynui skriemulio skersmuo turi būti bent 40 kartų didesnis už lyno skersmenį. Plonas diržas leidžia naudoti daug mažesnį skriemulį, todėl varikliui reikia mažesnio sukimo momento.</p>
+    </div>
+    <div class="src">Šaltinis: Muñoz (2020)</div>
+    <div class="pagenum">07 / 14</div>
+</section>
+
+<!-- ============ 08 · RĖMO MEDŽIAGOS PARINKIMAS ============ -->
+<section class="slide" aria-label="Rėmo medžiagos parinkimas">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Rėmo medžiagos parinkimas</h2><span class="lab">PBL 2 · Medžiagos</span></div>
+        <div class="sel reveal" style="--d:1; grid-template-columns: 330px 1fr 1fr 1fr">
+            <div class="r"><div class="c k h"></div><div class="c h">Plienas S355<small>dabar</small></div><div class="c h pick">Aliuminio lydinys 6082-T6<small>pasirinkta</small></div><div class="c h">Anglies pluošto kompozitas<small>alternatyva</small></div></div>
+            <div class="r"><div class="c k">Tankis, kg/m³</div>
+                <div class="c"><span class="big">7850</span><div class="pixbar" data-v="7850" data-max="7850"></div></div>
+                <div class="c pick"><span class="big">2700</span><div class="pixbar" data-v="2700" data-max="7850"></div></div>
+                <div class="c"><span class="big">1600</span><div class="pixbar" data-v="1600" data-max="7850"></div></div></div>
+            <div class="r"><div class="c k">Stiprumas, MPa</div><div class="c">355 (takumo riba)</div><div class="c pick">≥ 250 (takumo riba)</div><div class="c">≈ 1730 (išilgai pluošto)</div></div>
+            <div class="r"><div class="c k">Tamprumo modulis, GPa</div><div class="c">210</div><div class="c pick">70</div><div class="c">≈ 142 (išilgai pluošto)</div></div>
+            <div class="r"><div class="c k">Savitasis stiprumas, kN·m/kg</div><div class="c">≈ 45</div><div class="c pick">≈ 93</div><div class="c">≈ 1080</div></div>
+            <div class="r"><div class="c k">Kaina ir gamyba</div><div class="c">Pigus, lengvai suvirinamas</div><div class="c pick">Vidutinė kaina, lengvai apdirbamas, atsparus korozijai</div><div class="c">Brangus, sunkiai jungiamas ir remontuojamas</div></div>
+        </div>
+        <div class="verdict-line reveal" style="--d:2"><span class="kicker">Sprendimas</span><p><strong>Aliuminio lydinys 6082-T6</strong> — beveik 3 kartus lengvesnis už plieną ir atsparus korozijai. Tamprumo modulis 3 kartus mažesnis, todėl profiliai turės būti didesni, kad rėmas per daug nelinktų.</p></div>
+    </div>
+    <div class="src">Šaltiniai: Weerg (2024); Wieland SMH GmbH (2018); The Engineering ToolBox (b. d.)</div>
+    <div class="pagenum">08 / 14</div>
+</section>
+
+<!-- ============ 09 · KĖLIMO ELEMENTO PARINKIMAS ============ -->
+<section class="slide" aria-label="Kėlimo elemento parinkimas">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Kėlimo elemento parinkimas</h2><span class="lab">PBL 2 · Detalės</span></div>
+        <div class="sel reveal" style="--d:1; grid-template-columns: 330px 1fr 1fr 1fr">
+            <div class="r"><div class="c k h"></div><div class="c h">Plieninis lynas<small>dabar</small></div><div class="c h pick">Dengtas plieninis diržas<small>pasirinkta</small></div><div class="c h">Anglies pluošto lynas<small>alternatyva</small></div></div>
+            <div class="r"><div class="c k">Sandara</div><div class="c">Susukti plieniniai lynai</div><div class="c pick">Plieniniai lynai, padengti poliuretanu</div><div class="c">Anglies pluošto šerdis su danga</div></div>
+            <div class="r"><div class="c k">Masė</div><div class="c">Sunkūs lynai</div><div class="c pick">Diržai iki <span class="big">20 %</span> lengvesni</div><div class="c">500 m lifte judanti masė ≈ 27 t → 13 t</div></div>
+            <div class="r"><div class="c k">Skriemulys</div><div class="c">≥ 40 lyno skersmenų</div><div class="c pick">Apie <span class="big">85 %</span> mažesnis</div><div class="c">—</div></div>
+            <div class="r"><div class="c k">Variklis</div><div class="c">Didelis sukimo momentas</div><div class="c pick">Apie <span class="big">70 %</span> mažesnis</div><div class="c">—</div></div>
+            <div class="r"><div class="c k">Paskirtis</div><div class="c">Įprasti traukos liftai</div><div class="c pick">Liftai be mašinų patalpos (Otis Gen2, 2000)</div><div class="c">Labai aukšti pastatai — iki 1 km (KONE UltraRope, 2013)</div></div>
+        </div>
+        <div class="verdict-line reveal" style="--d:2"><span class="kicker">Sprendimas</span><p><strong>Dengtas plieninis diržas</strong> — sumažina ne tik lyno masę, bet ir skriemulį bei variklį. Anglies pluošto lyno privalumas didžiausias tik labai aukštuose pastatuose.</p></div>
+    </div>
+    <div class="src">Šaltiniai: FMLink (2005, 2013); Muñoz (2020); KONE Corporation (b. d.)</div>
+    <div class="pagenum">09 / 14</div>
+</section>
+
+<!-- ============ 10 · IŠVADOS ============ -->
+<section class="slide" aria-label="Išvados">
+    <div class="frame">
+        <div class="topbar reveal"><h2>Išvados</h2><span class="lab">TA1 · Apibendrinimas</span></div>
+        <div class="concl">
+            <div class="it reveal" style="--d:1"><span class="n">1</span><p><span class="tag">Raida</span>Keltuvų raidą lėmė dvi pagrindinės problemos: saugumas ir judančių dalių masė.</p></div>
+            <div class="it reveal" style="--d:2"><span class="n">2</span><p><span class="tag">Vertinimas</span>Saugumą iš esmės užtikrino automatinis saugos stabdys ir trinties pavara su atsvaru.</p></div>
+            <div class="it reveal" style="--d:3"><span class="n">3</span><p><span class="tag">Problema</span>Naujausia raidos kryptis rodo, kad didžiausias rezervas — lengvesnės judančios dalys.</p></div>
+            <div class="it reveal" style="--d:4"><span class="n">4</span><p><span class="tag">Sprendimas</span>Siūlome rėmą gaminti iš aliuminio lydinio, o plieninį lyną pakeisti dengtu plieniniu diržu.</p></div>
+        </div>
+    </div>
+    <div class="pagenum">10 / 14</div>
+</section>
+
+<!-- ============ 11 · AČIŪ ============ -->
+<section class="slide closing" aria-label="Ačiū už dėmesį">
+    <div class="glitch" data-steps="18" data-w="520" data-h="850" data-dir="left"></div>
+    <div class="end">
+        <div class="kicker reveal" style="margin-bottom:36px">Keltuvai · TA1</div>
+        <h2 class="reveal" style="--d:1">Ačiū<br>už dėmesį</h2>
+        <p class="reveal" style="--d:2">Klausimai?</p>
+    </div>
+    <div class="pagenum">11 / 14</div>
+</section>
+
+<!-- ============ 12–14 · LITERATŪROS SĄRAŠAS (APA 7) ============ -->
+<section class="slide" aria-label="Literatūros sąrašas">
+    <div class="frame">
+        <div class="topbar"><h2>Literatūros sąrašas</h2><span class="lab">APA 7 · 1 / 3</span></div>
+        <div class="refs">
+            <p>Cloux, J.-N., Pougny, J.-P., ir Menard, J.-P. (1999). <i>Elevator with reduced counterweight</i> (JAV patentas Nr. 5984052). Otis Elevator Co. https://patents.google.com/patent/US5984052</p>
+            <p>de Almeida, A., Dütschke, E., Patrão, C., Hirzel, S., ir Fong, J. (2010). Elevators and escalators: Energy performance and strategies to promote energy efficiency. In <i>Proceedings of the 6th International Conference on Improving Energy Efficiency in Commercial Buildings (IEECB Focus 2010)</i>. Fraunhofer. https://publica.fraunhofer.de/handle/publica/367371</p>
+            <p>The Elevator Museum. (b. d.). <i>Friedrich Koepe</i> [Ištrauka iš J. Simmen ir J. Imorde knygos „A Cultural History of Vertical Transport“]. https://theelevatormuseum.org/koepe.php</p>
+            <p>The Engineering ToolBox. (b. d.). <i>Engineering materials – properties</i>. https://engineeringtoolbox.com/engineering-materials-properties-d_1225.html</p>
+            <p>ERIH. (b. d.). <i>Sir William George Armstrong (1810–1900)</i>. European Route of Industrial Heritage. https://www.erih.net/how-it-started/stories-about-people-biographies/biography/armstrong</p>
+            <p>ETHW. (2015). <i>The electric elevator</i>. Engineering and Technology History Wiki. https://ethw.org/The_Electric_Elevator</p>
+        </div>
+    </div>
+    <div class="pagenum">12 / 14</div>
+</section>
+
+<section class="slide" aria-label="Literatūros sąrašas (tęsinys)">
+    <div class="frame">
+        <div class="topbar"><h2>Literatūros sąrašas</h2><span class="lab">APA 7 · 2 / 3</span></div>
+        <div class="refs">
+            <p>FMLink. (2005, birželio 10). <i>Otis introduces Gen2 Comfort flat-belt elevator system</i>. https://www.fmlink.com/otis-introduces-gen2-comfort-flat-belt-elevator-system/</p>
+            <p>FMLink. (2013, birželio 24). <i>Don't look down: KONE unveils high-rise elevator technology that reaches one kilometer</i>. https://www.fmlink.com/dont-look-down-kone-unveils-high-rise-elevator-technology-that-reaches-one-kilometer/</p>
+            <p>Kalliomaki, J. (2022). 1927 – The year that set the direction of traction lift engineering for a century. In <i>Proceedings of the 13th Symposium on Lift &amp; Escalator Technologies</i> (T. 13, p. 141–152). https://liftescalatorlibrary.org/paper_indexing/abstract_pages/00000501.html</p>
+            <p>Klein, C. (2015, birželio 9). <i>1,500 years later, killer animal elevator returns to Colosseum</i>. History. https://www.history.com/articles/1500-years-later-killer-animal-elevator-returns-to-colosseum</p>
+            <p>KONE Corporation. (b. d.). <i>It's all about a rope!</i> https://www.kone.co.uk/stories-and-references/stories/its-all-bout-a-rope.aspx</p>
+            <p>KONE Corporation. (2026, kovo 17). <i>A space-saving innovation that keeps getting better</i>. https://www.kone.com/global/en/newsroom/stories/a-space-saving-innovation-that-keeps-getting-better.html</p>
+        </div>
+    </div>
+    <div class="pagenum">13 / 14</div>
+</section>
+
+<section class="slide" aria-label="Literatūros sąrašas (tęsinys)">
+    <div class="frame">
+        <div class="topbar"><h2>Literatūros sąrašas</h2><span class="lab">APA 7 · 3 / 3</span></div>
+        <div class="refs">
+            <p>Krakowski, T., ir Ruta, H. (2018). Analysis and assessment of energy efficiency of passenger lifts. <i>Advances in Science and Technology Research Journal, 12</i>(3), 257–265. https://doi.org/10.12913/22998624/95165</p>
+            <p>Muñoz, R. (2020, gruodis). 20 years of innovation. <i>Elevator World</i>. https://elevatorworld.com/?p=14006</p>
+            <p>Otis, E. G. (1861). <i>Improvement in hoisting apparatus</i> (JAV patentas Nr. 31128). https://patents.google.com/patent/US31128</p>
+            <p>Rotary Solutions. (b. d.). <i>About</i>. https://rotarysolutions.com/about/</p>
+            <p>TK Elevator. (b. d.). <i>Counterweights</i> [Classroom on Demand]. https://www.tkelevator.com/us-en/tools/classroom-on-demand/counterweights.html</p>
+            <p>Weerg. (2024). <i>Technical datasheet: Steel S355J2</i>. https://weerg.com/hubfs/Datasheets/Datasheets%202024/ENG/EN_AcciaioS355J2.pdf</p>
+            <p>Wieland SMH GmbH. (2018). <i>Material data sheet EN AW 6082</i>. https://www.wieland.com/da/content/download/17142/file/EN-AW-6082_EN.pdf</p>
+        </div>
+    </div>
+    <div class="pagenum">14 / 14</div>
+</section>
+
+</main>
+</div>
+
+<!-- Presentation chrome (outside the slide stage) -->
+<div class="edit-hotzone" aria-hidden="true"></div>
+<button class="edit-toggle" id="editToggle" title="Redagavimo režimas (E)">Redaguoti · E</button>
+<div class="progress" id="progress"></div>
+
+<script>
+/* ===========================================
+   DECORATION BUILDERS
+   Pixel-glitch scanline columns and 8×8 QR patches (cobalt on cream).
+   =========================================== */
+function buildDecorations() {
+    document.querySelectorAll('.glitch').forEach(g => {
+        const steps = +g.dataset.steps, W = +g.dataset.w, H = +g.dataset.h, left = g.dataset.dir === 'left';
+        const widths = [4, 4, 10, 4, 18, 4, 4, 26, 4, 10, 40, 4, 8, 56, 4, 4, 72, 12, 4, 90];
+        let x = 0;
+        for (let i = 0; i < steps; i++) {
+            const w = widths[i % widths.length], el = document.createElement('i');
+            const top = Math.round(i * H / (steps + 4));
+            el.style.width = w + 'px';
+            el.style[left ? 'left' : 'right'] = x + 'px';
+            el.style.top = top + 'px';
+            el.style.height = (H - top) + 'px';
+            el.style.transitionDelay = (0.25 + i * 0.035) + 's';
+            g.appendChild(el);
+            x += w + 8;
+            if (x > W) break;
+        }
+    });
+    const pattern = '1110011110100101101101011000110101011010011011011001011111001101';
+    document.querySelectorAll('.qr').forEach(q => {
+        [...pattern].forEach(c => { const b = document.createElement('b'); if (c === '1') b.className = 'on'; q.appendChild(b); });
+    });
+    /* Pixel bars: 20 grid cells, filled in proportion to data-v / data-max */
+    document.querySelectorAll('.pixbar').forEach(p => {
+        const on = Math.round(20 * (+p.dataset.v) / (+p.dataset.max));
+        for (let i = 0; i < 20; i++) { const c = document.createElement('i'); if (i < on) c.className = 'on'; p.appendChild(c); }
+    });
+}
+
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   Keyboard (arrows, space, PgUp/PgDn, Home/End), touch swipe, mouse wheel, #hash.
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.stage = document.getElementById('deckStage');
+        this.progress = document.getElementById('progress');
+        this.current = 0;
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupWheelNav();
+        const fromHash = parseInt(location.hash.slice(1), 10);
+        this.showSlide(Number.isFinite(fromHash) ? fromHash - 1 : 0);
+    }
+    setupStageScale() {
+        const scale = () => {
+            const k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            const x = (window.innerWidth - 1920 * k) / 2, y = (window.innerHeight - 1080 * k) / 2;
+            this.stage.style.transform = `translate(${x}px, ${y}px) scale(${k})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+    setupKeyboardNav() {
+        document.addEventListener('keydown', e => {
+            if (e.target.isContentEditable) return;
+            if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); this.next(); }
+            if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); this.prev(); }
+            if (e.key === 'Home') this.showSlide(0);
+            if (e.key === 'End') this.showSlide(this.slides.length - 1);
+        });
+    }
+    setupTouchNav() {
+        let sx = 0, sy = 0;
+        document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+        document.addEventListener('touchend', e => {
+            if (document.body.classList.contains('editing')) return;
+            const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) dx < 0 ? this.next() : this.prev();
+            else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) (sx > window.innerWidth / 2 ? this.next() : this.prev());
+        });
+    }
+    setupWheelNav() {
+        let lock = false;
+        window.addEventListener('wheel', e => {
+            if (lock || Math.abs(e.deltaY) < 20 || document.body.classList.contains('editing')) return;
+            lock = true; e.deltaY > 0 ? this.next() : this.prev();
+            setTimeout(() => (lock = false), 700);
+        }, { passive: true });
+    }
+    next() { this.showSlide(this.current + 1); }
+    prev() { this.showSlide(this.current - 1); }
+    showSlide(i) {
+        this.current = Math.max(0, Math.min(i, this.slides.length - 1));
+        this.slides.forEach((s, j) => {
+            s.classList.toggle('active', j === this.current);
+            s.classList.remove('visible');
+        });
+        /* Next frame: add .visible so the staggered reveal replays */
+        requestAnimationFrame(() => requestAnimationFrame(() => this.slides[this.current].classList.add('visible')));
+        this.progress.style.width = ((this.current + 1) / this.slides.length * 100) + '%';
+        history.replaceState(null, '', '#' + (this.current + 1));
+    }
+}
+
+/* ===========================================
+   INLINE EDITING
+   E (or hover top-left corner) toggles edit mode; edits auto-save to localStorage;
+   Ctrl/Cmd+S downloads the edited HTML file.
+   =========================================== */
+const editor = {
+    isActive: false,
+    key: 'keltuvai-ta1-edits',
+    targets: () => document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide li, .slide .c, .slide .nm, .slide .ch, .slide .yr, .slide .el, .slide .ft, .slide .pr, .slide .who span, .slide .kicker, .slide .src, .slide .pm span, .slide .num'),
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        document.getElementById('editToggle').classList.toggle('active', this.isActive);
+        this.targets().forEach(el => el.contentEditable = this.isActive ? 'true' : 'false');
+        if (!this.isActive) this.save();
+    },
+    save() { try { localStorage.setItem(this.key, document.getElementById('deckStage').innerHTML); } catch (e) {} },
+    /* Returns true when saved edits (which already contain the decorations) were restored */
+    restore() {
+        try {
+            const html = localStorage.getItem(this.key);
+            if (html) { document.getElementById('deckStage').innerHTML = html; return true; }
+        } catch (e) {}
+        return false;
+    },
+    download() {
+        this.targets().forEach(el => el.removeAttribute('contenteditable'));
+        const doc = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([doc], { type: 'text/html' }));
+        a.download = 'keltuvai-ta1.html';
+        a.click();
+        if (this.isActive) this.targets().forEach(el => el.contentEditable = 'true');
+    }
+};
+/* Startup order: restore edits → build decorations (only on a fresh deck) → start the controller */
+if (!editor.restore()) buildDecorations();
+window.__deck = new SlidePresentation();
+document.addEventListener('input', () => editor.save());
+
+const editToggle = document.getElementById('editToggle');
+const hotzone = document.querySelector('.edit-hotzone');
+let hideTimeout = null;
+editToggle.addEventListener('click', () => editor.toggleEditMode());
+hotzone.addEventListener('click', () => editor.toggleEditMode());
+hotzone.addEventListener('mouseenter', () => { clearTimeout(hideTimeout); editToggle.classList.add('show'); });
+hotzone.addEventListener('mouseleave', () => { hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400); });
+editToggle.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+editToggle.addEventListener('mouseleave', () => { hideTimeout = setTimeout(() => { if (!editor.isActive) editToggle.classList.remove('show'); }, 400); });
+document.addEventListener('keydown', e => {
+    if ((e.key === 'e' || e.key === 'E') && !e.target.isContentEditable && !e.ctrlKey && !e.metaKey) editor.toggleEditMode();
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); editor.download(); }
+});
+</script>
+</body>
+</html>

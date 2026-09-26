@@ -1,0 +1,17 @@
+version: v1
+status: CONFIRMED_BY_DEFAULT   # user dismissed the style question; recommended direction B applied and stated
+user_confirmed_at: ""
+visual_thesis: "A two-colour engineering trend report: cobalt ink on cream graph paper, like a printed technical bulletin."
+audience_promise: "Serious, readable academic evidence; every claim cited."
+style_input: "frontend-slides bold template: Cobalt Grid"
+seed: 17
+intended_tokens:
+  palette: "paper #F0EBDE, ink #1F2BE0, ink-soft #5560E5, ink-faint 18% cobalt, grid 10% cobalt"
+  typography: "Georgia (display, stands in for Newsreader), Calibri (body, for Hanken Grotesk), Consolas (chrome, for DM Mono) — Office-safe fonts so the PPTX renders on any lecture-room PC"
+  decoration: "top/bottom hairlines, graph-paper background, pixel-glitch column on cover/closing"
+  layout: "topbar headline + 1.5px rule; ledgers with faint row dividers"
+visual_grammar: {radius: 0, shadows: none, gradients: none, accent_colours: none}
+deck_rhythm: {cover: sparse, content: medium-dense, closing: sparse, references: dense-metadata}
+forbidden_patterns: [second accent colour, rounded cards, drop shadows, stock photos, bullet walls]
+resolved_theme_path: "resolved-theme-v1.json"
+resolved_theme_fingerprint: ""

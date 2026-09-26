@@ -1,0 +1,90 @@
+{
+  "name": "custom+sidebar-nav+standard",
+  "colors": {
+    "primary": "#1F2BE0",
+    "on-primary": "#F0EBDE",
+    "secondary": "#5560E5",
+    "accent": "#1F2BE0",
+    "background": "#F0EBDE",
+    "foreground": "#1F2BE0",
+    "muted": "#DFDCE0",
+    "muted-foreground": "#5560E5",
+    "border": "#C8C6DE",
+    "destructive": "#EF4444"
+  },
+  "typography": {
+    "heading": "Georgia",
+    "body": "Calibri"
+  },
+  "dark_mode": false,
+  "decoration": {
+    "name": "Sidebar Navigation",
+    "left_accent": true,
+    "title_underline": true,
+    "card_top_bar": true,
+    "sidebar": true,
+    "description": "Left sidebar with section info"
+  },
+  "layout_variant": {
+    "name": "Standard",
+    "content_margin_left": 0.9,
+    "content_margin_right": 0.9,
+    "title_alignment": "left",
+    "card_style": "rounded",
+    "description": "Standard left-aligned layout"
+  },
+  "text_effect_preset": "steel",
+  "image_effect": "soft_edge",
+  "semantic_roles": {
+    "background": "#F0EBDE",
+    "surface": "#F0EBDE",
+    "ink": "#1F2BE0",
+    "muted": "#5560E5",
+    "accent": "#1F2BE0",
+    "accent-secondary": "#0284C7",
+    "success": "#38BDF8",
+    "warning": "#0284C7",
+    "danger": "#EF4444",
+    "border": "#C8C6DE",
+    "data-series-1": "#1F2BE0",
+    "data-series-2": "#5560E5"
+  },
+  "source": {
+    "requested": {
+      "style": null,
+      "palette": null,
+      "fonts": null,
+      "decoration": null,
+      "layout": "standard",
+      "mood": null,
+      "seed": 17,
+      "query": null,
+      "text_effect_preset": null,
+      "image_effect": null
+    },
+    "resolved": {
+      "style": null,
+      "palette": "arctic-frost",
+      "fonts": "clean-corporate",
+      "decoration": "sidebar-nav",
+      "layout": "standard",
+      "mood": [
+        "professional"
+      ]
+    },
+    "seed": 17,
+    "resolver": "local",
+    "package_version": "1.0.0b11",
+    "fallbacks": [],
+    "warnings": []
+  },
+  "atoms": {
+    "palette": "arctic-frost",
+    "fonts": "clean-corporate",
+    "decoration": "sidebar-nav",
+    "layout": "standard",
+    "moods": [
+      "professional"
+    ]
+  }
+}
