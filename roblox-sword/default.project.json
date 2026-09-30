@@ -1,0 +1,21 @@
+{
+  "name": "AuroraBlade",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "AuroraBlade": {
+        "$path": "src/server"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "AuroraBladeClient": {
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}
