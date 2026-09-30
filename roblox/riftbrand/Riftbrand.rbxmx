@@ -1,0 +1,4787 @@
+<roblox version="4">
+  <Item class="Tool" referent="0">
+    <Properties>
+      <string name="Name">Riftbrand</string>
+      <BinaryString name="AttributesSerialize">AQAAAAkAAABSaWZ0YnJhbmQDAQ==</BinaryString>
+      <bool name="CanBeDropped">false</bool>
+      <CoordinateFrame name="Grip">
+        <X>0</X>
+        <Y>0.19999695</Y>
+        <Z>0</Z>
+        <R00>1</R00>
+        <R01>0</R01>
+        <R02>0</R02>
+        <R10>0</R10>
+        <R11>1</R11>
+        <R12>0</R12>
+        <R20>0</R20>
+        <R21>0</R21>
+        <R22>1</R22>
+      </CoordinateFrame>
+      <bool name="ManualActivationOnly">false</bool>
+      <bool name="RequiresHandle">true</bool>
+      <string name="ToolTip">Riftbrand — M1 combo · Q Phase Step · E Rift Tear · R Prism Nova</string>
+    </Properties>
+    <Item class="Part" referent="1">
+      <Properties>
+        <string name="Name">Handle</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>10</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">true</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">1709096</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">272</token>
+        <Vector3 name="size">
+          <X>0.30000305</X>
+          <Y>1.300003</Y>
+          <Z>0.30000305</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Attachment" referent="2">
+        <Properties>
+          <string name="Name">BladeBase</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>1</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="3">
+        <Properties>
+          <string name="Name">BladeTip</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>5.75</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="4">
+        <Properties>
+          <string name="Name">TipFX</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>5.949997</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+        <Item class="ParticleEmitter" referent="5">
+          <Properties>
+            <string name="Name">TipFlare</string>
+            <float name="Brightness">3</float>
+            <ColorSequence name="Color">0 1 0.78431374 0.23921569 0 1 1 0.9647059 1 0 </ColorSequence>
+            <NumberRange name="Lifetime">0.3 0.45 </NumberRange>
+            <float name="LightEmission">1</float>
+            <float name="LightInfluence">0</float>
+            <bool name="LockedToPart">true</bool>
+            <float name="Rate">5</float>
+            <NumberRange name="RotSpeed">-60 60 </NumberRange>
+            <NumberRange name="Rotation">0 360 </NumberRange>
+            <NumberSequence name="Size">0 0 0 0.3 1.1 0 1 0 0 </NumberSequence>
+            <NumberRange name="Speed">0 0 </NumberRange>
+            <ContentId name="Texture">
+              <url>rbxasset://textures/particles/sparkles_main.dds</url>
+            </ContentId>
+            <NumberSequence name="Transparency">0 0.1 0 1 0.1 0 </NumberSequence>
+            <float name="ZOffset">0.3</float>
+          </Properties>
+        </Item>
+        <Item class="ParticleEmitter" referent="6">
+          <Properties>
+            <string name="Name">TipBurst</string>
+            <float name="Brightness">3</float>
+            <ColorSequence name="Color">0 1 0.16862746 0.8392157 0 1 0.1254902 0.9411765 1 0 </ColorSequence>
+            <float name="Drag">6</float>
+            <bool name="Enabled">false</bool>
+            <NumberRange name="Lifetime">0.2 0.4 </NumberRange>
+            <float name="LightEmission">1</float>
+            <float name="LightInfluence">0</float>
+            <float name="Rate">0</float>
+            <NumberSequence name="Size">0 0.35 0 1 0 0 </NumberSequence>
+            <NumberRange name="Speed">14 28 </NumberRange>
+            <Vector2 name="SpreadAngle">
+              <X>180</X>
+              <Y>180</Y>
+            </Vector2>
+            <ContentId name="Texture">
+              <url>rbxasset://textures/particles/sparkles_main.dds</url>
+            </ContentId>
+          </Properties>
+        </Item>
+      </Item>
+      <Item class="Attachment" referent="7">
+        <Properties>
+          <string name="Name">CoreFX</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>3</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+        <Item class="PointLight" referent="8">
+          <Properties>
+            <string name="Name">CoreLight</string>
+            <float name="Brightness">1.8</float>
+            <Color3 name="Color">
+              <R>0.78431374</R>
+              <G>0.3137255</G>
+              <B>1</B>
+            </Color3>
+            <float name="Range">8</float>
+            <bool name="Shadows">false</bool>
+          </Properties>
+        </Item>
+      </Item>
+      <Item class="Beam" referent="9">
+        <Properties>
+          <string name="Name">StarRiver</string>
+          <Ref name="Attachment0">2</Ref>
+          <Ref name="Attachment1">3</Ref>
+          <float name="Brightness">3</float>
+          <ColorSequence name="Color">0 0.1254902 0.9411765 1 0 0.5 1 0.9647059 1 0 1 0.1254902 0.9411765 1 0 </ColorSequence>
+          <bool name="FaceCamera">true</bool>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <int name="Segments">10</int>
+          <ContentId name="Texture">
+            <url>rbxasset://textures/particles/sparkles_main.dds</url>
+          </ContentId>
+          <float name="TextureLength">0.8</float>
+          <token name="TextureMode">1</token>
+          <float name="TextureSpeed">1.6</float>
+          <NumberSequence name="Transparency">0 0.15 0 0.5 0.05 0 1 0.4 0 </NumberSequence>
+          <float name="Width0">0.22</float>
+          <float name="Width1">0.06</float>
+          <float name="ZOffset">0.05</float>
+        </Properties>
+      </Item>
+      <Item class="Beam" referent="10">
+        <Properties>
+          <string name="Name">EmberRiver</string>
+          <Ref name="Attachment0">2</Ref>
+          <Ref name="Attachment1">3</Ref>
+          <float name="Brightness">3</float>
+          <ColorSequence name="Color">0 1 0.16862746 0.8392157 0 1 1 0.78431374 0.23921569 0 </ColorSequence>
+          <bool name="FaceCamera">true</bool>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <int name="Segments">10</int>
+          <ContentId name="Texture">
+            <url>rbxasset://textures/particles/sparkles_main.dds</url>
+          </ContentId>
+          <float name="TextureLength">1.3</float>
+          <token name="TextureMode">1</token>
+          <float name="TextureSpeed">0.9</float>
+          <NumberSequence name="Transparency">0 0.3 0 0.5 0.1 0 1 0.5 0 </NumberSequence>
+          <float name="Width0">0.16</float>
+          <float name="Width1">0.04</float>
+          <float name="ZOffset">0.05</float>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="11">
+        <Properties>
+          <string name="Name">TrailA1</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>1.6000061</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="12">
+        <Properties>
+          <string name="Name">TrailB1</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>5.850006</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Trail" referent="13">
+        <Properties>
+          <string name="Name">PrismTrail1</string>
+          <Ref name="Attachment0">11</Ref>
+          <Ref name="Attachment1">12</Ref>
+          <float name="Brightness">4</float>
+          <ColorSequence name="Color">0 1 0.9647059 1 0 1 1 0.16862746 0.8392157 0 </ColorSequence>
+          <bool name="Enabled">false</bool>
+          <bool name="FaceCamera">false</bool>
+          <float name="Lifetime">0.16</float>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <float name="MinLength">0.05</float>
+          <NumberSequence name="Transparency">0 0.1 0 1 1 0 </NumberSequence>
+          <NumberSequence name="WidthScale">0 1 0 1 0.3 0 </NumberSequence>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="14">
+        <Properties>
+          <string name="Name">TrailA2</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>2.300003</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="15">
+        <Properties>
+          <string name="Name">TrailB2</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>5.699997</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Trail" referent="16">
+        <Properties>
+          <string name="Name">PrismTrail2</string>
+          <Ref name="Attachment0">14</Ref>
+          <Ref name="Attachment1">15</Ref>
+          <float name="Brightness">4</float>
+          <ColorSequence name="Color">0 0.1254902 0.9411765 1 0 1 0.48235294 0.23137255 1 0 </ColorSequence>
+          <bool name="Enabled">false</bool>
+          <bool name="FaceCamera">false</bool>
+          <float name="Lifetime">0.24</float>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <float name="MinLength">0.05</float>
+          <NumberSequence name="Transparency">0 0.25 0 1 1 0 </NumberSequence>
+          <NumberSequence name="WidthScale">0 1 0 1 0.3 0 </NumberSequence>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="17">
+        <Properties>
+          <string name="Name">TrailA3</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>3.100006</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Attachment" referent="18">
+        <Properties>
+          <string name="Name">TrailB3</string>
+          <CoordinateFrame name="CFrame">
+            <X>0</X>
+            <Y>5.5</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+        </Properties>
+      </Item>
+      <Item class="Trail" referent="19">
+        <Properties>
+          <string name="Name">PrismTrail3</string>
+          <Ref name="Attachment0">17</Ref>
+          <Ref name="Attachment1">18</Ref>
+          <float name="Brightness">4</float>
+          <ColorSequence name="Color">0 1 0.78431374 0.23921569 0 1 1 0.16862746 0.8392157 0 </ColorSequence>
+          <bool name="Enabled">false</bool>
+          <bool name="FaceCamera">false</bool>
+          <float name="Lifetime">0.34</float>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <float name="MinLength">0.05</float>
+          <NumberSequence name="Transparency">0 0.45 0 1 1 0 </NumberSequence>
+          <NumberSequence name="WidthScale">0 1 0 1 0.3 0 </NumberSequence>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="20">
+      <Properties>
+        <string name="Name">GripWrap1</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>9.580002</Y>
+          <Z>0</Z>
+          <R00>-0</R00>
+          <R01>-1</R01>
+          <R02>0</R02>
+          <R10>1</R10>
+          <R11>-0</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <token name="shape">2</token>
+        <Vector3 name="size">
+          <X>0.05999756</X>
+          <Y>0.3600006</Y>
+          <Z>0.3600006</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="21">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>-0.41999817</Y>
+            <Z>0</Z>
+            <R00>-0</R00>
+            <R01>-1</R01>
+            <R02>0</R02>
+            <R10>1</R10>
+            <R11>-0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">20</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="22">
+      <Properties>
+        <string name="Name">GripWrap2</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>9.880005</Y>
+          <Z>0</Z>
+          <R00>-0</R00>
+          <R01>-1</R01>
+          <R02>0</R02>
+          <R10>1</R10>
+          <R11>-0</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <token name="shape">2</token>
+        <Vector3 name="size">
+          <X>0.05999756</X>
+          <Y>0.3600006</Y>
+          <Z>0.3600006</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="23">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>-0.11999512</Y>
+            <Z>0</Z>
+            <R00>-0</R00>
+            <R01>-1</R01>
+            <R02>0</R02>
+            <R10>1</R10>
+            <R11>-0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">22</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="24">
+      <Properties>
+        <string name="Name">GripWrap3</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>10.180008</Y>
+          <Z>0</Z>
+          <R00>-0</R00>
+          <R01>-1</R01>
+          <R02>0</R02>
+          <R10>1</R10>
+          <R11>-0</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <token name="shape">2</token>
+        <Vector3 name="size">
+          <X>0.05999756</X>
+          <Y>0.3600006</Y>
+          <Z>0.3600006</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="25">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>0.17999268</Y>
+            <Z>0</Z>
+            <R00>-0</R00>
+            <R01>-1</R01>
+            <R02>0</R02>
+            <R10>1</R10>
+            <R11>-0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">24</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="26">
+      <Properties>
+        <string name="Name">GripWrap4</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>10.479996</Y>
+          <Z>0</Z>
+          <R00>-0</R00>
+          <R01>-1</R01>
+          <R02>0</R02>
+          <R10>1</R10>
+          <R11>-0</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <token name="shape">2</token>
+        <Vector3 name="size">
+          <X>0.05999756</X>
+          <Y>0.3600006</Y>
+          <Z>0.3600006</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="27">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>0.47999573</Y>
+            <Z>0</Z>
+            <R00>-0</R00>
+            <R01>-1</R01>
+            <R02>0</R02>
+            <R10>1</R10>
+            <R11>-0</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">26</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="28">
+      <Properties>
+        <string name="Name">PommelShell</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>9.119995</Y>
+          <Z>0</Z>
+          <R00>0.70710754</R00>
+          <R01>-0.70710754</R01>
+          <R02>0</R02>
+          <R10>0.5</R10>
+          <R11>0.5</R11>
+          <R12>-0.70710754</R12>
+          <R20>0.5</R20>
+          <R21>0.5</R21>
+          <R22>0.70710754</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">1568</token>
+        <Vector3 name="size">
+          <X>0.41999817</X>
+          <Y>0.41999817</Y>
+          <Z>0.41999817</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+        <float name="Transparency">0.25</float>
+      </Properties>
+      <Item class="Weld" referent="29">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>-0.8800049</Y>
+            <Z>0</Z>
+            <R00>0.70710754</R00>
+            <R01>-0.70710754</R01>
+            <R02>0</R02>
+            <R10>0.5</R10>
+            <R11>0.5</R11>
+            <R12>-0.70710754</R12>
+            <R20>0.5</R20>
+            <R21>0.5</R21>
+            <R22>0.70710754</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">28</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="30">
+      <Properties>
+        <string name="Name">PommelCore</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>9.119995</Y>
+          <Z>0</Z>
+          <R00>0.70710754</R00>
+          <R01>-0.70710754</R01>
+          <R02>0</R02>
+          <R10>0.5</R10>
+          <R11>0.5</R11>
+          <R12>-0.70710754</R12>
+          <R20>0.5</R20>
+          <R21>0.5</R21>
+          <R22>0.70710754</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">2158847</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.2400055</X>
+          <Y>0.2400055</Y>
+          <Z>0.2400055</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="31">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>-0.8800049</Y>
+            <Z>0</Z>
+            <R00>0.70710754</R00>
+            <R01>-0.70710754</R01>
+            <R02>0</R02>
+            <R10>0.5</R10>
+            <R11>0.5</R11>
+            <R12>-0.70710754</R12>
+            <R20>0.5</R20>
+            <R21>0.5</R21>
+            <R22>0.70710754</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">30</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="32">
+      <Properties>
+        <string name="Name">RiftGuard</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>10.800003</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">2300728</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">1088</token>
+        <Vector3 name="size">
+          <X>0.33999634</X>
+          <Y>0.30000305</Y>
+          <Z>0.94999695</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="33">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>0.80000305</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">32</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="34">
+      <Properties>
+        <string name="Name">GuardGem</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>10.800003</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.70710754</R11>
+          <R12>-0.70710754</R12>
+          <R20>0</R20>
+          <R21>0.70710754</R21>
+          <R22>0.70710754</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.41999817</X>
+          <Y>0.22000122</Y>
+          <Z>0.22000122</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="35">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>0.80000305</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.70710754</R11>
+            <R12>-0.70710754</R12>
+            <R20>0</R20>
+            <R21>0.70710754</R21>
+            <R22>0.70710754</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">34</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="WedgePart" referent="36">
+      <Properties>
+        <string name="Name">WingRift</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>11.350006</Y>
+          <Z>0.4750061</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16722902</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.13999939</X>
+          <Y>1</Y>
+          <Z>0.55000305</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="37">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>1.3500061</Y>
+            <Z>0.4750061</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">36</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="WedgePart" referent="38">
+      <Properties>
+        <string name="Name">WingPrism</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>11.350006</Y>
+          <Z>-0.4750061</Z>
+          <R00>-1</R00>
+          <R01>0</R01>
+          <R02>-0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>-1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">2158847</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.13999939</X>
+          <Y>1</Y>
+          <Z>0.55000305</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="39">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>1.3500061</Y>
+            <Z>-0.4750061</Z>
+            <R00>-1</R00>
+            <R01>0</R01>
+            <R02>-0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>-1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">38</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="40">
+      <Properties>
+        <string name="Name">VoidCore</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.949997</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">394254</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">1568</token>
+        <float name="Reflectance">0.1</float>
+        <Vector3 name="size">
+          <X>0.08000183</X>
+          <Y>4</Y>
+          <Z>0.3600006</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="41">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.949997</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">40</Ref>
+        </Properties>
+      </Item>
+      <Item class="ParticleEmitter" referent="42">
+        <Properties>
+          <string name="Name">VoidMotes</string>
+          <Vector3 name="Acceleration">
+            <X>0</X>
+            <Y>1.199997</Y>
+            <Z>0</Z>
+          </Vector3>
+          <float name="Brightness">2</float>
+          <ColorSequence name="Color">0 0.1254902 0.9411765 1 0 1 1 0.16862746 0.8392157 0 </ColorSequence>
+          <float name="Drag">1.5</float>
+          <NumberRange name="Lifetime">0.5 1.1 </NumberRange>
+          <float name="LightEmission">1</float>
+          <float name="LightInfluence">0</float>
+          <float name="Rate">18</float>
+          <NumberRange name="RotSpeed">-90 90 </NumberRange>
+          <NumberRange name="Rotation">0 360 </NumberRange>
+          <NumberSequence name="Size">0 0.14 0 0.5 0.1 0 1 0 0 </NumberSequence>
+          <NumberRange name="Speed">0.2 0.8 </NumberRange>
+          <Vector2 name="SpreadAngle">
+            <X>180</X>
+            <Y>180</Y>
+          </Vector2>
+          <ContentId name="Texture">
+            <url>rbxasset://textures/particles/sparkles_main.dds</url>
+          </ContentId>
+          <NumberSequence name="Transparency">0 0.1 0 1 1 0 </NumberSequence>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="43">
+      <Properties>
+        <string name="Name">VoidShimmer</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.949997</Y>
+          <Z>0</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">8076287</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">1584</token>
+        <Vector3 name="size">
+          <X>0.11000061</X>
+          <Y>4</Y>
+          <Z>0.33999634</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="44">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.949997</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">43</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="45">
+      <Properties>
+        <string name="Name">RailRift</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.949997</Y>
+          <Z>0.21499634</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16722902</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.11999512</X>
+          <Y>4</Y>
+          <Z>0.070007324</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="46">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.949997</Y>
+            <Z>0.21499634</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">45</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="47">
+      <Properties>
+        <string name="Name">RailPrism</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.949997</Y>
+          <Z>-0.21499634</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">2158847</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.11999512</X>
+          <Y>4</Y>
+          <Z>0.070007324</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="48">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.949997</Y>
+            <Z>-0.21499634</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">47</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="WedgePart" referent="49">
+      <Properties>
+        <string name="Name">TipRift</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>15.425003</Y>
+          <Z>0.125</Z>
+          <R00>-1</R00>
+          <R01>0</R01>
+          <R02>-0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>-1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.11999512</X>
+          <Y>0.94999695</Y>
+          <Z>0.25</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="50">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>5.425003</Y>
+            <Z>0.125</Z>
+            <R00>-1</R00>
+            <R01>0</R01>
+            <R02>-0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>-1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">49</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="WedgePart" referent="51">
+      <Properties>
+        <string name="Name">TipPrism</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>15.425003</Y>
+          <Z>-0.125</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>1</R11>
+          <R12>0</R12>
+          <R20>0</R20>
+          <R21>0</R21>
+          <R22>1</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16762941</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.11999512</X>
+          <Y>0.94999695</Y>
+          <Z>0.25</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="52">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>5.425003</Y>
+            <Z>-0.125</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">51</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="53">
+      <Properties>
+        <string name="Name">RiftCrack1</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>11.25</Y>
+          <Z>-0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>0.25881958</R12>
+          <R20>0</R20>
+          <R21>-0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="54">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>1.25</Y>
+            <Z>-0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>0.25881958</R12>
+            <R20>0</R20>
+            <R21>-0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">53</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="55">
+      <Properties>
+        <string name="Name">RiftCrack2</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>11.809998</Y>
+          <Z>0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>-0.25881958</R12>
+          <R20>0</R20>
+          <R21>0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="56">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>1.8099976</Y>
+            <Z>0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>-0.25881958</R12>
+            <R20>0</R20>
+            <R21>0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">55</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="57">
+      <Properties>
+        <string name="Name">RiftCrack3</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.369995</Y>
+          <Z>-0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>0.25881958</R12>
+          <R20>0</R20>
+          <R21>-0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="58">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.369995</Y>
+            <Z>-0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>0.25881958</R12>
+            <R20>0</R20>
+            <R21>-0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">57</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="59">
+      <Properties>
+        <string name="Name">RiftCrack4</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>12.930008</Y>
+          <Z>0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>-0.25881958</R12>
+          <R20>0</R20>
+          <R21>0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="60">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>2.9299927</Y>
+            <Z>0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>-0.25881958</R12>
+            <R20>0</R20>
+            <R21>0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">59</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="61">
+      <Properties>
+        <string name="Name">RiftCrack5</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>13.4900055</Y>
+          <Z>-0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>0.25881958</R12>
+          <R20>0</R20>
+          <R21>-0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="62">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>3.4900055</Y>
+            <Z>-0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>0.25881958</R12>
+            <R20>0</R20>
+            <R21>-0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">61</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="63">
+      <Properties>
+        <string name="Name">RiftCrack6</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>14.050003</Y>
+          <Z>0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>-0.25881958</R12>
+          <R20>0</R20>
+          <R21>0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="64">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>4.050003</Y>
+            <Z>0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>-0.25881958</R12>
+            <R20>0</R20>
+            <R21>0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">63</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="Part" referent="65">
+      <Properties>
+        <string name="Name">RiftCrack7</string>
+        <token name="BottomSurface">0</token>
+        <CoordinateFrame name="CFrame">
+          <X>0</X>
+          <Y>14.610001</Y>
+          <Z>-0.02999878</Z>
+          <R00>1</R00>
+          <R01>0</R01>
+          <R02>0</R02>
+          <R10>0</R10>
+          <R11>0.9659271</R11>
+          <R12>0.25881958</R12>
+          <R20>0</R20>
+          <R21>-0.25881958</R21>
+          <R22>0.9659271</R22>
+        </CoordinateFrame>
+        <bool name="CanCollide">false</bool>
+        <bool name="CanQuery">false</bool>
+        <bool name="CanTouch">false</bool>
+        <bool name="CastShadow">false</bool>
+        <Color3uint8 name="Color3uint8">16772266</Color3uint8>
+        <bool name="Massless">true</bool>
+        <token name="Material">288</token>
+        <Vector3 name="size">
+          <X>0.1000061</X>
+          <Y>0.6000061</Y>
+          <Z>0.035003662</Z>
+        </Vector3>
+        <token name="TopSurface">0</token>
+      </Properties>
+      <Item class="Weld" referent="66">
+        <Properties>
+          <string name="Name">Weld</string>
+          <CoordinateFrame name="C0">
+            <X>0</X>
+            <Y>4.6100006</Y>
+            <Z>-0.02999878</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>0.9659271</R11>
+            <R12>0.25881958</R12>
+            <R20>0</R20>
+            <R21>-0.25881958</R21>
+            <R22>0.9659271</R22>
+          </CoordinateFrame>
+          <CoordinateFrame name="C1">
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <R00>1</R00>
+            <R01>0</R01>
+            <R02>0</R02>
+            <R10>0</R10>
+            <R11>1</R11>
+            <R12>0</R12>
+            <R20>0</R20>
+            <R21>0</R21>
+            <R22>1</R22>
+          </CoordinateFrame>
+          <Ref name="Part0">1</Ref>
+          <Ref name="Part1">65</Ref>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="ModuleScript" referent="67">
+      <Properties>
+        <string name="Name">Config</string>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — Config
+	Every tunable number lives here. Server and clients read the same table,
+	so damage, timings and VFX stay in sync.
+]]
+
+local Config = {}
+
+Config.ToolName = "Riftbrand"
+Config.Attribute = "Riftbrand" -- attribute set on the Tool so every client can find equipped swords
+
+Config.Palette = {
+	Rift = Color3.fromRGB(255, 43, 214), -- magenta
+	Prism = Color3.fromRGB(32, 240, 255), -- cyan
+	Solar = Color3.fromRGB(255, 200, 61), -- gold
+	Ultra = Color3.fromRGB(123, 59, 255), -- ultraviolet
+	Void = Color3.fromRGB(6, 4, 14),
+	White = Color3.fromRGB(255, 246, 255),
+}
+
+-- Built-in engine textures (ship with every Roblox client, no upload needed).
+-- Swap any of these for your own rbxassetid:// decals if you want a custom look.
+Config.Textures = {
+	Sparkle = "rbxasset://textures/particles/sparkles_main.dds",
+	Fire = "rbxasset://textures/particles/fire_main.dds",
+	Smoke = "rbxasset://textures/particles/smoke_main.dds",
+	Glow = "rbxasset://textures/particles/forcefield_glow_main.dds",
+	Shockwave = "rbxasset://textures/particles/explosion01_shockwave_main.dds",
+}
+
+-- Built-in classic sword sounds. Put rbxassetid://... ids in the override slots to use your own.
+Config.Sounds = {
+	Swing = { id = "rbxasset://sounds/swordslash.wav", volume = 0.7 },
+	Lunge = { id = "rbxasset://sounds/swordlunge.wav", volume = 0.8 },
+	Equip = { id = "rbxasset://sounds/unsheath.wav", volume = 0.6 },
+	Detonate = { id = "", volume = 1 }, -- optional: add an explosion sound id
+	Slam = { id = "", volume = 1 }, -- optional: add an impact sound id
+}
+
+-- Inputs. M1 / tap / gamepad R2 use Tool.Activated.
+Config.Keys = {
+	PhaseStep = { Enum.KeyCode.Q, Enum.KeyCode.ButtonX },
+	RiftTear = { Enum.KeyCode.E, Enum.KeyCode.ButtonY },
+	PrismNova = { Enum.KeyCode.R, Enum.KeyCode.ButtonB },
+}
+
+Config.FriendlyFire = false -- same-Team players can't hurt each other
+Config.FaceCameraOnAttack = true -- snap facing to camera look on every swing (feels agile)
+Config.CameraShake = true
+Config.ScreenFlash = true
+Config.AddBloom = true -- adds a local BloomEffect if Lighting has none (makes Neon glow)
+Config.DamageNumbers = true
+Config.MaxVFXDistance = 350 -- other players' VFX beyond this distance are skipped
+
+Config.ComboWindow = 0.7 -- seconds after a slash ends in which the next slash continues the combo
+Config.InputBuffer = 0.22 -- presses this close to the end of a move are queued, not dropped
+
+Config.Moves = {
+	Slash1 = {
+		duration = 0.30,
+		hitTime = 0.12,
+		damage = 16,
+		box = Vector3.new(9, 7, 8),
+		offset = CFrame.new(0, 0, -4.5),
+		knockback = 18,
+		lunge = 18,
+	},
+	Slash2 = {
+		duration = 0.30,
+		hitTime = 0.12,
+		damage = 16,
+		box = Vector3.new(9, 7, 8),
+		offset = CFrame.new(0, 0, -4.5),
+		knockback = 18,
+		lunge = 18,
+	},
+	Slash3 = {
+		duration = 0.46,
+		hitTime = 0.22,
+		damage = 28,
+		radius = 9,
+		knockback = 48,
+		lunge = 10,
+		endLag = 0.25,
+	},
+	PhaseStep = {
+		duration = 0.32,
+		dashTime = 0.20,
+		distance = 26,
+		cooldown = 2.5,
+		afterimages = 6,
+	},
+	RiftTear = {
+		duration = 0.95,
+		cleaveTime = 0.30,
+		cleaveDamage = 12,
+		detonateTime = 0.90,
+		distance = 9, -- studs in front of you where the tear opens
+		radius = 14,
+		damage = 38,
+		knockback = 70,
+		cooldown = 6,
+	},
+	PrismNova = {
+		duration = 1.15,
+		leapTime = 0.12,
+		diveTime = 0.55,
+		slamTime = 0.75,
+		leapVelocity = 62,
+		diveVelocity = -150,
+		radius = 20,
+		damage = 55,
+		knockback = 90,
+		shards = 8,
+		cooldown = 14,
+	},
+}
+
+return Config
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="68">
+      <Properties>
+        <string name="Name">RiftAnim</string>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftAnim
+	Procedural keyframe animation for R15 rigs. Poses are written to Motor6D.Transform
+	every PreSimulation, layered over whatever the Animator is playing, so:
+	  • nothing has to be uploaded — the sword works the moment you drop it in
+	  • legs keep running under the slashes, and moves chain from wherever the last one ended
+	  • every client runs the same keyframes for every sword-holder, so everyone sees them
+
+	Angles are degrees, applied YXZ in the parent joint's space (R15 joints are axis-aligned):
+	  X+ swings a limb forward, Y+ turns it toward the character's left, Z+ rolls it outward-right.
+	Root also takes a position offset (px, py, pz) in studs.
+]]
+
+local RunService = game:GetService("RunService")
+
+local Anim = {}
+
+local JOINTS = {
+	Root = { "LowerTorso", "Root" },
+	Waist = { "UpperTorso", "Waist" },
+	Neck = { "Head", "Neck" },
+	RS = { "RightUpperArm", "RightShoulder" },
+	RE = { "RightLowerArm", "RightElbow" },
+	RW = { "RightHand", "RightWrist" },
+	LS = { "LeftUpperArm", "LeftShoulder" },
+	LE = { "LeftLowerArm", "LeftElbow" },
+	LW = { "LeftHand", "LeftWrist" },
+	RH = { "RightUpperLeg", "RightHip" },
+	RK = { "RightLowerLeg", "RightKnee" },
+	LH = { "LeftUpperLeg", "LeftHip" },
+	LK = { "LeftLowerLeg", "LeftKnee" },
+}
+
+-- Sword-ready stance, layered on while the Tool is equipped.
+local HOLD = {
+	RS = { 25, 0, 8 },
+	RE = { 55, 0, 0 },
+	RW = { -20, 0, 0 },
+	LS = { 8, 0, -6 },
+	LE = { 20, 0, 0 },
+	Waist = { 0, -8, 0 },
+}
+
+local READY = {
+	Root = { 0, 0, 0, 0, 0, 0 },
+	Waist = { 0, -8, 0 },
+	Neck = { 0, 0, 0 },
+	RS = { 25, 0, 8 },
+	RE = { 55, 0, 0 },
+	RW = { -20, 0, 0 },
+	LS = { 8, 0, -6 },
+	LE = { 20, 0, 0 },
+	RH = { 0, 0, 0 },
+	RK = { 0, 0, 0 },
+	LH = { 0, 0, 0 },
+	LK = { 0, 0, 0 },
+}
+
+local function ready(extra)
+	local k = {}
+	for j, v in READY do
+		k[j] = v
+	end
+	if extra then
+		for j, v in extra do
+			k[j] = v
+		end
+	end
+	return k
+end
+
+local function key(t, ease, pose)
+	pose.t = t
+	pose.ease = ease
+	return pose
+end
+
+-- Keyframes. `ease` shapes the curve INTO that key: "outback" snaps and overshoots (strikes),
+-- "out" decelerates, "inout" for wind-ups and recoveries, "linear" for holds and spins.
+local MOVES = {
+	Slash1 = {
+		key(0.08, "inout", {
+			Root = { 0, -10, 0, 0, -0.1, 0 },
+			Waist = { -5, -35, -6 },
+			Neck = { 0, 25, 0 },
+			RS = { 155, -40, 25 },
+			RE = { 65, 0, 0 },
+			RW = { 15, 0, 0 },
+			LS = { 35, 0, -30 },
+			LE = { 45, 0, 0 },
+		}),
+		key(0.15, "outback", {
+			Root = { -6, 12, 0, 0, -0.25, -0.35 },
+			Waist = { -12, 40, 8 },
+			Neck = { 0, -30, 0 },
+			RS = { 45, 60, -5 },
+			RE = { 8, 0, 0 },
+			RW = { -60, 0, 0 },
+			LS = { -20, 0, -40 },
+			LE = { 25, 0, 0 },
+			RH = { 25, 0, 0 },
+			RK = { -30, 0, 0 },
+			LH = { -15, 0, 0 },
+		}),
+		key(0.30, "inout", ready()),
+	},
+	Slash2 = {
+		key(0.07, "inout", {
+			Root = { 0, 15, 0, 0, 0, 0 },
+			Waist = { -4, 45, 4 },
+			Neck = { 0, -20, 0 },
+			RS = { 25, 75, -10 },
+			RE = { 25, 0, 0 },
+			RW = { -55, 0, 0 },
+			LS = { 10, 0, -20 },
+			LE = { 30, 0, 0 },
+		}),
+		key(0.16, "outback", {
+			Root = { -4, -14, 0, 0, -0.15, -0.35 },
+			Waist = { 8, -45, -10 },
+			Neck = { 0, 25, 0 },
+			RS = { 150, -55, 30 },
+			RE = { 12, 0, 0 },
+			RW = { 5, 0, 0 },
+			LS = { 20, 0, -45 },
+			LE = { 15, 0, 0 },
+			LH = { 25, 0, 0 },
+			LK = { -30, 0, 0 },
+			RH = { -10, 0, 0 },
+		}),
+		key(0.30, "inout", ready()),
+	},
+	Slash3 = {
+		key(0.10, "inout", {
+			Root = { 0, 40, 0, 0, -0.3, 0 },
+			Waist = { -6, 25, 0 },
+			RS = { 90, -85, 0 },
+			RE = { 5, 0, 0 },
+			RW = { -85, 0, 0 },
+			LS = { 60, 40, -10 },
+			LE = { 50, 0, 0 },
+			RH = { 30, 0, 0 },
+			RK = { -45, 0, 0 },
+			LH = { 30, 0, 0 },
+			LK = { -45, 0, 0 },
+		}),
+		key(0.18, "linear", {
+			Root = { 0, -150, 0, 0, 0.5, 0 },
+			Waist = { -4, -10, 0 },
+			RH = { 45, 0, 0 },
+			RK = { -70, 0, 0 },
+			LH = { 45, 0, 0 },
+			LK = { -70, 0, 0 },
+		}),
+		key(0.28, "out", {
+			Root = { 0, -340, 0, 0, 0.3, -0.2 },
+			Waist = { -10, -20, 0 },
+			RS = { 85, -60, 0 },
+		}),
+		key(0.34, "out", {
+			Root = { 0, -360, 0, 0, -0.35, -0.2 },
+			Waist = { -15, -10, 0 },
+			RS = { 70, -30, 0 },
+			RW = { -70, 0, 0 },
+			RH = { 35, 0, 0 },
+			RK = { -50, 0, 0 },
+			LH = { -10, 0, 0 },
+			LK = { -20, 0, 0 },
+		}),
+		key(0.46, "inout", ready({ Root = { 0, -360, 0, 0, 0, 0 } })),
+	},
+	PhaseStep = {
+		key(0.05, "out", {
+			Root = { -28, 0, 0, 0, -0.35, 0 },
+			Waist = { -10, 0, 0 },
+			Neck = { 15, 0, 0 },
+			RS = { -55, 0, 20 },
+			RE = { 15, 0, 0 },
+			RW = { -40, 0, 0 },
+			LS = { -50, 0, -20 },
+			LE = { 20, 0, 0 },
+			RH = { 35, 0, 0 },
+			RK = { -60, 0, 0 },
+			LH = { -30, 0, 0 },
+			LK = { -35, 0, 0 },
+		}),
+		key(0.20, "linear", {
+			Root = { -24, 0, 0, 0, -0.3, 0 },
+		}),
+		key(0.32, "inout", ready()),
+	},
+	RiftTear = {
+		key(0.22, "inout", {
+			Root = { 0, 0, 0, 0, 0.15, 0 },
+			Waist = { 18, 0, 0 },
+			Neck = { -10, 0, 0 },
+			RS = { 170, -10, 10 },
+			RE = { 45, 0, 0 },
+			RW = { 25, 0, 0 },
+			LS = { 165, 15, -10 },
+			LE = { 50, 0, 0 },
+			RH = { -10, 0, 0 },
+			LH = { 15, 0, 0 },
+			LK = { -10, 0, 0 },
+		}),
+		key(0.30, "outback", {
+			Root = { -10, 0, 0, 0, -0.7, -0.4 },
+			Waist = { -28, 0, 0 },
+			Neck = { 15, 0, 0 },
+			RS = { 55, 15, 0 },
+			RE = { 0, 0, 0 },
+			RW = { -75, 0, 0 },
+			LS = { 55, 25, 0 },
+			LE = { 10, 0, 0 },
+			RH = { 55, 0, 0 },
+			RK = { -80, 0, 0 },
+			LH = { -5, 0, 0 },
+			LK = { -50, 0, 0 },
+		}),
+		key(0.70, "linear", {
+			Root = { -8, 0, 0, 0, -0.6, -0.4 },
+			Waist = { -24, 0, 0 },
+		}),
+		key(0.80, "inout", {
+			Root = { 0, 0, 0, 0, -0.3, 0 },
+			Waist = { -10, 0, 0 },
+			RS = { 95, -50, 20 },
+			RE = { 20, 0, 0 },
+			LS = { 95, 50, -20 },
+			LE = { 20, 0, 0 },
+		}),
+		key(0.95, "inout", ready()),
+	},
+	PrismNova = {
+		key(0.10, "inout", {
+			Root = { -15, 0, 0, 0, -0.8, 0 },
+			Waist = { -15, 0, 0 },
+			RS = { -40, 0, 20 },
+			LS = { -40, 0, -20 },
+			RH = { 70, 0, 0 },
+			RK = { -100, 0, 0 },
+			LH = { 70, 0, 0 },
+			LK = { -100, 0, 0 },
+		}),
+		key(0.20, "out", {
+			Root = { 10, 0, 0, 0, 0.3, 0 },
+			Waist = { 12, 0, 0 },
+			RS = { 175, 0, 10 },
+			RE = { 10, 0, 0 },
+			RW = { 0, 0, 0 },
+			LS = { 170, 0, -10 },
+			RH = { -10, 0, 0 },
+			RK = { -10, 0, 0 },
+			LH = { 20, 0, 0 },
+			LK = { -30, 0, 0 },
+		}),
+		key(0.52, "linear", {
+			Root = { -20, 720, 0, 0, 0.4, 0 },
+			Waist = { -10, 0, 0 },
+			RS = { 90, -80, 0 },
+			RW = { -85, 0, 0 },
+			LS = { 30, 0, 0 },
+			RH = { 60, 0, 0 },
+			RK = { -90, 0, 0 },
+			LH = { 60, 0, 0 },
+			LK = { -90, 0, 0 },
+		}),
+		key(0.62, "out", {
+			Root = { 0, 720, 0, 0, 0.4, 0 },
+			Waist = { 20, 0, 0 },
+			RS = { 175, -10, 10 },
+			RE = { 40, 0, 0 },
+			RW = { 25, 0, 0 },
+			LS = { 170, 15, -10 },
+			LE = { 45, 0, 0 },
+		}),
+		key(0.75, "outback", {
+			Root = { -12, 720, 0, 0, -0.9, -0.3 },
+			Waist = { -35, 0, 0 },
+			RS = { 40, 10, 0 },
+			RE = { 0, 0, 0 },
+			RW = { -90, 0, 0 },
+			LS = { 45, 20, 0 },
+			LE = { 10, 0, 0 },
+			RH = { 75, 0, 0 },
+			RK = { -110, 0, 0 },
+			LH = { 10, 0, 0 },
+			LK = { -70, 0, 0 },
+		}),
+		key(0.95, "linear", {
+			Root = { -10, 720, 0, 0, -0.8, -0.3 },
+		}),
+		key(1.15, "inout", ready({ Root = { 0, 720, 0, 0, 0, 0 } })),
+	},
+}
+
+local EASE = {
+	linear = function(x)
+		return x
+	end,
+	out = function(x)
+		return 1 - (1 - x) ^ 3
+	end,
+	inout = function(x)
+		if x < 0.5 then
+			return 4 * x ^ 3
+		end
+		return 1 - (-2 * x + 2) ^ 3 / 2
+	end,
+	outback = function(x)
+		local c1 = 1.70158
+		local c3 = c1 + 1
+		return 1 + c3 * (x - 1) ^ 3 + c1 * (x - 1) ^ 2
+	end,
+}
+
+local rad = math.rad
+local FADE_IN = 0.05
+local FADE_OUT = 0.10
+
+local function toCF(v)
+	local cf = CFrame.fromEulerAnglesYXZ(rad(v[1]), rad(v[2]), rad(v[3]))
+	if v[4] then
+		cf = CFrame.new(v[4], v[5], v[6]) * cf
+	end
+	return cf
+end
+
+local function wrapNear(value, target)
+	return value - 360 * math.floor((value - target) / 360 + 0.5)
+end
+
+local rigs = {}
+
+local function getRig(character)
+	local st = rigs[character]
+	if st then
+		return st
+	end
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if not humanoid or humanoid.RigType ~= Enum.HumanoidRigType.R15 then
+		return nil
+	end
+	st = {
+		character = character,
+		humanoid = humanoid,
+		root = character:FindFirstChild("HumanoidRootPart"),
+		motors = {},
+		written = {},
+		cur = {},
+		hold = false,
+		holdW = 0,
+		track = nil,
+		timeScale = 1,
+		slowUntil = 0,
+	}
+	for name, path in JOINTS do
+		local part = character:FindFirstChild(path[1])
+		local motor = part and part:FindFirstChild(path[2])
+		if motor and motor:IsA("Motor6D") then
+			st.motors[name] = motor
+		end
+	end
+	rigs[character] = st
+	character.Destroying:Connect(function()
+		rigs[character] = nil
+	end)
+	return st
+end
+
+-- Plays a move on any R15 character. Returns the move's duration, or nil if the rig can't be animated.
+function Anim.Play(character, moveName, speed)
+	local keys = MOVES[moveName]
+	local st = character and getRig(character)
+	if not keys or not st then
+		return nil
+	end
+
+	-- Every joint any key touches is driven for the whole move; missing values carry forward.
+	local joints = {}
+	for _, k in keys do
+		for j, v in k do
+			if type(v) == "table" then
+				joints[j] = true
+			end
+		end
+	end
+
+	local first = keys[1]
+	local k0 = { t = 0, ease = "linear" }
+	for j in joints do
+		local start = st.cur[j] or HOLD[j] or READY[j] or { 0, 0, 0 }
+		local target = first[j]
+		local s = table.clone(start)
+		if target then
+			for i = 1, 3 do
+				s[i] = wrapNear(s[i], target[i] or 0)
+			end
+		end
+		k0[j] = s
+	end
+
+	local filled = { k0 }
+	local prev = k0
+	for _, k in keys do
+		local f = { t = k.t, ease = k.ease }
+		for j in joints do
+			f[j] = k[j] or prev[j]
+		end
+		table.insert(filled, f)
+		prev = f
+	end
+
+	st.track = {
+		keys = filled,
+		joints = joints,
+		t = 0,
+		duration = keys[#keys].t,
+		speed = speed or 1,
+	}
+	return st.track.duration / (speed or 1)
+end
+
+function Anim.Stop(character)
+	local st = rigs[character]
+	if st then
+		st.track = nil
+	end
+end
+
+function Anim.SetHold(character, on)
+	local st = character and getRig(character)
+	if st then
+		st.hold = on
+	end
+end
+
+-- Freezes the move for a few frames on impact. Tiny, but it's what makes hits feel heavy.
+function Anim.HitStop(character, duration)
+	local st = rigs[character]
+	if st then
+		st.slowUntil = os.clock() + (duration or 0.06)
+	end
+end
+
+function Anim.IsPlaying(character)
+	local st = rigs[character]
+	return st ~= nil and st.track ~= nil
+end
+
+local function sample(track)
+	local keys = track.keys
+	local t = track.t
+	local a, b = keys[1], keys[#keys]
+	for i = 1, #keys - 1 do
+		if t <= keys[i + 1].t then
+			a, b = keys[i], keys[i + 1]
+			break
+		end
+	end
+	local span = b.t - a.t
+	local x = span > 0 and math.clamp((t - a.t) / span, 0, 1) or 1
+	local e = (EASE[b.ease] or EASE.inout)(x)
+	local out = {}
+	for j in track.joints do
+		local va, vb = a[j], b[j]
+		local v = {}
+		for i = 1, 6 do
+			local p, q = va[i], vb[i]
+			if p or q then
+				p = p or 0
+				q = q or 0
+				v[i] = p + (q - p) * e
+			end
+		end
+		if v[4] or v[5] or v[6] then
+			v[4], v[5], v[6] = v[4] or 0, v[5] or 0, v[6] or 0
+		end
+		out[j] = v
+	end
+	return out
+end
+
+local function step(dt)
+	local now = os.clock()
+	for character, st in rigs do
+		if not character.Parent or st.humanoid.Health <= 0 then
+			st.track = nil
+			continue
+		end
+
+		st.holdW = math.clamp(st.holdW + (st.hold and dt or -dt) * 8, 0, 1)
+
+		local track = st.track
+		local values, w
+		if track then
+			local scale = now < st.slowUntil and 0.06 or track.speed
+			track.t += dt * scale
+			if track.t >= track.duration then
+				for j, v in sample(track) do
+					st.cur[j] = { wrapNear(v[1], 0), wrapNear(v[2], 0), wrapNear(v[3], 0) }
+				end
+				st.track = nil
+				track = nil
+			else
+				values = sample(track)
+				w = math.min(1, track.t / FADE_IN)
+				local left = track.duration - track.t
+				if left < FADE_OUT then
+					w = math.min(w, left / FADE_OUT)
+				end
+			end
+		end
+
+		if not track and st.holdW <= 0 then
+			if next(st.written) then
+				table.clear(st.written)
+				table.clear(st.cur)
+			end
+			continue
+		end
+
+		-- Breathing + a forward lean that grows with run speed keeps the idle stance alive.
+		local breath = math.sin(now * 2.4)
+		local lean = 0
+		if st.root then
+			local v = st.root.AssemblyLinearVelocity
+			lean = math.clamp(Vector3.new(v.X, 0, v.Z).Magnitude / 24, 0, 1)
+		end
+
+		for name, motor in st.motors do
+			local base = motor.Transform
+			local last = st.written[name]
+			if last and base == last then
+				base = CFrame.identity -- the Animator didn't touch this joint this frame
+			end
+
+			local target = base
+			local touched = false
+			local hv = HOLD[name]
+			if hv and st.holdW > 0 then
+				local h = hv
+				if name == "RS" then
+					h = { hv[1] + breath * 2, hv[2], hv[3] }
+				elseif name == "Waist" then
+					h = { hv[1] - lean * 9 + breath * 0.8, hv[2], hv[3] }
+				end
+				target = target:Lerp(toCF(h), st.holdW)
+				st.cur[name] = h
+				touched = true
+			end
+
+			local v = values and values[name]
+			if v then
+				target = target:Lerp(toCF(v), w)
+				st.cur[name] = v
+				touched = true
+			end
+
+			if touched then
+				motor.Transform = target
+				st.written[name] = target
+			else
+				st.written[name] = nil
+			end
+		end
+	end
+end
+
+RunService.PreSimulation:Connect(step)
+
+Anim.Moves = MOVES
+return Anim
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="ModuleScript" referent="69">
+      <Properties>
+        <string name="Name">RiftFX</string>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftFX (client only)
+	Every transient effect is built here from engine primitives — Beams, Parts, ParticleEmitters,
+	PointLights, a ColorCorrection — so there are no meshes or decals to upload.
+
+	Signature effects:
+	  Prism Crescents  crescent slashes built from two curved Beams (thin → thick → thin), stacked in
+	                   five chromatic layers that peel apart as they expand: magenta / cyan / gold / UV / white core
+	  Rift Tear        a hanging black slit with a shimmering ForceField rim and two curved neon lips. Gravity
+	                   streams and inward-flying sparks pour into it until it collapses and detonates
+	  Phase Step       real-pose neon afterimages of the whole character (sword included) + a light streak
+	  Prism Nova       eight crystal shards burst outward and stab into the ground, with neon cracks
+	                   racing along the floor, a dome, a light pillar and a flat shockwave ring
+]]
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+local Debris = game:GetService("Debris")
+local Workspace = game:GetService("Workspace")
+
+local Config = require(script.Parent:WaitForChild("Config"))
+local Anim = require(script.Parent:WaitForChild("RiftAnim"))
+
+local FX = {}
+FX.Anim = Anim
+
+local P = Config.Palette
+local T = Config.Textures
+local player = Players.LocalPlayer
+local rad = math.rad
+local TAU = math.pi * 2
+local CYCLE = { P.Rift, P.Prism, P.Solar, P.Ultra }
+
+--------------------------------------------------------------------------------
+-- Small helpers
+--------------------------------------------------------------------------------
+
+local function NS(...)
+	local a = { ... }
+	local kps = {}
+	for i = 1, #a, 2 do
+		table.insert(kps, NumberSequenceKeypoint.new(a[i], a[i + 1]))
+	end
+	return NumberSequence.new(kps)
+end
+
+local function CS(...)
+	local a = { ... }
+	if #a == 1 then
+		return ColorSequence.new(a[1])
+	elseif #a == 2 then
+		return ColorSequence.new(a[1], a[2])
+	end
+	local kps = {}
+	for i, c in a do
+		table.insert(kps, ColorSequenceKeypoint.new((i - 1) / (#a - 1), c))
+	end
+	return ColorSequence.new(kps)
+end
+
+local function NR(a, b)
+	return NumberRange.new(a, b or a)
+end
+
+local function easeOut(x)
+	return 1 - (1 - x) ^ 3
+end
+
+local function easeOutBack(x)
+	local c1 = 1.70158
+	return 1 + (c1 + 1) * (x - 1) ^ 3 + c1 * (x - 1) ^ 2
+end
+
+local fxFolder
+local function folder()
+	if not fxFolder or not fxFolder.Parent then
+		fxFolder = Instance.new("Folder")
+		fxFolder.Name = "RiftbrandFX"
+		fxFolder.Parent = Workspace
+	end
+	return fxFolder
+end
+
+local function part(props)
+	local p = Instance.new("Part")
+	p.Anchored = true
+	p.CanCollide = false
+	p.CanQuery = false
+	p.CanTouch = false
+	p.CastShadow = false
+	p.Material = Enum.Material.Neon
+	p.TopSurface = Enum.SurfaceType.Smooth
+	p.BottomSurface = Enum.SurfaceType.Smooth
+	for k, v in props do
+		if k ~= "Parent" then
+			p[k] = v
+		end
+	end
+	p.Parent = props.Parent or folder()
+	return p
+end
+
+local function anchor(cf)
+	return part({ Transparency = 1, Size = Vector3.new(0.2, 0.2, 0.2), CFrame = cf })
+end
+
+local function emitter(parent, props)
+	local pe = Instance.new("ParticleEmitter")
+	pe.Enabled = false
+	pe.Texture = T.Sparkle
+	pe.LightEmission = 1
+	pe.LightInfluence = 0
+	for k, v in props do
+		pe[k] = v
+	end
+	pe.Parent = parent
+	return pe
+end
+
+local function burstAt(cf, count, props, life)
+	if typeof(cf) == "Vector3" then
+		cf = CFrame.new(cf)
+	end
+	local a = anchor(cf)
+	local att = Instance.new("Attachment")
+	att.Parent = a
+	local pe = emitter(att, props)
+	pe:Emit(count)
+	Debris:AddItem(a, life or 1.5)
+	return pe
+end
+
+local function sparks(pos, count, colorA, colorB, speed, size)
+	burstAt(pos, count, {
+		Color = CS(colorA or P.White, colorB or P.Rift),
+		Size = NS(0, size or 0.45, 1, 0),
+		Transparency = NS(0, 0, 0.7, 0.2, 1, 1),
+		Speed = NR((speed or 40) * 0.5, speed or 40),
+		Lifetime = NR(0.18, 0.42),
+		Drag = 7,
+		SpreadAngle = Vector2.new(180, 180),
+		Rotation = NR(0, 360),
+		RotSpeed = NR(-300, 300),
+		Brightness = 4,
+	}, 0.8)
+end
+
+local function shockRing(cf, size, color, life, direction)
+	burstAt(cf, 1, {
+		Texture = T.Shockwave,
+		Color = CS(color or P.White),
+		Size = NS(0, size * 0.1, 1, size),
+		Transparency = NS(0, 0.05, 0.6, 0.3, 1, 1),
+		Speed = NR(0.01),
+		Lifetime = NR(life or 0.4),
+		EmissionDirection = direction or Enum.NormalId.Top,
+		Orientation = Enum.ParticleOrientation.VelocityPerpendicular,
+		SpreadAngle = Vector2.new(0, 0),
+		Brightness = 5,
+	}, (life or 0.4) + 0.3)
+end
+
+local function glowPuff(pos, size, color, life)
+	burstAt(pos, 2, {
+		Texture = T.Glow,
+		Color = CS(color),
+		Size = NS(0, size * 0.4, 1, size),
+		Transparency = NS(0, 0.2, 1, 1),
+		Speed = NR(0),
+		Lifetime = NR(life or 0.3),
+		Rotation = NR(0, 360),
+		Brightness = 3,
+	}, (life or 0.3) + 0.3)
+end
+
+local function playSound(def, where, speed)
+	if not def or def.id == nil or def.id == "" then
+		return
+	end
+	local s = Instance.new("Sound")
+	s.SoundId = def.id
+	s.Volume = def.volume or 1
+	s.PlaybackSpeed = speed or 1
+	s.RollOffMaxDistance = 150
+	if typeof(where) == "Vector3" then
+		local a = anchor(CFrame.new(where))
+		s.Parent = a
+		Debris:AddItem(a, 5)
+	else
+		s.Parent = where
+		Debris:AddItem(s, 5)
+	end
+	s:Play()
+end
+FX.PlaySound = playSound
+
+local function groundBelow(pos, depth)
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	local ignore = { folder() }
+	for _, plr in Players:GetPlayers() do
+		if plr.Character then
+			table.insert(ignore, plr.Character)
+		end
+	end
+	params.FilterDescendantsInstances = ignore
+	local hit = Workspace:Raycast(pos + Vector3.new(0, 2, 0), Vector3.new(0, -(depth or 30), 0), params)
+	return hit and hit.Position or (pos - Vector3.new(0, 3, 0)), hit ~= nil
+end
+
+--------------------------------------------------------------------------------
+-- Frame loop for timed effects
+--------------------------------------------------------------------------------
+
+local active = {}
+
+-- fn(alpha 0..1, age, dt) runs every frame for `duration` seconds, then cleanup().
+local function run(duration, fn, cleanup)
+	table.insert(active, { start = os.clock(), duration = duration, fn = fn, cleanup = cleanup })
+end
+FX.Run = run
+
+local function flashLight(where, color, brightness, range, duration)
+	local holder = where
+	if typeof(where) == "Vector3" then
+		holder = anchor(CFrame.new(where))
+	end
+	local light = Instance.new("PointLight")
+	light.Color = color
+	light.Range = range
+	light.Brightness = brightness
+	light.Shadows = false
+	light.Parent = holder
+	run(duration, function(a)
+		light.Brightness = brightness * (1 - a) ^ 2
+	end, function()
+		if holder ~= where then
+			holder:Destroy()
+		else
+			light:Destroy()
+		end
+	end)
+end
+
+--------------------------------------------------------------------------------
+-- Screen: camera shake, colour flash, FOV kick, bloom
+--------------------------------------------------------------------------------
+
+local shakes = {}
+function FX.Shake(intensity, duration)
+	if not Config.CameraShake or intensity <= 0 then
+		return
+	end
+	table.insert(shakes, { i = intensity, d = duration, s = os.clock() })
+end
+
+local flashes = {}
+local cc
+function FX.Flash(tint, brightness, contrast, saturation, duration)
+	if not Config.ScreenFlash then
+		return
+	end
+	table.insert(flashes, { c = tint, b = brightness, k = contrast, s = saturation, d = duration, t0 = os.clock() })
+end
+
+local fovBase
+local fovKicks = {}
+function FX.FovKick(amount, duration)
+	table.insert(fovKicks, { a = amount, d = duration, t0 = os.clock() })
+end
+
+local function updateScreen()
+	local now = os.clock()
+	local cam = Workspace.CurrentCamera
+	if not cam then
+		return
+	end
+
+	-- colour flash
+	if #flashes > 0 or (cc and cc.Enabled) then
+		if not cc or not cc.Parent then
+			cc = Instance.new("ColorCorrectionEffect")
+			cc.Name = "RiftbrandFlash"
+			cc.Parent = Lighting
+		end
+		local b, k, s, tint, tw = 0, 0, 0, Color3.new(1, 1, 1), 0
+		for i = #flashes, 1, -1 do
+			local f = flashes[i]
+			local a = (now - f.t0) / f.d
+			if a >= 1 then
+				table.remove(flashes, i)
+			else
+				local w = (1 - a) ^ 2
+				b += f.b * w
+				k += f.k * w
+				s += f.s * w
+				if w > tw then
+					tw = w
+					tint = Color3.new(1, 1, 1):Lerp(f.c, w)
+				end
+			end
+		end
+		cc.Brightness = b
+		cc.Contrast = k
+		cc.Saturation = s
+		cc.TintColor = tint
+		cc.Enabled = #flashes > 0
+	end
+
+	-- FOV kick
+	if #fovKicks > 0 then
+		fovBase = fovBase or cam.FieldOfView
+		local add = 0
+		for i = #fovKicks, 1, -1 do
+			local f = fovKicks[i]
+			local a = (now - f.t0) / f.d
+			if a >= 1 then
+				table.remove(fovKicks, i)
+			else
+				add += f.a * math.sin(math.min(1, a * 3) * math.pi / 2) * (1 - a)
+			end
+		end
+		cam.FieldOfView = fovBase + add
+		if #fovKicks == 0 then
+			cam.FieldOfView = fovBase
+			fovBase = nil
+		end
+	end
+end
+
+local function applyShake()
+	if #shakes == 0 then
+		return
+	end
+	local now = os.clock()
+	local mag = 0
+	for i = #shakes, 1, -1 do
+		local s = shakes[i]
+		local a = (now - s.s) / s.d
+		if a >= 1 then
+			table.remove(shakes, i)
+		else
+			mag += s.i * (1 - a) ^ 2
+		end
+	end
+	if mag <= 0 then
+		return
+	end
+	local cam = Workspace.CurrentCamera
+	local n = now * 38
+	local rx = math.noise(n, 0.31) * mag * 0.04
+	local ry = math.noise(0.73, n) * mag * 0.04
+	local rz = math.noise(n, n * 0.5 + 3.1) * mag * 0.025
+	cam.CFrame = cam.CFrame * CFrame.Angles(rx, ry, rz)
+end
+
+local function distanceToCamera(pos)
+	local cam = Workspace.CurrentCamera
+	return cam and (cam.CFrame.Position - pos).Magnitude or 0
+end
+
+-- Shake scaled by how close the local player is to the blast.
+local function shakeNear(pos, intensity, duration, falloff)
+	local char = player.Character
+	local root = char and char:FindFirstChild("HumanoidRootPart")
+	if not root then
+		return
+	end
+	local d = (root.Position - pos).Magnitude
+	local k = math.clamp(1 - d / (falloff or 80), 0, 1)
+	if k > 0 then
+		FX.Shake(intensity * k, duration)
+	end
+	return k
+end
+
+--------------------------------------------------------------------------------
+-- Prism Crescent — the signature slash
+--------------------------------------------------------------------------------
+
+-- A crescent lying in `frame`'s XZ plane, centred on frame, bulging toward frame's -Z.
+-- Two curved Beams share a middle attachment: width 0 → full → 0 gives the crescent silhouette.
+local function crescent(frame, sweepDeg, color, brightness)
+	local S = rad(sweepDeg / 2)
+	local holder = anchor(frame)
+	local atts = {}
+	for i = 1, 3 do
+		local a = Instance.new("Attachment")
+		a.Parent = holder
+		atts[i] = a
+	end
+	local beams = {}
+	for i = 1, 2 do
+		local b = Instance.new("Beam")
+		b.Attachment0 = atts[i]
+		b.Attachment1 = atts[i + 1]
+		b.FaceCamera = true
+		b.Segments = 24
+		b.LightEmission = 1
+		b.LightInfluence = 0
+		b.Brightness = brightness or 4
+		b.Color = CS(color)
+		b.Parent = holder
+		beams[i] = b
+	end
+	local angles = { -S, 0, S }
+	local function layout(r, w, t)
+		local k = 4 / 3 * math.tan(S / 4) * r
+		for i, th in angles do
+			local pos = Vector3.new(r * math.sin(th), 0, -r * math.cos(th))
+			local tangent = Vector3.new(math.cos(th), 0, math.sin(th))
+			atts[i].CFrame = CFrame.fromMatrix(pos, tangent, Vector3.yAxis)
+		end
+		local b1, b2 = beams[1], beams[2]
+		b1.CurveSize0, b1.CurveSize1 = k, k
+		b2.CurveSize0, b2.CurveSize1 = k, k
+		b1.Width0, b1.Width1 = w * 0.04, w
+		b2.Width0, b2.Width1 = w, w * 0.04
+		local edge = math.min(1, t + 0.55)
+		b1.Transparency = NS(0, edge, 1, t)
+		b2.Transparency = NS(0, t, 1, edge)
+	end
+	return holder, layout
+end
+
+local LAYERS = {
+	{ color = P.Ultra, r = 1.15, w = 0.7, delay = 0.045, t = 0.35, life = 0.38 },
+	{ color = P.Rift, r = 1.07, w = 0.95, delay = 0.03, t = 0.1, life = 0.33 },
+	{ color = P.Prism, r = 0.93, w = 0.85, delay = 0.015, t = 0.1, life = 0.31 },
+	{ color = P.Solar, r = 1.0, w = 1.0, delay = 0, t = 0.05, life = 0.27 },
+	{ color = P.White, r = 1.0, w = 0.3, delay = 0, t = 0, life = 0.2, bright = 8 },
+}
+
+function FX.PrismSlash(frame, radius, sweep, width, spin)
+	spin = spin or 25
+	for _, L in LAYERS do
+		task.delay(L.delay, function()
+			local holder, layout = crescent(frame, sweep, L.color, L.bright or 4)
+			layout(radius * L.r * 0.85, 0, 1)
+			run(L.life, function(a)
+				local grow = easeOut(math.min(1, a / 0.28))
+				local r = radius * L.r * (0.85 + 0.22 * a)
+				local w = width * L.w * grow * (1 - 0.6 * a * a)
+				local tr = L.t + (1 - L.t) * a ^ 1.6
+				holder.CFrame = frame * CFrame.Angles(0, rad(-spin * a), 0)
+				layout(r, w, tr)
+			end, function()
+				holder:Destroy()
+			end)
+		end)
+	end
+	local half = rad(sweep / 2)
+	for i = -2, 2 do
+		local th = half * i / 2
+		local p = frame * Vector3.new(radius * math.sin(th), 0, -radius * math.cos(th))
+		burstAt(p, 4, {
+			Color = CS(CYCLE[(i + 2) % 4 + 1], P.White),
+			Size = NS(0, 0.35, 1, 0),
+			Speed = NR(5, 14),
+			Lifetime = NR(0.2, 0.45),
+			Drag = 4,
+			SpreadAngle = Vector2.new(180, 180),
+			Brightness = 3,
+		}, 0.8)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Hits
+--------------------------------------------------------------------------------
+
+local function starFlare(pos, size, color, life)
+	local a = part({ Size = Vector3.new(0.12, 1, 0.12), Color = color, CFrame = CFrame.new(pos) })
+	local b = part({ Size = Vector3.new(1, 0.12, 0.12), Color = color, CFrame = CFrame.new(pos) })
+	local spin = math.random() * TAU
+	run(life, function(t)
+		local cam = Workspace.CurrentCamera
+		local s = size * math.sin(math.min(1, t * 1.6) * math.pi) + 0.01
+		local cf = CFrame.lookAt(pos, cam.CFrame.Position) * CFrame.Angles(0, 0, spin + t * 2)
+		a.Size = Vector3.new(0.14 * (1 - t) + 0.02, s, 0.05)
+		b.Size = Vector3.new(s * 0.75, 0.14 * (1 - t) + 0.02, 0.05)
+		a.CFrame, b.CFrame = cf, cf
+	end, function()
+		a:Destroy()
+		b:Destroy()
+	end)
+end
+
+local function flashBall(pos, size, color, life, material)
+	local ball = part({
+		Shape = Enum.PartType.Ball,
+		Size = Vector3.one * 0.5,
+		Color = color,
+		Material = material or Enum.Material.Neon,
+		CFrame = CFrame.new(pos),
+	})
+	run(life, function(a)
+		local s = 0.5 + size * easeOut(a)
+		ball.Size = Vector3.one * s
+		ball.CFrame = CFrame.new(pos)
+		ball.Transparency = a ^ 0.7
+	end, function()
+		ball:Destroy()
+	end)
+	return ball
+end
+
+function FX.DamageNumber(pos, amount, color)
+	if not Config.DamageNumbers then
+		return
+	end
+	local a = anchor(CFrame.new(pos + Vector3.new(math.random() * 2 - 1, 1.5, math.random() * 2 - 1)))
+	local gui = Instance.new("BillboardGui")
+	gui.AlwaysOnTop = true
+	gui.Size = UDim2.fromScale(4, 2)
+	gui.LightInfluence = 0
+	gui.Parent = a
+	local label = Instance.new("TextLabel")
+	label.BackgroundTransparency = 1
+	label.Size = UDim2.fromScale(1, 1)
+	label.AnchorPoint = Vector2.new(0.5, 0.5)
+	label.Position = UDim2.fromScale(0.5, 0.5)
+	label.Font = Enum.Font.GothamBlack
+	label.TextScaled = true
+	label.Text = tostring(math.floor(amount + 0.5))
+	label.TextColor3 = color or P.Solar
+	label.Parent = gui
+	local stroke = Instance.new("UIStroke")
+	stroke.Thickness = 2.5
+	stroke.Color = P.Void
+	stroke.Parent = label
+	local start = a.Position
+	run(0.75, function(t)
+		local pop = t < 0.15 and easeOutBack(t / 0.15) or 1
+		label.Size = UDim2.fromScale(pop, pop)
+		a.Position = start + Vector3.new(0, 2.5 * easeOut(t), 0)
+		local fade = math.clamp((t - 0.6) / 0.4, 0, 1)
+		label.TextTransparency = fade
+		stroke.Transparency = fade
+	end, function()
+		a:Destroy()
+	end)
+end
+
+-- pos: where the victim was struck. mine: the local player dealt it.
+function FX.Hit(pos, moveName, mine, damage)
+	if typeof(pos) ~= "Vector3" or distanceToCamera(pos) > Config.MaxVFXDistance then
+		return
+	end
+	local big = moveName == "Slash3" or moveName == "RiftTear" or moveName == "PrismNova"
+	local color = CYCLE[math.random(1, 3)]
+	flashBall(pos, big and 6 or 3.5, P.White, 0.14)
+	starFlare(pos, big and 9 or 6, P.Solar, 0.2)
+	sparks(pos, big and 34 or 18, P.White, color, big and 60 or 42)
+	glowPuff(pos, big and 9 or 6, color, 0.25)
+	flashLight(pos, color, big and 10 or 6, big and 18 or 12, 0.22)
+	if mine then
+		local char = player.Character
+		if char then
+			Anim.HitStop(char, big and 0.08 or 0.05)
+		end
+		FX.Shake(big and 0.9 or 0.45, big and 0.28 or 0.16)
+		FX.DamageNumber(pos, damage or 0, big and P.Rift or P.Solar)
+	end
+end
+
+-- Knockback on the local character (the server can't move client-owned characters directly).
+function FX.Knock(velocity)
+	local char = player.Character
+	local root = char and char:FindFirstChild("HumanoidRootPart")
+	local hum = char and char:FindFirstChildOfClass("Humanoid")
+	if not root or not hum or typeof(velocity) ~= "Vector3" then
+		return
+	end
+	if velocity.Y > 5 then
+		hum:ChangeState(Enum.HumanoidStateType.Freefall)
+	end
+	root.AssemblyLinearVelocity = velocity
+end
+
+--------------------------------------------------------------------------------
+-- Equipped swords: idle glow, orbiting shards, trails, hold stance
+--------------------------------------------------------------------------------
+
+local swords = {}
+
+local function swordState(tool)
+	local st = swords[tool]
+	if st then
+		return st
+	end
+	local handle = tool:FindFirstChild("Handle")
+	if not handle then
+		return nil
+	end
+	st = {
+		tool = tool,
+		handle = handle,
+		tip = handle:FindFirstChild("TipFX"),
+		light = handle:FindFirstChild("CoreLight", true),
+		burst = handle:FindFirstChild("TipBurst", true),
+		trails = {},
+		trailUntil = 0,
+		chargeUntil = 0,
+		shards = {},
+		equippedBy = nil,
+	}
+	for _, c in handle:GetChildren() do
+		if c:IsA("Trail") then
+			table.insert(st.trails, c)
+		end
+	end
+	swords[tool] = st
+	return st
+end
+
+local function findSword(character)
+	if not character then
+		return nil
+	end
+	for _, c in character:GetChildren() do
+		if c:IsA("Tool") and c:GetAttribute(Config.Attribute) then
+			return swordState(c)
+		end
+	end
+	return nil
+end
+FX.FindSword = findSword
+
+local function clearShards(st)
+	for _, s in st.shards do
+		s:Destroy()
+	end
+	table.clear(st.shards)
+end
+
+local function equipFlourish(st)
+	if st.burst then
+		st.burst:Emit(26)
+	end
+	if st.tip then
+		flashLight(st.tip.WorldPosition, P.Rift, 6, 14, 0.4)
+		glowPuff(st.tip.WorldPosition, 6, P.Prism, 0.35)
+	end
+	playSound(Config.Sounds.Equip, st.handle, 1.05)
+end
+
+local function setEquipped(st, character)
+	if st.equippedBy == character then
+		return
+	end
+	if st.equippedBy then
+		Anim.SetHold(st.equippedBy, false)
+	end
+	clearShards(st)
+	st.equippedBy = character
+	if character then
+		Anim.SetHold(character, true)
+		for i = 1, 3 do
+			st.shards[i] = part({
+				Size = Vector3.new(0.16, 0.34, 0.16),
+				Color = CYCLE[i],
+			})
+		end
+		equipFlourish(st)
+	end
+end
+
+local function updateSwords(now)
+	for tool, st in swords do
+		local parent = tool.Parent
+		local char = parent and parent:IsA("Model") and parent:FindFirstChildOfClass("Humanoid") and parent or nil
+		if not parent or not st.handle.Parent then
+			setEquipped(st, nil)
+			for _, tr in st.trails do
+				tr.Enabled = false
+			end
+			swords[tool] = nil
+			continue
+		end
+		setEquipped(st, char)
+
+		local trailsOn = now < st.trailUntil
+		for _, tr in st.trails do
+			if tr.Enabled ~= trailsOn then
+				tr.Enabled = trailsOn
+			end
+		end
+
+		if char then
+			local charge = now < st.chargeUntil and 1 or 0
+			if st.light then
+				st.light.Brightness = 1.6 + 0.5 * math.sin(now * 3) + charge * 5
+				st.light.Range = 8 + charge * 8
+			end
+			if st.tip and #st.shards > 0 then
+				local tip = st.tip.WorldCFrame
+				local hcf = st.handle.CFrame
+				local spd = 3.2 + charge * 9
+				local rr = 0.6 + charge * 0.5
+				for i, s in st.shards do
+					local ang = now * spd + i * TAU / 3
+					local offset = (hcf.RightVector * math.cos(ang) + hcf.LookVector * math.sin(ang)) * rr
+					local bob = hcf.UpVector * (math.sin(now * 2 + i) * 0.18)
+					s.CFrame = CFrame.new(tip.Position + offset + bob) * CFrame.Angles(now * 4 + i, now * 3, i)
+				end
+			end
+		end
+	end
+end
+
+local function scanSwords()
+	for _, plr in Players:GetPlayers() do
+		local char = plr.Character
+		if char then
+			for _, c in char:GetChildren() do
+				if c:IsA("Tool") and c:GetAttribute(Config.Attribute) then
+					swordState(c)
+				end
+			end
+		end
+	end
+end
+
+function FX.Trails(character, duration)
+	local st = findSword(character)
+	if st then
+		st.trailUntil = math.max(st.trailUntil, os.clock() + duration)
+	end
+end
+
+function FX.Charge(character, duration)
+	local st = findSword(character)
+	if st then
+		st.chargeUntil = math.max(st.chargeUntil, os.clock() + duration)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Afterimages
+--------------------------------------------------------------------------------
+
+local function afterimage(character, color, life)
+	local model = Instance.new("Folder")
+	model.Name = "Afterimage"
+	local parts = {}
+	for _, d in character:GetDescendants() do
+		if d:IsA("BasePart") and d.Name ~= "HumanoidRootPart" and d.Transparency < 0.95 then
+			local wasArchivable = d.Archivable
+			d.Archivable = true
+			local ok, c = pcall(d.Clone, d)
+			d.Archivable = wasArchivable
+			if ok and c then
+				for _, ch in c:GetChildren() do
+					if ch:IsA("SpecialMesh") then
+						ch.TextureId = ""
+					else
+						ch:Destroy()
+					end
+				end
+				if c:IsA("MeshPart") then
+					pcall(function()
+						c.TextureID = ""
+					end)
+				end
+				c.Anchored = true
+				c.CanCollide = false
+				c.CanQuery = false
+				c.CanTouch = false
+				c.CastShadow = false
+				c.Massless = true
+				c.Material = Enum.Material.Neon
+				c.Color = color
+				c.Transparency = 0.35
+				c.CFrame = d.CFrame
+				c.Parent = model
+				table.insert(parts, c)
+			end
+		end
+	end
+	model.Parent = folder()
+	run(life, function(a)
+		local t = 0.35 + 0.65 * a
+		for _, c in parts do
+			c.Transparency = t
+		end
+	end, function()
+		model:Destroy()
+	end)
+end
+
+local function streak(from, to, width, colorA, colorB, life)
+	local a0 = anchor(CFrame.new(from))
+	local a1 = anchor(CFrame.new(to))
+	local att0 = Instance.new("Attachment")
+	att0.Parent = a0
+	local att1 = Instance.new("Attachment")
+	att1.Parent = a1
+	local b = Instance.new("Beam")
+	b.Attachment0 = att0
+	b.Attachment1 = att1
+	b.FaceCamera = true
+	b.LightEmission = 1
+	b.LightInfluence = 0
+	b.Brightness = 5
+	b.Color = CS(colorA, P.White, colorB)
+	b.Texture = T.Sparkle
+	b.TextureMode = Enum.TextureMode.Wrap
+	b.TextureLength = 3
+	b.TextureSpeed = 4
+	b.Parent = a0
+	run(life, function(a)
+		local w = width * (1 - easeOut(a))
+		b.Width0 = w * 0.3
+		b.Width1 = w
+		b.Transparency = NS(0, 0.5 + 0.5 * a, 1, a)
+	end, function()
+		a0:Destroy()
+		a1:Destroy()
+	end)
+end
+
+--------------------------------------------------------------------------------
+-- Rift Tear
+--------------------------------------------------------------------------------
+
+local function meshPart(cf, color, material, transparency)
+	local p = part({
+		Size = Vector3.one,
+		Color = color,
+		Material = material,
+		Transparency = transparency or 0,
+		CFrame = cf,
+	})
+	local m = Instance.new("SpecialMesh")
+	m.MeshType = Enum.MeshType.Sphere
+	m.Scale = Vector3.new(0.01, 0.01, 0.01)
+	m.Parent = p
+	return p, m
+end
+
+function FX.RiftTear(cf, openTime, radius)
+	if distanceToCamera(cf.Position) > Config.MaxVFXDistance then
+		return
+	end
+	local HEIGHT = 12
+	local WIDTH = 3.2
+
+	local core, coreMesh = meshPart(cf, Color3.new(0, 0, 0), Enum.Material.Neon)
+	local rim, rimMesh = meshPart(cf, P.Rift, Enum.Material.ForceField)
+	local halo, haloMesh = meshPart(cf, P.Ultra, Enum.Material.Neon, 0.6)
+
+	-- The two glowing lips of the tear
+	local lipHolder = anchor(cf)
+	local top = Instance.new("Attachment")
+	top.Parent = lipHolder
+	local bottom = Instance.new("Attachment")
+	bottom.Parent = lipHolder
+	local lips = {}
+	for i, color in { P.Rift, P.Prism } do
+		local b = Instance.new("Beam")
+		b.Attachment0 = top
+		b.Attachment1 = bottom
+		b.FaceCamera = true
+		b.Segments = 30
+		b.LightEmission = 1
+		b.LightInfluence = 0
+		b.Brightness = 6
+		b.Color = CS(P.White, color, P.White)
+		b.Width0 = 0.1
+		b.Width1 = 0.1
+		b.Parent = lipHolder
+		lips[i] = b
+	end
+
+	-- Sparks pouring inward from a sphere around it
+	local well = part({ Shape = Enum.PartType.Ball, Size = Vector3.one * (radius * 1.1), Transparency = 1, CFrame = cf })
+	local inflow = emitter(well, {
+		Shape = Enum.ParticleEmitterShape.Sphere,
+		ShapeStyle = Enum.ParticleEmitterShapeStyle.Surface,
+		ShapeInOut = Enum.ParticleEmitterShapeInOut.Inward,
+		Color = CS(P.Prism, P.Rift, P.White),
+		Size = NS(0, 0.1, 0.3, 0.45, 1, 0),
+		Transparency = NS(0, 1, 0.2, 0, 1, 0.2),
+		Speed = NR(radius * 1.5, radius * 2),
+		Lifetime = NR(0.26, 0.3),
+		Rate = 220,
+		Rotation = NR(0, 360),
+		Brightness = 3,
+	})
+	inflow.Enabled = true
+
+	-- Gravity streams: curved beams whose texture flows into the tear
+	local streams = {}
+	local centerAtt = Instance.new("Attachment")
+	centerAtt.Parent = lipHolder
+	for i = 1, 10 do
+		local dir = Vector3.new(math.random() - 0.5, (math.random() - 0.5) * 0.9, math.random() - 0.5)
+		if dir.Magnitude < 0.05 then
+			dir = Vector3.xAxis
+		end
+		local outer = anchor(CFrame.new(cf.Position + dir.Unit * (radius * 0.7 + math.random() * radius * 0.35)))
+		local oa = Instance.new("Attachment")
+		oa.Parent = outer
+		local b = Instance.new("Beam")
+		b.Attachment0 = oa
+		b.Attachment1 = centerAtt
+		b.FaceCamera = true
+		b.Segments = 16
+		b.CurveSize0 = (math.random() - 0.5) * 8
+		b.LightEmission = 1
+		b.LightInfluence = 0
+		b.Brightness = 3
+		b.Texture = T.Sparkle
+		b.TextureMode = Enum.TextureMode.Wrap
+		b.TextureLength = 2
+		b.TextureSpeed = 3.5
+		b.Color = CS(CYCLE[i % 4 + 1])
+		b.Width0 = 0
+		b.Width1 = 0
+		b.Parent = outer
+		streams[i] = { beam = b, holder = outer }
+	end
+
+	local light = Instance.new("PointLight")
+	light.Color = P.Rift
+	light.Range = radius * 1.4
+	light.Brightness = 0
+	light.Shadows = false
+	light.Parent = core
+
+	local near = shakeNear(cf.Position, 0.2, openTime, 60)
+	if near and near > 0 then
+		FX.Flash(P.Rift, -0.05, 0.15, 0.35 * near, openTime)
+	end
+
+	local function setOpen(w, h, lipW, jitter)
+		coreMesh.Scale = Vector3.new(w, h, 0.25)
+		rimMesh.Scale = Vector3.new(w + 0.8 + jitter, h + 1.4, 0.45)
+		haloMesh.Scale = Vector3.new(w * 1.6 + 2, h + 3.2, 0.12)
+		top.Position = Vector3.new(0, h / 2, 0)
+		bottom.Position = Vector3.new(0, -h / 2, 0)
+		local c = (w / 2 + 0.1) * 1.33
+		lips[1].CurveSize0, lips[1].CurveSize1 = c, -c
+		lips[2].CurveSize0, lips[2].CurveSize1 = -c, c
+		for _, b in lips do
+			b.Width0 = lipW
+			b.Width1 = lipW
+		end
+	end
+
+	-- Open, breathe, collapse
+	run(openTime, function(a, age)
+		local open = easeOutBack(math.min(1, age / 0.12))
+		local h = 1 + (HEIGHT - 1) * math.min(1, open)
+		local jitter = math.sin(age * 55) * 0.12 + math.sin(age * 31) * 0.08
+		local w = math.max(0.02, WIDTH * open + jitter)
+		if a > 0.88 then
+			local c = (a - 0.88) / 0.12
+			w = w * (1 - c) ^ 2
+			h = h * (1 - 0.35 * c)
+		end
+		setOpen(w, h, 0.35 + 0.15 * math.sin(age * 20), jitter)
+		light.Brightness = 3 + 6 * a
+		local sw = math.min(1, age / 0.15)
+		for _, s in streams do
+			s.beam.Width0 = 0.9 * sw
+			s.beam.Width1 = 0.05
+			s.beam.Transparency = NS(0, 1, 0.3, 0.2, 1, 0)
+		end
+	end, function()
+		inflow.Enabled = false
+		for _, s in streams do
+			s.holder:Destroy()
+		end
+		core:Destroy()
+		rim:Destroy()
+		halo:Destroy()
+		lipHolder:Destroy()
+		Debris:AddItem(well, 0.5)
+		FX.RiftDetonate(cf, radius)
+	end)
+end
+
+function FX.RiftDetonate(cf, radius)
+	local pos = cf.Position
+	flashBall(pos, radius * 1.3, P.White, 0.22)
+	local dome = flashBall(pos, radius * 2.3, P.Rift, 0.45, Enum.Material.ForceField)
+	dome.Transparency = 0
+	shockRing(cf, radius * 3.2, P.Prism, 0.45, Enum.NormalId.Front)
+	local ground, onGround = groundBelow(pos, 25)
+	if onGround then
+		shockRing(CFrame.new(ground + Vector3.new(0, 0.2, 0)), radius * 3, P.Rift, 0.5)
+	end
+	sparks(pos, 120, P.White, P.Rift, 95, 0.7)
+	sparks(pos, 60, P.Solar, P.Prism, 60, 0.5)
+	glowPuff(pos, radius * 2.2, P.Ultra, 0.4)
+	starFlare(pos, radius * 1.8, P.White, 0.3)
+	flashLight(pos, P.Rift, 16, radius * 3, 0.5)
+	playSound(Config.Sounds.Detonate, pos, 1)
+	local k = shakeNear(pos, 1.3, 0.5, 90)
+	if k and k > 0 then
+		FX.Flash(Color3.fromRGB(255, 220, 255), 0.35 * k, 0.3 * k, 0.2 * k, 0.35)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Prism Nova impact
+--------------------------------------------------------------------------------
+
+function FX.NovaImpact(center, radius, count)
+	local ground = groundBelow(center, 40)
+	local base = ground + Vector3.new(0, 0.1, 0)
+
+	-- light pillar
+	local pillar = part({
+		Shape = Enum.PartType.Cylinder,
+		Size = Vector3.new(60, 8, 8),
+		Color = P.White,
+		CFrame = CFrame.new(base + Vector3.new(0, 30, 0)) * CFrame.Angles(0, 0, math.pi / 2),
+	})
+	run(0.35, function(a)
+		local w = 8 * (1 - easeOut(a)) + 0.05
+		pillar.Size = Vector3.new(60, w, w)
+		pillar.Transparency = a ^ 0.8
+	end, function()
+		pillar:Destroy()
+	end)
+
+	flashBall(base, radius * 1.1, P.White, 0.2)
+	local dome = flashBall(base, radius * 2.2, P.Ultra, 0.5, Enum.Material.ForceField)
+	dome.Transparency = 0
+	shockRing(CFrame.new(base + Vector3.new(0, 0.3, 0)), radius * 3.4, P.Solar, 0.5)
+	shockRing(CFrame.new(base + Vector3.new(0, 0.5, 0)), radius * 2.2, P.Prism, 0.35)
+	sparks(base + Vector3.new(0, 1, 0), 140, P.White, P.Prism, 100, 0.8)
+	sparks(base + Vector3.new(0, 1, 0), 70, P.Solar, P.Rift, 70, 0.6)
+	glowPuff(base + Vector3.new(0, 2, 0), radius * 2.4, P.Rift, 0.45)
+	flashLight(base + Vector3.new(0, 3, 0), P.Prism, 18, radius * 3, 0.6)
+	playSound(Config.Sounds.Slam, base, 1)
+	local k = shakeNear(base, 1.6, 0.6, 110)
+	if k and k > 0 then
+		FX.Flash(Color3.fromRGB(220, 250, 255), 0.4 * k, 0.35 * k, 0.3 * k, 0.4)
+	end
+
+	-- neon cracks racing across the floor
+	for i = 1, count * 2 do
+		local ang = (i / (count * 2)) * TAU + math.random() * 0.25
+		local dir = Vector3.new(math.cos(ang), 0, math.sin(ang))
+		local len = radius * (0.55 + math.random() * 0.45)
+		local crack = part({ Size = Vector3.new(0.3, 0.08, 0.1), Color = CYCLE[i % 4 + 1] })
+		run(1.1, function(a)
+			local grow = easeOut(math.min(1, a / 0.14))
+			local l = len * grow
+			crack.Size = Vector3.new(0.3 * (1 - a * 0.5), 0.08, math.max(0.05, l))
+			crack.CFrame = CFrame.lookAt(base + dir * (l / 2 + 0.6), base + dir * (l + 1))
+			crack.Transparency = math.clamp((a - 0.6) / 0.4, 0, 1)
+		end, function()
+			crack:Destroy()
+		end)
+	end
+
+	-- crystal shards burst out and stab into the ground
+	for i = 1, count do
+		local ang = (i / count) * TAU
+		local dir = Vector3.new(math.cos(ang), 0, math.sin(ang))
+		local dist = radius * (0.45 + (i % 2) * 0.15)
+		local color = CYCLE[i % 4 + 1]
+		local shard = part({ Size = Vector3.new(0.9, 5.5, 0.9), Color = color })
+		local core = part({ Size = Vector3.new(0.4, 5.9, 0.4), Color = P.White })
+		local tiltAxis = dir:Cross(Vector3.yAxis)
+		local rest = CFrame.new(base + dir * dist + Vector3.new(0, 1.6, 0))
+			* CFrame.fromAxisAngle(tiltAxis, -rad(32))
+			* CFrame.Angles(0, rad(45), 0)
+		local from = CFrame.new(base + Vector3.new(0, 2, 0)) * CFrame.Angles(0, rad(45), 0)
+		run(1.35, function(a, age)
+			local fly = easeOutBack(math.min(1, age / 0.14))
+			local cf = from:Lerp(rest, fly)
+			local shrink = math.clamp((age - 1.05) / 0.3, 0, 1)
+			local s = 1 - shrink
+			shard.Size = Vector3.new(0.9 * s + 0.01, 5.5 * (0.6 + 0.4 * math.min(1, fly)) * s + 0.01, 0.9 * s + 0.01)
+			core.Size = Vector3.new(0.4 * s + 0.01, 5.9 * (0.6 + 0.4 * math.min(1, fly)) * s + 0.01, 0.4 * s + 0.01)
+			shard.CFrame, core.CFrame = cf, cf
+			shard.Transparency = 0.15 + 0.2 * math.sin(age * 18) ^ 2
+			core.Transparency = 0.3
+		end, function()
+			sparks(shard.Position, 10, color, P.White, 25, 0.35)
+			shard:Destroy()
+			core:Destroy()
+		end)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Move choreography (identical on every client)
+--------------------------------------------------------------------------------
+
+local MOVE_FX = {}
+
+local function slashFX(style)
+	return function(character, root, M)
+		FX.Trails(character, M.duration)
+		playSound(Config.Sounds.Swing, root, 0.92 + math.random() * 0.22 + (style == 3 and -0.12 or 0))
+		task.delay(M.hitTime * 0.7, function()
+			if not root.Parent then
+				return
+			end
+			local cf = root.CFrame
+			if style == 1 then
+				FX.PrismSlash(cf * CFrame.new(0, 0.8, -0.6) * CFrame.Angles(0, 0, rad(40)), 6.5, 150, 1.9, 25)
+			elseif style == 2 then
+				FX.PrismSlash(cf * CFrame.new(0, 0.7, -0.6) * CFrame.Angles(0, 0, rad(-35)), 6.5, 150, 1.9, -25)
+			else
+				for i = 0, 2 do
+					FX.PrismSlash(cf * CFrame.new(0, 0.1, 0) * CFrame.Angles(0, i * TAU / 3, 0), 7.5, 125, 2.4, 40)
+				end
+				local ground, hit = groundBelow(root.Position, 8)
+				if hit then
+					shockRing(CFrame.new(ground + Vector3.new(0, 0.2, 0)), 22, P.Prism, 0.35)
+				end
+				flashLight(root.Position, P.Prism, 6, 16, 0.3)
+			end
+		end)
+	end
+end
+MOVE_FX.Slash1 = slashFX(1)
+MOVE_FX.Slash2 = slashFX(2)
+MOVE_FX.Slash3 = slashFX(3)
+
+function MOVE_FX.PhaseStep(character, root, M, _extra, isLocal)
+	local from = root.Position
+	playSound(Config.Sounds.Lunge, root, 1.15)
+	glowPuff(from, 7, P.Prism, 0.3)
+	local ground, hit = groundBelow(from, 8)
+	if hit then
+		shockRing(CFrame.new(ground + Vector3.new(0, 0.2, 0)), 12, P.Prism, 0.3)
+	end
+	FX.Trails(character, M.duration)
+	if isLocal then
+		FX.FovKick(12, 0.4)
+	end
+	local count = M.afterimages
+	local made = 0
+	run(M.dashTime, function(a)
+		local want = math.floor(a * count + 0.001)
+		while made < want and character.Parent do
+			made += 1
+			afterimage(character, CYCLE[(made - 1) % 4 + 1], 0.32 + made * 0.03)
+		end
+	end, function()
+		if root.Parent then
+			streak(from + Vector3.new(0, 0.5, 0), root.Position + Vector3.new(0, 0.5, 0), 3.5, P.Rift, P.Prism, 0.3)
+			glowPuff(root.Position, 5, P.Rift, 0.25)
+		end
+	end)
+end
+
+function MOVE_FX.RiftTear(character, root, M, extra)
+	local cf = typeof(extra.cf) == "CFrame" and extra.cf or root.CFrame * CFrame.new(0, 1.5, -M.distance)
+	FX.Charge(character, M.cleaveTime)
+	FX.Trails(character, 0.5)
+	local st = findSword(character)
+	if st and st.tip then
+		local tipPos = st.tip.WorldPosition
+		burstAt(tipPos, 30, {
+			Shape = Enum.ParticleEmitterShape.Sphere,
+			ShapeStyle = Enum.ParticleEmitterShapeStyle.Surface,
+			ShapeInOut = Enum.ParticleEmitterShapeInOut.Inward,
+			Color = CS(P.Rift, P.White),
+			Size = NS(0, 0.4, 1, 0),
+			Speed = NR(10, 14),
+			Lifetime = NR(0.2, 0.25),
+			Brightness = 3,
+		}, 0.6)
+	end
+	task.delay(M.cleaveTime * 0.8, function()
+		if not root.Parent then
+			return
+		end
+		playSound(Config.Sounds.Swing, root, 0.75)
+		FX.PrismSlash(root.CFrame * CFrame.new(0, 1, -1) * CFrame.Angles(0, 0, rad(90)), 7, 160, 2.6, 30)
+	end)
+	task.delay(M.cleaveTime, function()
+		FX.RiftTear(cf, M.detonateTime - M.cleaveTime, M.radius)
+	end)
+end
+
+function MOVE_FX.PrismNova(character, root, M)
+	FX.Trails(character, M.duration)
+	FX.Charge(character, M.slamTime)
+	burstAt(root.Position, 50, {
+		Shape = Enum.ParticleEmitterShape.Sphere,
+		ShapeStyle = Enum.ParticleEmitterShapeStyle.Surface,
+		ShapeInOut = Enum.ParticleEmitterShapeInOut.Inward,
+		Color = CS(P.Prism, P.Rift, P.Solar),
+		Size = NS(0, 0.5, 1, 0),
+		Speed = NR(24, 30),
+		Lifetime = NR(0.12, 0.16),
+		Brightness = 3,
+	}, 0.5)
+
+	task.delay(M.leapTime, function()
+		if not root.Parent then
+			return
+		end
+		playSound(Config.Sounds.Lunge, root, 0.85)
+		local ground, hit = groundBelow(root.Position, 8)
+		if hit then
+			shockRing(CFrame.new(ground + Vector3.new(0, 0.2, 0)), 16, P.Rift, 0.35)
+		end
+		streak(root.Position - Vector3.new(0, 3, 0), root.Position + Vector3.new(0, 10, 0), 2.5, P.Rift, P.Solar, 0.35)
+		-- spiral of prism sparks while airborne
+		local att = Instance.new("Attachment")
+		att.Parent = root
+		local spiral = emitter(att, {
+			Color = CS(P.Rift, P.Prism, P.Solar),
+			Size = NS(0, 0.5, 1, 0),
+			Speed = NR(6, 10),
+			Lifetime = NR(0.25, 0.4),
+			SpreadAngle = Vector2.new(180, 180),
+			Rate = 140,
+			Brightness = 3,
+		})
+		spiral.Enabled = true
+		task.delay(M.diveTime - M.leapTime, function()
+			spiral.Enabled = false
+			Debris:AddItem(att, 0.5)
+		end)
+	end)
+
+	task.delay(M.diveTime, function()
+		if not root.Parent then
+			return
+		end
+		playSound(Config.Sounds.Swing, root, 0.7)
+		FX.PrismSlash(root.CFrame * CFrame.new(0, 0, -1) * CFrame.Angles(0, 0, rad(90)), 8, 170, 3, 40)
+	end)
+
+	task.delay(M.slamTime, function()
+		if not root.Parent then
+			return
+		end
+		FX.NovaImpact(root.Position, M.radius, M.shards)
+	end)
+end
+
+--------------------------------------------------------------------------------
+-- Public entry points
+--------------------------------------------------------------------------------
+
+-- Plays a move's animation and VFX on any character. Called directly by the wielder (instant)
+-- and via the server broadcast on every other client.
+function FX.PlayMove(character, moveName, extra)
+	if typeof(character) ~= "Instance" or not character.Parent then
+		return
+	end
+	local root = character:FindFirstChild("HumanoidRootPart")
+	local M = Config.Moves[moveName]
+	if not root or not M then
+		return
+	end
+	local isLocal = character == player.Character
+	if not isLocal and distanceToCamera(root.Position) > Config.MaxVFXDistance then
+		return
+	end
+	FX.Init()
+	scanSwords()
+	Anim.Play(character, moveName)
+	local handler = MOVE_FX[moveName]
+	if handler then
+		handler(character, root, M, type(extra) == "table" and extra or {}, isLocal)
+	end
+end
+
+local started = false
+function FX.Init()
+	if started then
+		return
+	end
+	started = true
+
+	if Config.AddBloom and not Lighting:FindFirstChildOfClass("BloomEffect") then
+		local bloom = Instance.new("BloomEffect")
+		bloom.Name = "RiftbrandBloom"
+		bloom.Intensity = 0.7
+		bloom.Size = 26
+		bloom.Threshold = 0.95
+		bloom.Parent = Lighting
+	end
+
+	RunService.RenderStepped:Connect(function(dt)
+		local now = os.clock()
+		for i = #active, 1, -1 do
+			local e = active[i]
+			local age = now - e.start
+			local a = math.clamp(age / e.duration, 0, 1)
+			local ok, err = pcall(e.fn, a, age, dt)
+			if a >= 1 or not ok then
+				table.remove(active, i)
+				if e.cleanup then
+					local ok2, err2 = pcall(e.cleanup)
+					if not ok2 then
+						warn("[Riftbrand] cleanup:", err2)
+					end
+				end
+				if not ok then
+					warn("[Riftbrand] effect:", err)
+				end
+			end
+		end
+		updateSwords(now)
+		updateScreen()
+	end)
+
+	RunService:BindToRenderStep("RiftbrandShake", Enum.RenderPriority.Camera.Value + 1, applyShake)
+
+	task.spawn(function()
+		while true do
+			scanSwords()
+			task.wait(0.3)
+		end
+	end)
+end
+
+return FX
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="Script" referent="70">
+      <Properties>
+        <string name="Name">RiftInstaller</string>
+        <bool name="Disabled">false</bool>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftInstaller (Script inside the Tool)
+	Makes the Tool a true drop-in: the first copy that runs publishes the shared modules and
+	RemoteEvent to ReplicatedStorage and starts RiftbrandServer in ServerScriptService.
+	Every later copy sees they're already there and does nothing.
+]]
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ServerScriptService = game:GetService("ServerScriptService")
+
+local tool = script.Parent
+
+if not ReplicatedStorage:FindFirstChild("RiftbrandShared") then
+	local shared = Instance.new("Folder")
+	shared.Name = "RiftbrandShared"
+	for _, name in { "Config", "RiftAnim", "RiftFX", "RiftFXListener" } do
+		tool:WaitForChild(name):Clone().Parent = shared
+	end
+	local remote = Instance.new("RemoteEvent")
+	remote.Name = "RiftRemote"
+	remote.Parent = shared
+	shared.Parent = ReplicatedStorage
+end
+
+if not ServerScriptService:FindFirstChild("RiftbrandServer") then
+	local server = tool:WaitForChild("RiftbrandServer"):Clone()
+	server.Parent = ServerScriptService
+	server.Disabled = false
+end
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="Script" referent="71">
+      <Properties>
+        <string name="Name">RiftbrandServer</string>
+        <bool name="Disabled">true</bool>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftbrandServer (runs from ServerScriptService; the Tool's installer puts it there)
+	Validates every move (equipped, alive, cooldowns, rate limits), resolves hitboxes, deals damage,
+	applies knockback and rebroadcasts the move so every other client renders it.
+]]
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
+
+local shared = ReplicatedStorage:WaitForChild("RiftbrandShared")
+local Config = require(shared:WaitForChild("Config"))
+local remote = shared:WaitForChild("RiftRemote")
+local listenerTemplate = shared:WaitForChild("RiftFXListener")
+
+--------------------------------------------------------------------------------
+-- Give every player the FX listener (so they see everyone's sword, not just their own)
+--------------------------------------------------------------------------------
+
+local function installListener(plr)
+	local gui = plr:WaitForChild("PlayerGui", 60)
+	if not gui or gui:FindFirstChild("RiftbrandFX") then
+		return
+	end
+	local holder = Instance.new("ScreenGui")
+	holder.Name = "RiftbrandFX"
+	holder.ResetOnSpawn = false
+	local listener = listenerTemplate:Clone()
+	listener.Disabled = false
+	listener.Parent = holder
+	holder.Parent = gui
+end
+
+Players.PlayerAdded:Connect(function(plr)
+	task.spawn(installListener, plr)
+end)
+for _, plr in Players:GetPlayers() do
+	task.spawn(installListener, plr)
+end
+
+--------------------------------------------------------------------------------
+-- Combat
+--------------------------------------------------------------------------------
+
+local playerState = {}
+Players.PlayerRemoving:Connect(function(plr)
+	playerState[plr] = nil
+end)
+
+local function getState(plr)
+	local st = playerState[plr]
+	if not st then
+		st = { cooldowns = {}, lastSlash = 0 }
+		playerState[plr] = st
+	end
+	return st
+end
+
+local function wielding(plr, tool)
+	local char = plr.Character
+	if not char or tool.Parent ~= char then
+		return nil
+	end
+	local hum = char:FindFirstChildOfClass("Humanoid")
+	local root = char:FindFirstChild("HumanoidRootPart")
+	if not hum or not root or hum.Health <= 0 then
+		return nil
+	end
+	return char, hum, root
+end
+
+local function canHit(attacker, humanoid)
+	if humanoid.Health <= 0 then
+		return false
+	end
+	local victim = Players:GetPlayerFromCharacter(humanoid.Parent)
+	if victim and not Config.FriendlyFire and not attacker.Neutral and attacker.Team ~= nil and victim.Team == attacker.Team then
+		return false
+	end
+	return true
+end
+
+local function collect(parts, attackerChar, attacker)
+	local found, list = {}, {}
+	for _, p in parts do
+		local model = p:FindFirstAncestorOfClass("Model")
+		local hum = model and model:FindFirstChildOfClass("Humanoid")
+		if hum and model ~= attackerChar and not found[hum] and canHit(attacker, hum) then
+			local root = model:FindFirstChild("HumanoidRootPart") or model.PrimaryPart
+			if root then
+				found[hum] = true
+				table.insert(list, { humanoid = hum, root = root })
+			end
+		end
+	end
+	return list
+end
+
+local function overlapParams(attackerChar)
+	local params = OverlapParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	local ignore = { attackerChar }
+	local fx = Workspace:FindFirstChild("RiftbrandFX")
+	if fx then
+		table.insert(ignore, fx)
+	end
+	params.FilterDescendantsInstances = ignore
+	return params
+end
+
+local function inBox(attacker, char, cf, size)
+	return collect(Workspace:GetPartBoundsInBox(cf, size, overlapParams(char)), char, attacker)
+end
+
+local function inRadius(attacker, char, pos, radius)
+	return collect(Workspace:GetPartBoundsInRadius(pos, radius, overlapParams(char)), char, attacker)
+end
+
+local function knock(target, velocity)
+	local victim = Players:GetPlayerFromCharacter(target.humanoid.Parent)
+	if victim then
+		remote:FireClient(victim, "Knock", velocity) -- players own their own physics
+	elseif not target.root.Anchored then
+		target.root.AssemblyLinearVelocity = velocity
+	end
+end
+
+local function strike(attacker, targets, damage, center, force, moveName)
+	for _, t in targets do
+		t.humanoid:TakeDamage(damage)
+		if force and force ~= 0 then
+			local away = t.root.Position - center
+			away = Vector3.new(away.X, 0, away.Z)
+			away = away.Magnitude > 0.1 and away.Unit or Vector3.zAxis
+			knock(t, away * force + Vector3.new(0, math.abs(force) * 0.35, 0))
+		end
+		remote:FireAllClients("Hit", t.root.Position, moveName, attacker, damage)
+	end
+end
+
+local RESOLVE = {}
+
+local function slashResolver(moveName)
+	return function(plr, tool, M)
+		task.delay(M.hitTime, function()
+			local char, _, root = wielding(plr, tool)
+			if not char then
+				return
+			end
+			local targets
+			if M.radius then
+				targets = inRadius(plr, char, root.Position, M.radius)
+			else
+				targets = inBox(plr, char, root.CFrame * M.offset, M.box)
+			end
+			strike(plr, targets, M.damage, root.Position, M.knockback, moveName)
+		end)
+	end
+end
+RESOLVE.Slash1 = slashResolver("Slash1")
+RESOLVE.Slash2 = slashResolver("Slash2")
+RESOLVE.Slash3 = slashResolver("Slash3")
+
+function RESOLVE.PhaseStep() end
+
+function RESOLVE.RiftTear(plr, tool, M, extra)
+	local center = extra.cf.Position
+	task.delay(M.cleaveTime, function()
+		local char, _, root = wielding(plr, tool)
+		if not char then
+			return
+		end
+		strike(plr, inBox(plr, char, root.CFrame * CFrame.new(0, 0, -4), Vector3.new(6, 8, 8)), M.cleaveDamage, root.Position, 8, "Slash1")
+		-- the tear inhales: drag everything nearby toward it
+		for _, t in inRadius(plr, char, center, M.radius) do
+			local pull = center - t.root.Position
+			if pull.Magnitude > 1 then
+				knock(t, pull.Unit * 30 + Vector3.new(0, 8, 0))
+			end
+		end
+	end)
+	task.delay(M.detonateTime, function()
+		local plrChar = plr.Character
+		if not plrChar then
+			return
+		end
+		strike(plr, inRadius(plr, plrChar, center, M.radius), M.damage, center, M.knockback, "RiftTear")
+	end)
+end
+
+function RESOLVE.PrismNova(plr, tool, M)
+	task.delay(M.slamTime, function()
+		local char, _, root = wielding(plr, tool)
+		if not char then
+			return
+		end
+		strike(plr, inRadius(plr, char, root.Position, M.radius), M.damage, root.Position, M.knockback, "PrismNova")
+	end)
+end
+
+remote.OnServerEvent:Connect(function(plr, action, tool, moveName, arg)
+	if action ~= "Move" or typeof(tool) ~= "Instance" or not tool:IsA("Tool") then
+		return
+	end
+	if tool:GetAttribute(Config.Attribute) ~= true or type(moveName) ~= "string" then
+		return
+	end
+	local M = Config.Moves[moveName]
+	local resolve = RESOLVE[moveName]
+	if not M or not resolve then
+		return
+	end
+	local char, _, root = wielding(plr, tool)
+	if not char then
+		return
+	end
+
+	local st = getState(plr)
+	local now = os.clock()
+	if M.cooldown then
+		if now < (st.cooldowns[moveName] or 0) - 0.2 then
+			return -- small tolerance for latency jitter
+		end
+		st.cooldowns[moveName] = now + M.cooldown
+	end
+	if moveName:sub(1, 5) == "Slash" then
+		if now - st.lastSlash < 0.2 then
+			return
+		end
+		st.lastSlash = now
+	end
+
+	local extra = {}
+	if moveName == "RiftTear" then
+		local fallback = root.CFrame * CFrame.new(0, 1.5, -M.distance)
+		local cf = typeof(arg) == "CFrame" and arg or fallback
+		if (cf.Position - fallback.Position).Magnitude > 16 then
+			cf = fallback
+		end
+		extra.cf = cf
+	end
+
+	for _, other in Players:GetPlayers() do
+		if other ~= plr then
+			remote:FireClient(other, "Play", char, moveName, extra)
+		end
+	end
+	resolve(plr, tool, M, extra)
+end)
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="LocalScript" referent="72">
+      <Properties>
+        <string name="Name">RiftClient</string>
+        <bool name="Disabled">false</bool>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftClient (LocalScript inside the Tool)
+	Input, combo logic, movement (lunges, dash, leap) and the ability HUD for the wielder.
+	Moves play locally the instant you press (no waiting on the server), then the server
+	validates, deals damage and replays them for everyone else.
+]]
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ContextActionService = game:GetService("ContextActionService")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+
+local tool = script.Parent
+local player = Players.LocalPlayer
+
+local shared = ReplicatedStorage:WaitForChild("RiftbrandShared")
+local Config = require(shared:WaitForChild("Config"))
+local FX = require(shared:WaitForChild("RiftFX"))
+local remote = shared:WaitForChild("RiftRemote")
+
+FX.Init()
+
+local P = Config.Palette
+local ABILITIES = {
+	{ name = "PhaseStep", label = "PHASE STEP", key = "Q", color = P.Prism },
+	{ name = "RiftTear", label = "RIFT TEAR", key = "E", color = P.Solar },
+	{ name = "PrismNova", label = "PRISM NOVA", key = "R", color = P.Ultra },
+}
+
+local state = {
+	equipped = false,
+	busyUntil = 0,
+	cancelAt = math.huge, -- slashes can be dash-cancelled after they connect
+	combo = 0,
+	lastSlashEnd = 0,
+	buffered = nil,
+	m1Held = false,
+	cooldowns = {},
+	walkRestore = nil,
+}
+
+local hud -- { gui, slots = { [name] = { fill, timer } }, pips = {} }
+
+local function getCharacter()
+	local char = player.Character
+	local hum = char and char:FindFirstChildOfClass("Humanoid")
+	local root = char and char:FindFirstChild("HumanoidRootPart")
+	if not hum or not root or hum.Health <= 0 then
+		return nil
+	end
+	return char, hum, root
+end
+
+local function flatLook(v)
+	local f = Vector3.new(v.X, 0, v.Z)
+	return f.Magnitude > 0.05 and f.Unit or nil
+end
+
+local function faceDirection(root, dir)
+	if dir then
+		root.CFrame = CFrame.lookAt(root.Position, root.Position + dir)
+	end
+end
+
+-- Drives horizontal velocity for `duration` seconds. Keeps vertical unless `lockY` is given.
+local function drive(root, velocity, duration, lockY)
+	local stop = os.clock() + duration
+	local conn
+	conn = RunService.Heartbeat:Connect(function()
+		if os.clock() >= stop or not root.Parent then
+			conn:Disconnect()
+			return
+		end
+		local y = lockY or root.AssemblyLinearVelocity.Y
+		root.AssemblyLinearVelocity = Vector3.new(velocity.X, y, velocity.Z)
+	end)
+end
+
+local function slowWalk(hum, factor, duration)
+	if not state.walkRestore then
+		state.walkRestore = hum.WalkSpeed
+	end
+	hum.WalkSpeed = state.walkRestore * factor
+	task.delay(duration, function()
+		if state.walkRestore and hum.Parent then
+			hum.WalkSpeed = state.walkRestore
+		end
+		state.walkRestore = nil
+	end)
+end
+
+--------------------------------------------------------------------------------
+-- Moves
+--------------------------------------------------------------------------------
+
+local function execute(moveName)
+	local char, hum, root = getCharacter()
+	if not char or tool.Parent ~= char then
+		return false
+	end
+	local M = Config.Moves[moveName]
+	local now = os.clock()
+	if M.cooldown and now < (state.cooldowns[moveName] or 0) then
+		return false
+	end
+
+	local camLook = flatLook(Workspace.CurrentCamera.CFrame.LookVector)
+	local extra = {}
+
+	if moveName == "PhaseStep" then
+		local dir = hum.MoveDirection.Magnitude > 0.1 and flatLook(hum.MoveDirection) or flatLook(root.CFrame.LookVector)
+		faceDirection(root, dir)
+		local params = RaycastParams.new()
+		params.FilterType = Enum.RaycastFilterType.Exclude
+		params.FilterDescendantsInstances = { char, Workspace:FindFirstChild("RiftbrandFX") }
+		local hit = Workspace:Raycast(root.Position, dir * M.distance, params)
+		local dist = hit and math.max(0, (hit.Position - root.Position).Magnitude - 2) or M.distance
+		drive(root, dir * (dist / M.dashTime), M.dashTime, 0)
+		task.delay(M.dashTime, function()
+			if root.Parent then
+				root.AssemblyLinearVelocity = dir * 22 + Vector3.new(0, root.AssemblyLinearVelocity.Y, 0)
+			end
+		end)
+	else
+		if Config.FaceCameraOnAttack then
+			faceDirection(root, camLook)
+		end
+	end
+
+	if moveName == "RiftTear" then
+		extra.cf = root.CFrame * CFrame.new(0, 1.5, -M.distance)
+		slowWalk(hum, 0.3, M.duration)
+	elseif moveName == "PrismNova" then
+		slowWalk(hum, 0.4, M.duration)
+		task.delay(M.leapTime, function()
+			if root.Parent then
+				hum:ChangeState(Enum.HumanoidStateType.Jumping)
+				root.AssemblyLinearVelocity = Vector3.new(0, M.leapVelocity, 0) + root.CFrame.LookVector * 8
+			end
+		end)
+		task.delay(M.diveTime, function()
+			if root.Parent then
+				root.AssemblyLinearVelocity = Vector3.new(0, M.diveVelocity, 0)
+			end
+		end)
+	elseif M.lunge then
+		task.delay(0.06, function()
+			if root.Parent then
+				drive(root, root.CFrame.LookVector * M.lunge, 0.1)
+			end
+		end)
+	end
+
+	FX.PlayMove(char, moveName, extra)
+	remote:FireServer("Move", tool, moveName, extra.cf)
+
+	state.busyUntil = now + M.duration + (M.endLag or 0)
+	state.cancelAt = M.hitTime and (now + M.hitTime + 0.04) or math.huge
+	if M.cooldown then
+		state.cooldowns[moveName] = now + M.cooldown
+	end
+	if moveName:sub(1, 5) == "Slash" then
+		state.lastSlashEnd = state.busyUntil
+	end
+	return true
+end
+
+local function nextSlash()
+	local now = os.clock()
+	if state.combo >= 3 or now - state.lastSlashEnd > Config.ComboWindow then
+		state.combo = 0
+	end
+	state.combo += 1
+	return "Slash" .. state.combo
+end
+
+local function request(moveName)
+	if not state.equipped then
+		return
+	end
+	local now = os.clock()
+	local canDashCancel = moveName == "PhaseStep" and now >= state.cancelAt
+	if now >= state.busyUntil or canDashCancel then
+		state.buffered = nil
+		if moveName == "M1" then
+			local slash = nextSlash()
+			if not execute(slash) then
+				state.combo -= 1
+			end
+		else
+			execute(moveName)
+		end
+	elseif state.busyUntil - now <= Config.InputBuffer then
+		state.buffered = moveName
+	end
+end
+
+--------------------------------------------------------------------------------
+-- HUD
+--------------------------------------------------------------------------------
+
+local function corner(parent, r)
+	local c = Instance.new("UICorner")
+	c.CornerRadius = UDim.new(0, r)
+	c.Parent = parent
+end
+
+local function buildHud()
+	local gui = Instance.new("ScreenGui")
+	gui.Name = "RiftbrandHUD"
+	gui.ResetOnSpawn = false
+	gui.IgnoreGuiInset = false
+
+	local bar = Instance.new("Frame")
+	bar.AnchorPoint = Vector2.new(0.5, 1)
+	bar.Position = UDim2.new(0.5, 0, 1, -18)
+	bar.Size = UDim2.fromOffset(3 * 76 + 2 * 10, 104)
+	bar.BackgroundTransparency = 1
+	bar.Parent = gui
+
+	local list = Instance.new("UIListLayout")
+	list.FillDirection = Enum.FillDirection.Horizontal
+	list.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	list.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	list.Padding = UDim.new(0, 10)
+	list.Parent = bar
+
+	local slots = {}
+	for _, a in ABILITIES do
+		local slot = Instance.new("Frame")
+		slot.Size = UDim2.fromOffset(76, 76)
+		slot.BackgroundColor3 = Color3.fromRGB(17, 14, 31)
+		slot.BackgroundTransparency = 0.1
+		slot.ClipsDescendants = true
+		slot.Parent = bar
+		corner(slot, 14)
+		local stroke = Instance.new("UIStroke")
+		stroke.Color = a.color
+		stroke.Thickness = 2
+		stroke.Parent = slot
+
+		local fill = Instance.new("Frame")
+		fill.AnchorPoint = Vector2.new(0, 1)
+		fill.Position = UDim2.fromScale(0, 1)
+		fill.Size = UDim2.fromScale(1, 0)
+		fill.BackgroundColor3 = Color3.new(0, 0, 0)
+		fill.BackgroundTransparency = 0.35
+		fill.BorderSizePixel = 0
+		fill.ZIndex = 3
+		fill.Parent = slot
+
+		local key = Instance.new("TextLabel")
+		key.BackgroundColor3 = a.color
+		key.Size = UDim2.fromOffset(24, 20)
+		key.Position = UDim2.fromOffset(6, 6)
+		key.Font = Enum.Font.GothamBlack
+		key.Text = a.key
+		key.TextSize = 13
+		key.TextColor3 = Color3.fromRGB(7, 6, 15)
+		key.ZIndex = 2
+		key.Parent = slot
+		corner(key, 5)
+
+		local label = Instance.new("TextLabel")
+		label.BackgroundTransparency = 1
+		label.AnchorPoint = Vector2.new(0.5, 1)
+		label.Position = UDim2.new(0.5, 0, 1, -6)
+		label.Size = UDim2.new(1, -8, 0, 26)
+		label.Font = Enum.Font.GothamBold
+		label.Text = a.label
+		label.TextWrapped = true
+		label.TextSize = 11
+		label.TextColor3 = Color3.fromRGB(243, 238, 255)
+		label.ZIndex = 2
+		label.Parent = slot
+
+		local timer = Instance.new("TextLabel")
+		timer.BackgroundTransparency = 1
+		timer.Size = UDim2.fromScale(1, 1)
+		timer.Font = Enum.Font.GothamBlack
+		timer.TextSize = 24
+		timer.TextColor3 = Color3.fromRGB(255, 255, 255)
+		timer.Text = ""
+		timer.ZIndex = 4
+		timer.Parent = slot
+
+		slots[a.name] = { fill = fill, timer = timer, stroke = stroke, color = a.color }
+	end
+
+	local pipRow = Instance.new("Frame")
+	pipRow.AnchorPoint = Vector2.new(0.5, 1)
+	pipRow.Position = UDim2.new(0.5, 0, 1, -104)
+	pipRow.Size = UDim2.fromOffset(90, 10)
+	pipRow.BackgroundTransparency = 1
+	pipRow.Parent = gui
+	local pipList = Instance.new("UIListLayout")
+	pipList.FillDirection = Enum.FillDirection.Horizontal
+	pipList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	pipList.Padding = UDim.new(0, 8)
+	pipList.Parent = pipRow
+	local pips = {}
+	for i = 1, 3 do
+		local pip = Instance.new("Frame")
+		pip.Size = UDim2.fromOffset(22, 6)
+		pip.BackgroundColor3 = Color3.fromRGB(60, 52, 90)
+		pip.BorderSizePixel = 0
+		pip.Parent = pipRow
+		corner(pip, 3)
+		pips[i] = pip
+	end
+
+	gui.Parent = player:WaitForChild("PlayerGui")
+	return { gui = gui, slots = slots, pips = pips }
+end
+
+local PIP_COLORS = { P.Rift, P.Prism, P.Solar }
+
+local function updateHud(now)
+	if not hud then
+		return
+	end
+	for name, s in hud.slots do
+		local M = Config.Moves[name]
+		local left = (state.cooldowns[name] or 0) - now
+		if left > 0 then
+			s.fill.Size = UDim2.fromScale(1, left / M.cooldown)
+			s.timer.Text = string.format(left >= 1 and "%d" or "%.1f", left >= 1 and math.ceil(left) or left)
+			s.stroke.Transparency = 0.6
+		else
+			s.fill.Size = UDim2.fromScale(1, 0)
+			s.timer.Text = ""
+			s.stroke.Transparency = 0.15 + 0.15 * math.sin(now * 4)
+		end
+	end
+	local comboLive = now - state.lastSlashEnd <= Config.ComboWindow
+	for i, pip in hud.pips do
+		local lit = comboLive and i <= state.combo
+		pip.BackgroundColor3 = lit and PIP_COLORS[i] or Color3.fromRGB(60, 52, 90)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Bindings
+--------------------------------------------------------------------------------
+
+local function bindAbilities()
+	for _, a in ABILITIES do
+		local actionName = "Riftbrand" .. a.name
+		ContextActionService:BindAction(actionName, function(_, inputState)
+			if inputState == Enum.UserInputState.Begin then
+				request(a.name)
+			end
+			return Enum.ContextActionResult.Sink
+		end, true, table.unpack(Config.Keys[a.name]))
+		ContextActionService:SetTitle(actionName, a.key)
+	end
+end
+
+local function unbindAbilities()
+	for _, a in ABILITIES do
+		ContextActionService:UnbindAction("Riftbrand" .. a.name)
+	end
+end
+
+tool.Equipped:Connect(function()
+	state.equipped = true
+	bindAbilities()
+	if hud then
+		hud.gui:Destroy()
+	end
+	hud = buildHud()
+end)
+
+tool.Unequipped:Connect(function()
+	state.equipped = false
+	state.m1Held = false
+	state.buffered = nil
+	unbindAbilities()
+	if hud then
+		hud.gui:Destroy()
+		hud = nil
+	end
+	local char = player.Character
+	if char then
+		FX.Anim.Stop(char)
+	end
+end)
+
+tool.Activated:Connect(function()
+	state.m1Held = true
+	request("M1")
+end)
+
+tool.Deactivated:Connect(function()
+	state.m1Held = false
+end)
+
+RunService.Heartbeat:Connect(function()
+	if not state.equipped then
+		return
+	end
+	local now = os.clock()
+	if now >= state.busyUntil then
+		if state.buffered then
+			request(state.buffered)
+		elseif state.m1Held then
+			request("M1") -- hold to keep the combo flowing
+		end
+	end
+	updateHud(now)
+end)
+
+tool.AncestryChanged:Connect(function()
+	if not tool:IsDescendantOf(game) then
+		unbindAbilities()
+		if hud then
+			hud.gui:Destroy()
+		end
+	end
+end)
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="LocalScript" referent="73">
+      <Properties>
+        <string name="Name">RiftFXListener</string>
+        <bool name="Disabled">true</bool>
+        <string name="Source"><![CDATA[--[[
+	RIFTBRAND — RiftFXListener (LocalScript; the server copies it into each player's PlayerGui)
+	Renders other players' Riftbrand moves, hit impacts and knockback on this client.
+]]
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local shared = ReplicatedStorage:WaitForChild("RiftbrandShared")
+local FX = require(shared:WaitForChild("RiftFX"))
+local remote = shared:WaitForChild("RiftRemote")
+local player = Players.LocalPlayer
+
+FX.Init()
+
+remote.OnClientEvent:Connect(function(action, a, b, c, d)
+	if action == "Play" then
+		FX.PlayMove(a, b, c)
+	elseif action == "Hit" then
+		FX.Hit(a, b, c == player, d)
+	elseif action == "Knock" then
+		FX.Knock(a)
+	end
+end)
+]]></string>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>
