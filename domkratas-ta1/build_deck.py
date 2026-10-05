@@ -132,7 +132,7 @@ s = new_slide(2, "Kodėl pasirinkome domkratą?",
               "Domkratas veikia pagal sverto arba Paskalio dėsnį: nedidele jėga pakeliamas didelis krovinys.")
 bullets(s, 0.7, 1.7, 12, 4.6, [
     ("Kasdienis įrenginys", " – žirklinį domkratą gamintojai dažnai deda į naujus automobilius.", "CJ Pony Parts, n.d."),
-    ("Platus taikymas", " – automobilių remontas, ūkiai, statyba, geležinkelis.", "Hi-Lift Jack Company, n.d.-a; Wikipedia, n.d.-b"),
+    ("Platus taikymas", " – automobilių remontas, ūkiai, statyba, geležinkelis.", "Hi-Lift Jack Company, n.d.-a; Wikipedia, n.d.-d"),
     ("Daug mechanikos vienoje vietoje", " – sraigtinė, krumpliastiebinė ir hidraulinė pavaros, medžiagos, sauga."),
     ("Mechaninis principas", " – svertas ir sraigtas: maža jėga ilgu keliu pakelia didelį krovinį.", "Rorres, n.d."),
     ("Hidraulinis principas", " – Paskalio dėsnis: F₁ / A₁ = F₂ / A₂, todėl didesnis stūmoklis duoda didesnę jėgą.", "LibreTexts, n.d."),
@@ -140,20 +140,22 @@ bullets(s, 0.7, 1.7, 12, 4.6, [
 
 # ── 3. Istorinė raida ───────────────────────────────────────────────────
 s = new_slide(3, "Istorinė raida",
-              "Raida: nuo Archimedo sverto ir antikinių sraigtinių presų per Bramah ir Dudgeon hidrauliką iki žirklinių ir "
+              "Raida: nuo Archimedo sverto, antikinių sraigtinių presų, Herono kėlimo mechanizmų ir romėnų kranų per Bramah ir Dudgeon hidrauliką iki žirklinių ir "
               "elektrinių domkratų. Tendencija – nuo jėgos laimėjimo link greičio, saugos ir patogumo.")
 table(s, 0.7, 1.6, 11.9, [2.2, 9.7], [
     ["Laikotarpis", "Sprendimas"],
     ["III a. pr. Kr.", "Archimedas aiškina sverto principą („Duokite man atramos tašką…“)"],
     ["I a.", "Graikai ir romėnai naudoja sraigtinius presus alyvuogėms ir vynuogėms spausti"],
+    ["~10–75 m.", "Heronas Aleksandrietis „Mechanikoje“ aprašo kėlimo mechanizmus: svertą, suktuvą, skridinį, pleištą ir sraigtą"],
+    ["I a. pab.", "Romėnų kranas su mindomu ratu („polyspastos“) kelia iki ~6000 kg"],
     ["1795 m.", "J. Bramah patentuoja hidraulinį presą, veikiantį pagal Paskalio dėsnį"],
     ["1851 m.", "R. Dudgeon patentuoja nešiojamą hidraulinį domkratą"],
     ["1905 m.", "P. J. Harrah patentuoja krumpliastiebinį „Hi-Lift“ domkratą"],
     ["1920 m.", "J. LaFrance pateikia rombo formos (žirklinio) domkrato patento paraišką"],
     ["1949 m.", "W. Watson patobulina žirklinį domkratą – jis tampa sudedamas ir kompaktiškas"],
     ["Šiandien", "Gaminami 12 V elektriniai žirkliniai domkratai"],
-], size=16, row_h=0.52)
-source_line(s, "Rorres (n.d.); Wikipedia (n.d.-a, n.d.-b, n.d.-c); Hi-Lift Jack Company (n.d.-a); AutoIndustriya (n.d.); Pro-Lift-Montagetechnik (n.d.).")
+], size=15, row_h=0.43)
+source_line(s, "Rorres (n.d.); Wikipedia (n.d.-a, n.d.-c, n.d.-d, n.d.-e, n.d.-f); Hi-Lift Jack Company (n.d.-a); AutoIndustriya (n.d.); Pro-Lift-Montagetechnik (n.d.).")
 
 # ── 4. Tipai ir kritinis vertinimas ─────────────────────────────────────
 s = new_slide(4, "Domkratų tipai ir jų vertinimas",
@@ -167,7 +169,7 @@ table(s, 0.7, 1.6, 11.9, [2.2, 3.4, 3.1, 3.2], [
     ["Hidraulinis butelinis", "Maža pompa spaudžia alyvą po dideliu stūmokliu", "Didelė keliamoji galia (3–50 t)", "Mažas pagrindas, didelis pradinis aukštis"],
     ["Hidraulinis vežimėlinis", "Hidrocilindras kelia ilgą svirtį", "Greitas ir stabilus (2–4 t)", "Didelis, sunku perkelti"],
 ], size=15, row_h=0.74, highlight=3)
-source_line(s, "Wikipedia (n.d.-d); Joyce/Dayton (n.d.); CJ Pony Parts (n.d.); Hi-Lift Jack Company (n.d.-b); CN Trailer Parts (n.d.); Redline Stands (n.d.).")
+source_line(s, "Wikipedia (n.d.-b); Joyce/Dayton (n.d.); CJ Pony Parts (n.d.); Hi-Lift Jack Company (n.d.-b); CN Trailer Parts (n.d.); Redline Stands (n.d.).")
 
 # ── 5. Problema ir uždavinys ────────────────────────────────────────────
 s = new_slide(5, "Šiuolaikinė problema ir inžinerinis uždavinys",
@@ -262,10 +264,12 @@ REFS = [
     ("Roton Products. (n.d.). ", "Trapezoidal lead screws: General information", ". https://www.roton.com/products/trapezoidal-lead-screws-nuts/general-information/"),
     ("Sider Ticino. (n.d.). ", "42CrMo4 technical specifications", ". https://siderticino.it/en/steel-datasheets/42crmo4/"),
     ("The World Material. (n.d.). ", "EN 10025-2 S235 steel properties", ". https://www.theworldmaterial.com/en-10025-2-material-s235-steel/"),
-    ("Wikipedia. (n.d.-a). ", "Joseph Bramah", ". https://en.wikipedia.org/wiki/Joseph_Bramah"),
-    ("Wikipedia. (n.d.-b). ", "Richard Dudgeon", ". https://en.wikipedia.org/wiki/Richard_Dudgeon"),
-    ("Wikipedia. (n.d.-c). ", "Jack (device)", ". https://en.wikipedia.org/wiki/Jack_(device)"),
-    ("Wikipedia. (n.d.-d). ", "Jackscrew", ". https://en.wikipedia.org/wiki/Jackscrew"),
+    ("Wikipedia. (n.d.-a). ", "Jack (device)", ". https://en.wikipedia.org/wiki/Jack_(device)"),
+    ("Wikipedia. (n.d.-b). ", "Jackscrew", ". https://en.wikipedia.org/wiki/Jackscrew"),
+    ("Wikipedia. (n.d.-c). ", "Joseph Bramah", ". https://en.wikipedia.org/wiki/Joseph_Bramah"),
+    ("Wikipedia. (n.d.-d). ", "Richard Dudgeon", ". https://en.wikipedia.org/wiki/Richard_Dudgeon"),
+    ("Wikipedia. (n.d.-e). ", "Simple machine", ". https://en.wikipedia.org/wiki/Simple_machine"),
+    ("Wikipedia. (n.d.-f). ", "Treadwheel crane", ". https://en.wikipedia.org/wiki/Treadwheel_crane"),
 ]
 half = (len(REFS) + 1) // 2
 for k, chunk in enumerate((REFS[:half], REFS[half:])):
