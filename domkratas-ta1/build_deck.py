@@ -143,31 +143,31 @@ s.notes_slide.notes_text_frame.text = (
     "Laba diena. Mūsų tema – automobilinis domkratas. Papasakosime, kodėl jo prireikė, kaip jis keitėsi per keturis "
     "žingsnius – kiekvienas iš mūsų pristatys vieną – ir ką siūlome patobulinti.")
 
-# ── 2. Įžanga ───────────────────────────────────────────────────────────
-s = new_slide(2, "Kodėl prireikė domkrato?",
-              "Domkratai buvo naudojami dar vežimams. Atsiradus automobiliams, padangos prakiurdavo labai dažnai, nes keliuose "
-              "buvo daug pasagų vinių. Kad pakeistum ar užklijuotum padangą, reikia pakelti automobilį – todėl gamintojai "
-              "pradėjo į kiekvieną automobilį dėti nešiojamą domkratą.")
-tf, st = textbox(s, 0.7, 1.7, 7.0, 4.6, 21)
+# ── 2. Funkcija ─────────────────────────────────────────────────────────
+s = new_slide(2, "Funkcija: kam reikalingas domkratas?",
+              "Domkrato funkcija – nedidele žmogaus jėga pakelti sunkų krovinį, pavyzdžiui, automobilio kampą. Tai pavyksta dėl "
+              "sverto ir sraigto arba dėl hidraulikos. Domkratai buvo naudojami dar vežimams, o atsiradus automobiliams, "
+              "padangos prakiurdavo labai dažnai, todėl domkrato reikėjo kiekviename automobilyje.")
+tf, st = textbox(s, 0.7, 1.7, 7.0, 4.6, 20)
 items = [
-    ("Prieš automobilius", " – vežimams kelti naudoti paprasti svertiniai domkratai (dešinėje – 1882 m. vežimo domkratas)."),
-    ("Pirmieji automobiliai", " – keliuose gulėjo daug pasagų vinių, todėl padangos prakiurdavo labai dažnai, kartais kelis kartus per vieną išvyką."),
-    ("Ką tekdavo daryti", " – pakelti automobilį, nuimti ratą, užklijuoti kamerą ir vėl viską surinkti."),
-    ("Išvada gamintojams", " – kiekviename automobilyje reikia nešiojamo, paprasto ir pakankamai stipraus domkrato."),
+    ("Funkcija", " – nedidele žmogaus jėga pakelti sunkų krovinį, pvz., automobilio kampą, kad būtų galima pakeisti ratą."),
+    ("Kaip tai pavyksta", " – sraigtas ar svirtis: maža jėga, bet ilgas kelias; hidraulika: pagal Paskalio dėsnį didesnis stūmoklis duoda didesnę jėgą."),
+    ("Prieš automobilius", " – vežimams kelti naudoti svertiniai domkratai (dešinėje – 1882 m. vežimo domkratas)."),
+    ("Kodėl prireikė automobiliams", " – keliuose gulėjo daug pasagų vinių, padangos prakiurdavo labai dažnai, todėl domkrato reikėjo kiekviename automobilyje."),
 ]
 for i, (b, rest) in enumerate(items):
-    p = para(tf, st, b, first=i == 0, bullet=True, bold=True, space=16)
-    add(p, rest, 21)
+    p = para(tf, st, b, first=i == 0, bullet=True, bold=True, space=14)
+    add(p, rest, 20)
 rect(s, 8.2, 1.6, 4.4, 4.75, ACCENT)
 picture(s, IMG / "0-vezimo-bovey-1882.png", 8.3, 1.7, 4.2, 4.55)
 tf, st = textbox(s, 8.2, 6.38, 4.4, 0.4, 12, GREY)
 para(tf, st, "Brėžinys: G. O. Bovey, JAV patentas Nr. 260,276 (1882)", first=True)
-source_line(s, "Bovey (1882); Wikipedia (n.d.-b); Junkyard Mob (n.d.).", w=7.0)
+source_line(s, "Joyce/Dayton (n.d.); LibreTexts (n.d.); Bovey (1882); Wikipedia (n.d.-d); Junkyard Mob (n.d.).", w=7.0)
 
 # ── 3. Raidos kelias (chronologiškai) ───────────────────────────────────
-s = new_slide(3, "Domkratų raida laiko juostoje",
+s = new_slide(3, "Istorija: domkratų raida laiko juostoje",
               "Čia visi domkratų tipai surikiuoti pagal atsiradimo laiką. Paryškinti keturi, kuriuos pristatysime išsamiai – "
-              "kiekvienas iš mūsų po vieną. Kiti trumpai aptarti bus pabaigoje.")
+              "kiekvienas iš mūsų po vieną. Kitų tipų panaudojimą aptarsime skaidrėje „Pritaikymas“.")
 table(s, 0.7, 1.6, 11.9, [1.7, 3.0, 3.6, 3.6], [
     ["Laikas", "Tipas", "Ką išsprendė", "Kokia problema liko"],
     ["Iki 1851 m.", "1. Sraigtinis", "Paprastas ir savistabdis", "Lėtas, reikia daug jėgos"],
@@ -188,7 +188,7 @@ jack_slide(4, 1, "Sraigtinis domkratas", "XIX a.", "1-sraigtinis-stevenson-1898.
             ("Kaip veikia", "Sukant rankeną, sraigtas išsisuka iš korpuso ir stumia krovinį aukštyn."),
             ("Kuo geras", "Paprastas ir savistabdis – paleidus rankeną krovinys nenukrenta."),
             ("Problemos", "Lėtas ir reikalauja daug jėgos: dėl didelės trinties naudingumo koeficientas tik 30–40 %.")],
-           "Stevenson (1898); Wikipedia (n.d.-a); Joyce/Dayton (n.d.).",
+           "Stevenson (1898); Wikipedia (n.d.-b); Joyce/Dayton (n.d.).",
            "Pirmieji paplitę domkratai buvo sraigtiniai. Sukant rankeną sraigtas kyla ir kelia krovinį. Jie paprasti ir "
            "savistabdžiai, bet lėti ir sunkiai sukami, nes didelė trintis suvalgo daug energijos.")
 
@@ -225,29 +225,45 @@ jack_slide(7, 4, "Pneumohidraulinis domkratas", "1966 m.", "4-pneumohidraulinis-
            "pateikė patentą kombinuotam domkratui: alyvą pumpuoja suslėgtas oras iš kompresoriaus, o dingus orui domkratas "
            "veikia rankiniu būdu. Tai greita ir patogu servise, bet kelyje kompresoriaus paprastai nėra.")
 
-# ── 8. Kiti domkratai (chronologiškai) ──────────────────────────────────
-s = new_slide(8, "Kiti domkratų tipai",
-              "Trumpai apie kitus domkratus, surikiuotus pagal laiką. Krumpliastiebinis kelia labai aukštai, bet pavojingas dėl "
-              "rankenos atatrankos. Vežimėlinis – servisų domkratas: greitas, bet sunkus. Elektrinis žirklinis nereikalauja "
-              "sukti rankos, bet reikia elektros.")
-table(s, 0.7, 1.7, 11.9, [2.6, 1.9, 3.7, 3.7], [
-    ["Tipas", "Atsiradimas", "Privalumai", "Trūkumai"],
-    ["Krumpliastiebinis („Hi-Lift“)", "1905 m.", "Kelia labai aukštai (iki ~1,5 m), tinka ir traukti, spausti", "Pavojinga rankenos atatranka, mažiau stabilus"],
-    ["Vežimėlinis (garažinis)", "1910 m. mechaninis, 1928 m. hidraulinis", "Greitas ir stabilus, platus pagrindas", "Didelis ir sunkus, sunku pernešti"],
-    ["Elektrinis žirklinis", "2004 m. (patentas)", "Kyla paspaudus mygtuką, maitinamas iš 12 V lizdo", "Reikia elektros, brangesnis ir sunkesnis"],
-], size=17, row_h=0.95)
-source_line(s, "Hi-Lift Jack Company (n.d.-a, n.d.-b); CJ Pony Parts (n.d.); Castle Equipment (n.d.); Redline Stands (n.d.); "
-               "Mickael (2004); Pro-Lift-Montagetechnik (n.d.).", y=6.3)
+# ── 8. Pritaikymas ──────────────────────────────────────────────────────
+s = new_slide(8, "Pritaikymas: kur naudojami domkratai",
+              "Kiekvienas domkratų tipas rado savo vietą. Žirklinis – automobilio bagažinėje, vežimėlinis ir pneumohidraulinis – "
+              "servisuose, butelinis – sunkiai technikai, krumpliastiebinis – visureigiams ir ūkiams, elektrinis – tiems, kam "
+              "sunku sukti rankena.")
+table(s, 0.7, 1.6, 11.9, [3.2, 3.3, 5.4], [
+    ["Kur naudojama", "Domkrato tipas", "Kodėl tinka"],
+    ["Lengvasis automobilis (ratui keisti)", "Žirklinis", "Lengvas ir pigus – gamintojai deda į naujus automobilius"],
+    ["Autoservisai ir garažai", "Vežimėlinis, pneumohidraulinis", "Greitas ir stabilus; servisuose yra suslėgto oro linija"],
+    ["Sunkvežimiai ir pramonė", "Hidraulinis butelinis", "Didelė keliamoji galia – nuo 3 iki 50 t"],
+    ["Visureigiai ir ūkiai", "Krumpliastiebinis („Hi-Lift“)", "Kelia labai aukštai, tinka ir traukti, spausti"],
+    ["Statyba ir sunkūs kroviniai", "Hidraulinės kėlimo sistemos", "Daug domkratų kartu kelia didelius objektus"],
+    ["Kas nenori sukti rankenos", "Elektrinis žirklinis", "Kyla paspaudus mygtuką, maitinamas iš 12 V lizdo"],
+], size=16, row_h=0.62)
+source_line(s, "CJ Pony Parts (n.d.); Juds (1967); Hi-Lift Jack Company (n.d.-a); Richard Dudgeon, Inc. (n.d.); Pro-Lift-Montagetechnik (n.d.).")
 
-# ── 9. Mūsų idėja ───────────────────────────────────────────────────────
-s = new_slide(9, "Ką siūlome patobulinti",
-              "Tobuliname žirklinį domkratą, nes jis yra kiekvieno automobilio komplekte. Jo problemos – siauras pagrindas, "
-              "dylantis sraigtas ir nepatogus sukimas. Siūlome platesnį pagrindą su guminiu padu, savistabdį trapecinį sraigtą "
-              "su bronzine veržle, stipresnes svirtis ir patogesnę rankeną.")
+# ── 9. Kompanijos ───────────────────────────────────────────────────────
+s = new_slide(9, "Kompanijos, kūrusios domkratus",
+              "Kelios kompanijos sukūrė svarbiausius domkratus ir kai kurios veikia iki šiol. Dudgeon įmonė įkurta 1849 m. ir tebeveikia, "
+              "Hi-Lift domkratai iki šiol gaminami Indianoje, o Blackhawk prekės ženklas dabar priklauso Stanley.")
+table(s, 0.7, 1.6, 11.9, [3.0, 1.7, 4.4, 2.8], [
+    ["Kompanija", "Įkurta", "Ką sukūrė", "Šiandien"],
+    ["Richard Dudgeon, Inc. (Niujorkas)", "1849 m.", "Pirmasis nešiojamas hidraulinis domkratas (1851 m.)", "Tebeveikia (Konektikutas)"],
+    ["Hi-Lift Jack Company (Indiana)", "1895 m.", "Krumpliastiebinis „Hi-Lift“ domkratas (1905 m.)", "Gamina iki šiol"],
+    ["Weaver Manufacturing", "—", "Vežimėlinis „Auto-Twin“ (1910 m.), pirmasis hidraulinis (1928 m.)", "—"],
+    ["Blackhawk (Milvokis)", "1919 m.", "Įrankiai ir vežimėliniai domkratai", "Prekės ženklas priklauso Stanley"],
+    ["Milwaukee Hydraulic Products", "—", "Kombinuotas pneumohidraulinis domkratas (1967 m. patentas)", "—"],
+], size=16, row_h=0.72)
+source_line(s, "Wikipedia (n.d.-c); Richard Dudgeon, Inc. (n.d.); Hi-Lift Jack Company (n.d.-a); Castle Equipment (n.d.); Wikipedia (n.d.-a); Juds (1967).")
+
+# ── 10. Trūkumai ir mūsų patobulinimas ──────────────────────────────────
+s = new_slide(10, "Trūkumai ir mūsų patobulinimas",
+              "Šiandien automobilyje dažniausiai rasime žirklinį domkratą. Jo trūkumai – lėtas, siauro pagrindo, nestabilus ant "
+              "minkšto paviršiaus ir nepatogus sukti. Siūlome platesnį pagrindą su guminiu padu, savistabdį trapecinį sraigtą su "
+              "bronzine veržle, stipresnes svirtis ir patogesnę rankeną.")
 rect(s, 0.7, 1.6, 11.9, 1.0, LIGHT)
-tf, st = textbox(s, 0.9, 1.65, 11.5, 0.9, 19, INK, anchor=MSO_ANCHOR.MIDDLE)
-p = para(tf, st, "Tikslas: ", first=True, bold=True, color=ACCENT)
-add(p, "žirklinis domkratas, kuris stabiliai stovi ant nelygaus pagrindo, mažiau dyla ir yra patogiau sukamas.", 19)
+tf, st = textbox(s, 0.9, 1.65, 11.5, 0.9, 18, INK, anchor=MSO_ANCHOR.MIDDLE)
+p = para(tf, st, "Žirklinio domkrato trūkumai: ", first=True, bold=True, color=ACCENT)
+add(p, "lėtas (daug apsisukimų), siauras pagrindas – nestabilus ant minkšto ar nelygaus paviršiaus, sukti tenka nepatogioje padėtyje.", 18)
 table(s, 0.7, 2.85, 11.9, [2.4, 4.6, 4.9], [
     ["Elementas", "Ką keičiame", "Kodėl"],
     ["Pagrindas", "Platesnis, su guminiu padu", "Neslysta ir nesmenga į minkštą paviršių"],
@@ -255,10 +271,10 @@ table(s, 0.7, 2.85, 11.9, [2.4, 4.6, 4.9], [
     ["Svirtys", "Plienas S420MC vietoj S235", "Takumo riba 420 vs 235 MPa – apie 1,8 karto stipresnės"],
     ["Rankena", "Ilgesnė, sulankstoma rankena", "Sukti galima nesilenkiant prie pat rato (mūsų idėja)"],
 ], size=16, row_h=0.62)
-source_line(s, "Roton Products (n.d.); Sider Ticino (n.d.); Hengli Automation (n.d.); Gnee Steel (n.d.); The World Material (n.d.); CN Trailer Parts (n.d.).")
+source_line(s, "CN Trailer Parts (n.d.); Roton Products (n.d.); Sider Ticino (n.d.); Hengli Automation (n.d.); Gnee Steel (n.d.); The World Material (n.d.).")
 
 # ── 10. Išvados ─────────────────────────────────────────────────────────
-s = new_slide(10, "Išvados",
+s = new_slide(11, "Išvados",
               "Apibendrinant: domkratas keitėsi nuo sraigtinio iki pneumohidraulinio, ir kiekvienas žingsnis sprendė ankstesniojo problemą. "
               "Mūsų idėja – stabilesnis ir patvaresnis žirklinis domkratas. Ačiū, laukiame klausimų.")
 tf, st = textbox(s, 0.7, 1.7, 7.4, 4.6, 21)
@@ -266,6 +282,7 @@ for i, (b, rest) in enumerate([
     ("Poreikis", " – automobiliams reikėjo nešiojamo domkrato, nes padangos dažnai prakiurdavo."),
     ("Raida", " – sraigtinis → hidraulinis → žirklinis → pneumohidraulinis."),
     ("Dėsningumas", " – kiekvienas naujas domkratas išsprendė ankstesniojo problemą, bet atnešė naujų."),
+    ("Pritaikymas", " – kiekvienas tipas rado savo vietą: nuo automobilio bagažinės iki serviso ir statybų."),
     ("Mūsų idėja", " – žirklinis domkratas su platesniu pagrindu, savistabdžiu sraigtu, bronzine veržle ir patogesne rankena."),
 ]):
     p = para(tf, st, b, first=i == 0, bullet=True, bold=True, space=18)
@@ -274,7 +291,7 @@ rect(s, 8.5, 2.6, 4.1, 2.0, LIGHT)
 tf, st = textbox(s, 8.5, 2.6, 4.1, 2.0, 36, ACCENT, True, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
 para(tf, st, "Klausimai?", first=True)
 
-# ── 11–12. Šaltiniai (APA) ──────────────────────────────────────────────
+# ── 12. Šaltiniai (APA) ──────────────────────────────────────────────
 REFS = [
     ("Bovey, G. O. (1882). ", "Carriage-jack", " (U.S. Patent No. 260,276). https://patents.google.com/patent/US260276A/en"),
     ("Brown, W. P. (1949). ", "Scissors jack", " (U.S. Patent No. 2,467,657). https://patents.google.com/patent/US2467657A/en"),
@@ -294,23 +311,26 @@ REFS = [
     ("Mickael, E. (2004). ", "Motor driven scissor jack with limit switches", " (U.S. Patent No. 6,695,289). https://patents.google.com/patent/US6695289B1/en"),
     ("Pro-Lift-Montagetechnik. (n.d.). ", "12V electric scissor jack, car jack, 123 mm – 345 mm", ". https://www.pro-lift-montagetechnik.com/12-volt-electric-scissor-jack-car-jack-123mm-345mm-002"),
     ("Redline Stands. (n.d.). ", "Bottle jack vs. floor jack: Differences, pros, and cons", ". https://www.redlinestands.com/blog/bottle-jack-vs-floor-jack/"),
+    ("Richard Dudgeon, Inc. (n.d.). ", "History", ". https://www.dudgeonjacks.com/history.html"),
     ("Roton Products. (n.d.). ", "Trapezoidal lead screws: General information", ". https://www.roton.com/products/trapezoidal-lead-screws-nuts/general-information/"),
     ("Sider Ticino. (n.d.). ", "42CrMo4 technical specifications", ". https://siderticino.it/en/steel-datasheets/42crmo4/"),
     ("Stevenson, H. M. (1898). ", "Lifting-jack", " (U.S. Patent No. 601,451). https://patents.google.com/patent/US601451A/en"),
     ("The World Material. (n.d.). ", "EN 10025-2 S235 steel properties", ". https://www.theworldmaterial.com/en-10025-2-material-s235-steel/"),
     ("TMG Industrial. (n.d.). ", "Air hydraulic bottle jacks: How they work and safety tips for use", ". https://tmgindustrial.ca/blogs/news/air-hydraulic-bottle-jacks-how-they-work-and-safety-tips-for-use"),
     ("VEVOR. (n.d.). ", "Things to know before buying a pneumatic bottle jack", ". https://www.vevor.com/diy-ideas/things-to-know-before-buying-a-pneumatic-bottle-jack/"),
-    ("Wikipedia. (n.d.-a). ", "Jackscrew", ". https://en.wikipedia.org/wiki/Jackscrew"),
-    ("Wikipedia. (n.d.-b). ", "Spare tire", ". https://en.wikipedia.org/wiki/Spare_tire"),
+    ("Wikipedia. (n.d.-a). ", "Blackhawk (tools)", ". https://en.wikipedia.org/wiki/Blackhawk_(tools)"),
+    ("Wikipedia. (n.d.-b). ", "Jackscrew", ". https://en.wikipedia.org/wiki/Jackscrew"),
+    ("Wikipedia. (n.d.-c). ", "Richard Dudgeon", ". https://en.wikipedia.org/wiki/Richard_Dudgeon"),
+    ("Wikipedia. (n.d.-d). ", "Spare tire", ". https://en.wikipedia.org/wiki/Spare_tire"),
 ]
 half = (len(REFS) + 1) // 2
+s = new_slide(12, "Šaltiniai")
 for k, chunk in enumerate((REFS[:half], REFS[half:])):
-    s = new_slide(11 + k, f"Šaltiniai ({k + 1}/2)")
-    tf, st = textbox(s, 0.7, 1.6, 11.9, 5.2, 13)
+    tf, st = textbox(s, 0.6 + k * 6.1, 1.45, 5.95, 5.4, 9)
     for i, (a, title, b) in enumerate(chunk):
-        p = para(tf, st, a, first=i == 0, space=6)
-        add(p, title, 13, italic=True)
-        add(p, b, 13)
+        p = para(tf, st, a, first=i == 0, space=2)
+        add(p, title, 9, italic=True)
+        add(p, b, 9)
 
 prs.save(OUT)
 print("saved", OUT)
