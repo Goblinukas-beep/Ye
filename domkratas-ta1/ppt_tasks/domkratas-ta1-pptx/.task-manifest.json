@@ -1,0 +1,10 @@
+{
+  "task_id": "82c0de4d-cdbf-4f4d-948b-8f441ce682e3",
+  "task_name": "domkratas-ta1-pptx",
+  "skill": "ppt-design-skill",
+  "skill_version": "1.5",
+  "template_source": "skill/templates/task-init",
+  "project_root": "/home/user/Ye/domkratas-ta1",
+  "task_root": "/home/user/Ye/domkratas-ta1/ppt_tasks/domkratas-ta1-pptx",
+  "created_at": "2026-10-05T13:34:46.874649+00:00"
+}

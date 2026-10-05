@@ -1,0 +1,11 @@
+version: v1
+status: CONFIRMED_BY_DEFAULT   # HTML companion already establishes the direction
+visual_thesis: "Workshop safety-sign deck: graphite ink on concrete paper, safety-yellow accents and hazard stripes."
+style_input: "frontend-slides custom design (Domkratas HTML deck)"
+seed: 23
+intended_tokens:
+  palette: "paper #ECEAE4, paper-2 #F4F2EC, ink #1A1C1F, yellow #F6B800, steel #C9CBC6, soft #5E6268"
+  typography: "Bahnschrift SemiBold Condensed (display; stands in for Big Shoulders Display), Calibri (body, for IBM Plex Sans), Consolas (labels, for IBM Plex Mono) – Office-safe"
+  decoration: "left hazard stripe on content slides, bottom hazard band on cover, faint diamond-plate dot texture"
+visual_grammar: {radius: 0, shadows: none, gradients: none, accent_colours: [yellow]}
+forbidden_patterns: [second accent colour, rounded cards, drop shadows, stock photos, bullet walls]
